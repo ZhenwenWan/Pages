@@ -43,7 +43,7 @@ body {
 .social-icons {
     margin: 40px 0;
     display: flex;
-    gap: 25px;
+    gap: 75px;
 }
 
 .social-icons a {
