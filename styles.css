@@ -38,3 +38,26 @@ body {
     position: relative;
     z-index: 1;
 }
+
+/* Social Icons Styling */
+.social-icons {
+    margin-top: 30px;
+}
+
+.social-icons ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.social-icons a {
+    color: #e6f1ff;
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #64ffda;
+}
