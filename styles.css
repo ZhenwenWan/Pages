@@ -4,7 +4,7 @@
         font-family: 'Arial', sans-serif;
         margin: 0;
         padding: 0;
-        background-color: #121212;
+        background-color: #1a1a2e;
         color: #ffffff;
         display: flex;
         height: 100vh;
@@ -14,20 +14,24 @@
         display: flex;
         width: 100%;
     }
-    .sidebar {
+    .left-panel {
         width: 33%;
-        background: #1a1a2e;
+        background: #252f48;
         padding: 40px;
         position: fixed;
         height: 100vh;
         overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
-    .content {
+    .right-content {
         width: 67%;
         margin-left: 33%;
         padding: 40px;
         overflow-y: auto;
         height: 100vh;
+        background: #252f48;
     }
     nav ul {
         list-style-type: none;
@@ -46,12 +50,6 @@
         margin-bottom: 50px;
         padding-bottom: 20px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    }
-    footer {
-        position: absolute;
-        bottom: 10px;
-        left: 35%;
-        color: #aaa;
     }
     .fade-in {
         animation: fadeIn ease-in 1.5s;
