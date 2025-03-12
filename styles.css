@@ -98,3 +98,10 @@ nav ul li a {
     font-size: 14px;
     color: #d3dce6;
 }
+
+img {
+    border-radius: 10px;  /* Optional: Add rounded corners */
+    max-width: 100%;  /* Ensure it doesn't overflow */
+    display: block;
+    margin: 20px auto;
+}
