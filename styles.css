@@ -138,7 +138,7 @@ nav ul li a {
 /* Maintain existing image styling */
 #projects img {
     display: block;
-    width: 150px;
+    width: 300px;
     height: 220px;
     object-fit: cover;
     margin: 10px 0 20px 0;
