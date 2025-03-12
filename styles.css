@@ -118,8 +118,34 @@ nav ul li a {
 
 #projects img {
     display: block;
-    width: 150px; /* Adjust this value as needed */
-    height: 220px; /* Maintain aspect ratio with square size */
+    width: 220px; /* Adjust this value as needed */
+    height: 150px; /* Maintain aspect ratio with square size */
     object-fit: cover; /* Prevent image distortion */
     margin: 0 0 20px 0; /* Adjust spacing around image */
+}
+
+/* Add link hover effects for project images */
+#projects a {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+#projects a:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* Maintain existing image styling */
+#projects img {
+    display: block;
+    width: 150px;
+    height: 220px;
+    object-fit: cover;
+    margin: 10px 0 20px 0;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+#projects a:hover img {
+    border-color: #64ffda;
 }
