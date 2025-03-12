@@ -115,3 +115,11 @@ nav ul li a {
     vertical-align: middle;
     margin: 0 0 20px 0; /* Adjust spacing around image */
 }
+
+#projects img {
+    display: block;
+    width: 150px; /* Adjust this value as needed */
+    height: 150px; /* Maintain aspect ratio with square size */
+    object-fit: cover; /* Prevent image distortion */
+    margin: 0 0 20px 0; /* Adjust spacing around image */
+}
