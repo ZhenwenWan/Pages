@@ -28,11 +28,13 @@
 }
 
 .project-content img {
-    max-width: 100%;
-    border-radius: 8px;
+    display: block;
+    width: 300px;
+    height: 220px;
     margin: 20px 0;
     border: 2px solid #64ffda;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: border-color 0.3s ease;
 }
 
 .feature-grid {
