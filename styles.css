@@ -99,9 +99,19 @@ nav ul li a {
     color: #d3dce6;
 }
 
-img {
-    border-radius: 10px;  /* Optional: Add rounded corners */
-    max-width: 100%;  /* Ensure it doesn't overflow */
-    display: block;
-    margin: 20px auto;
+/* Add these CSS rules to your styles.css */
+#about h2 {
+    display: inline-block;
+    margin-right: 20px; /* Space between title and image */
+    vertical-align: middle;
+}
+  
+#about img {
+    display: inline-block;
+    width: 150px; /* Adjust this value as needed */
+    height: 150px; /* Maintain aspect ratio with square size */
+    object-fit: cover; /* Prevent image distortion */
+    border-radius: 50%; /* Makes circular image (optional) */
+    vertical-align: middle;
+    margin: 0 0 20px 0; /* Adjust spacing around image */
 }
