@@ -119,7 +119,7 @@ nav ul li a {
 #projects img {
     display: block;
     width: 150px; /* Adjust this value as needed */
-    height: 150px; /* Maintain aspect ratio with square size */
+    height: 220px; /* Maintain aspect ratio with square size */
     object-fit: cover; /* Prevent image distortion */
     margin: 0 0 20px 0; /* Adjust spacing around image */
 }
