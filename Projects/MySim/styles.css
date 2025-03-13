@@ -29,9 +29,9 @@
 
 .project-content img {
     display: block;
-    width: 800px;
+    width: 1000px;
     /* Base width */
-    height: 400px;
+    height: 500px;
     /* Base height */
     max-width: 100%;
     /* Prevent overflow */
