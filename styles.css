@@ -10,7 +10,8 @@ body {
 }
 
 .container {
-    position: relative; /* Required for fixed child positioning */
+    position: relative;
+    /* Required for fixed child positioning */
 }
 
 /* Fixed Left Panel */
@@ -22,15 +23,18 @@ body {
     top: 0;
     background: #112240;
     padding: 40px;
-    box-sizing: border-box; /* Include padding in width */
+    box-sizing: border-box;
+    /* Include padding in width */
     overflow: hidden;
-    z-index: 2; /* Ensure it stays above right content */
+    z-index: 2;
+    /* Ensure it stays above right content */
 }
 
 /* Scrollable Right Content */
 .right-content {
     width: 67%;
-    margin-left: 33%; /* Match left panel width */
+    margin-left: 33%;
+    /* Match left panel width */
     padding: 40px;
     height: 100vh;
     overflow-y: auto;
@@ -62,14 +66,17 @@ h1 {
     color: #64ffda;
     font-size: 36px;
 }
+
 h2 {
     text-decoration: none;
     color: #64ffda;
     font-size: 28px;
 }
+
 nav ul li {
     margin: 15px 0;
 }
+
 nav ul li a {
     text-decoration: none;
     color: #64ffda;
@@ -88,8 +95,13 @@ nav ul li a {
 }
 
 @keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 .footer {
@@ -102,26 +114,24 @@ nav ul li a {
 /* Add these CSS rules to your styles.css */
 #about h2 {
     display: inline-block;
-    margin-right: 20px; /* Space between title and image */
+    margin-right: 20px;
+    /* Space between title and image */
     vertical-align: middle;
-}
-  
-#about img {
-    display: inline-block;
-    width: 150px; /* Adjust this value as needed */
-    height: 150px; /* Maintain aspect ratio with square size */
-    object-fit: cover; /* Prevent image distortion */
-    border-radius: 50%; /* Makes circular image (optional) */
-    vertical-align: middle;
-    margin: 0 0 20px 0; /* Adjust spacing around image */
 }
 
-#projects img {
-    display: block;
-    width: 220px; /* Adjust this value as needed */
-    height: 150px; /* Maintain aspect ratio with square size */
-    object-fit: cover; /* Prevent image distortion */
-    margin: 0 0 20px 0; /* Adjust spacing around image */
+#about img {
+    display: inline-block;
+    width: 150px;
+    /* Adjust this value as needed */
+    height: 150px;
+    /* Maintain aspect ratio with square size */
+    object-fit: cover;
+    /* Prevent image distortion */
+    border-radius: 50%;
+    /* Makes circular image (optional) */
+    vertical-align: middle;
+    margin: 0 0 20px 0;
+    /* Adjust spacing around image */
 }
 
 /* Add link hover effects for project images */
@@ -135,12 +145,12 @@ nav ul li a {
     opacity: 0.9;
 }
 
-/* Maintain existing image styling */
 #projects img {
     display: block;
     width: 300px;
     height: 220px;
-    object-fit: cover;
+    object-fit: contain;
+    /* Changed from cover */
     margin: 10px 0 20px 0;
     border: 2px solid transparent;
     transition: border-color 0.3s ease;
