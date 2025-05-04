@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HemoDyn - Hemdynamics Simulator</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="project-container">
+        <header class="project-header">
+            <a href="../../index.html" class="back-link">
+                <i class="fas fa-arrow-left"></i> Back to Main
+            </a>
+            <h1>HemoDyn</h1>
+            <h2>A reduced order hemodynamics Simulator</h2>
+        </header>
+
+        <main class="project-content">
+            <section class="content-block">
+                <div class="text-content">
+                    <h3>Electromagnetic Field Analysis</h3>
+                    <p>Advanced 3D electromagnetic simulation capabilities using vectorized FEM approach...</p>
+                    <ul class="feature-list">
+                        <li>Multi-physics coupling support</li>
+                        <li>Nonlinear material modeling</li>
+                        <li>Parallel computations</li>
+                    </ul>
+                </div>
+                <img src="HemoDyn_Symbolic.png" alt="RCS metrics" class="visual-content">
+            </section>
+
+            <section class="content-block">
+                <div class="text-content">
+                    <h3>Hemodynamic Simulation Overview</h3>
+                    <p>Mobility impairment is common among the elderly, with nearly half of the cases attributed to varying degrees of lower limb arterial occlusion. What role can hemodynamic numerical simulation technology play in this context? Frankly speaking, when it comes to changes that doctors and patients can directly see or feel, its role is limited. However, for subtle variations that are invisible and imperceptible yet detectable by instruments, simulation offers unique value.</p>
+                    <p>As the saying goes, “The wind begins at the tiniest stir; waves rise from subtle ripples.” Simulation models can uncover the earliest signs of instability, verify them against real measurements, and thereby “perceive the unseen from the seen.” This capability holds great significance for disease prediction and treatment evaluation.</p>
+                    <p>Hemodynamic simulation has vast application potential across all diseases involving blood flow. Lower limb arterial occlusion stands out as a particularly illustrative entry point due to its prevalence, visual clarity, and relatively intuitive severity. One can define the condition’s severity using metrics such as the percentage narrowing of the iliac artery, or the ratio of cross-sectional area in diseased versus healthy states. While these indicators seem straightforward, they are difficult to measure directly.</p>
+                    <p>Some might argue, “Can’t 4D ultrasound just show this directly?” Yes and no. 4D ultrasound captures only a momentary snapshot, and cannot reflect the dynamic evolution over a time span. For instance, assessing the effect of a certain drug soon after administration is difficult based on such instantaneous imaging. Moreover, the idea that “4D ultrasound gives instant results” is a misconception — just like a thermometer reading shows temperature at a given moment, but not the climate temperature.</p>
+                    <p>This issue also applies to pharmaceutical development. To evaluate drug efficacy, long-term patient observation is often needed, causing research costs to grow exponentially. So, should we distrust doctors and patients and rely solely on mathematical models? Certainly not. Mathematical modeling is not a replacement for clinical judgment, but rather a quantitative tool that complements it. These models are based on anatomical geometry extracted from medical imaging, and governed by fluid dynamics equations that treat blood as a viscous fluid.</p>
+                    <p>Once a model is successfully assembled, it can be used to generate a simulation video — marking the first milestone of the simulation workflow. The next step is to adjust model parameters to match the results with data from 4D ultrasound. Finally, by linking the model with real-time pulse and blood oxygen data from smartwatches, we can track and predict subtle symptom progression. This outlines a clear blueprint for developing blood flow analysis technologies that contribute to the future of health management.</p>
+                    <h4>Display Panel Design Overview</h4>
+                    <ul class="feature-list">
+                        <li>Panel 1: Shows oxygenation changes in leg muscles and vessels (with different gait options)</li>
+                        <li>Panel 2: Displays dynamic parameters of the iliac arterial network (selectable metrics: blood pressure, flow velocity, wall shear stress, etc.)</li>
+                        <li>Panel 3: Linked to Panel 2; use a slider to observe any segment of the vascular network</li>
+                        <li>Panel 4: Linked to Panel 1; use a slider to examine blood oxygen variation between selected upper and lower leg points</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="content-block">
+                <div class="text-content">
+                    <h3>Simulation Video</h3>
+                    <p>Below is a demonstration of the hemodynamic simulation, showcasing blood flow dynamics in the lower limb arterial network.</p>
+                    <video controls class="simulation-video">
+                        <source src="video.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </section>
+        </main>
+
+        <footer class="project-footer">
+            <p>&copy; 2025 Zhenwen Wan. All rights reserved.</p>
+        </footer>
+    </div>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93a8dd255e2b4558',t:'MTc0NjM3MDc4Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+</body>
+
+</html>
+
