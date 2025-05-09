@@ -8,6 +8,18 @@
     <link rel="stylesheet" href="styles.css">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Auto-redirect after video ends -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const video = document.querySelector('.simulation-video');
+            if (video) {
+                video.addEventListener('ended', () => {
+                    window.location.href = "Projects/HemoDyn/";
+                });
+            }
+        });
+    </script>
 </head>
 
 <body>
@@ -43,7 +55,7 @@
             </footer>
         </aside>
 
-        <!-- Scrollable Right Section (Keep existing content) -->
+        <!-- Scrollable Right Section -->
         <main class="right-content">
             <section id="about" class="section">
                 <h2> </h2>
@@ -76,9 +88,6 @@
                 <h2>Projects</h2>
                 <ul>
                     <li>HemoDyn - Hemodynamics Simulation Software</li>
-                    <a href="Projects/HemoDyn/">
-                        <img src="HemoDyn_Symbolic.png" alt="Hemo picture">
-                    </a>
                     <video controls class="simulation-video">
                         <source src="HemoDyn_video.mp4" type="video/mp4">
                     </video>
@@ -105,3 +114,4 @@
 </body>
 
 </html>
+
