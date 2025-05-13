@@ -67,6 +67,44 @@
                     </video>
                 </div>
             </section>
+            <section class="content-block">
+                <div class="text-content">
+                    <h3>The innovative method</h3>
+		    <p>
+                       To assess the effectiveness of medical interventions for Lower Extremity Arterial Occlusive disease (LEAO) during clinical trials, I propose an innovative modeling approach that reduces reliance on conventional functional outcome data by directly estimating oxygen concentration in muscle tissue.
+
+The core of this method is a reduced-order physiological model that simulates oxygen dynamics, including:
+
+Hemodynamic transport
+
+Transmembrane oxygen exchange
+
+Muscular oxygen consumption
+
+To achieve real-time performance, I applied dimensional reduction techniques and spatial abstraction to the muscle domain. This simplification introduces additional degrees of uncertainty due to underdetermined parameters. However, it enables efficient assimilation of real-time physiological data such as:
+
+Pulse waveforms from wearable devices (e.g., Apple Watch)
+
+Intermittent readings from toe-tip oximeters
+
+This model operates under a data assimilation framework, dynamically integrating observed biosignals to update internal states and improve prediction fidelity.
+
+To handle model uncertainties and individual variability, I parameterize uncertain physiological components using neural networks, which are trained using conventional clinical data (e.g., walking distance, ABI, or imaging-derived perfusion metrics). In doing so, I effectively embed a learned closure model within the physics-based simulation—analogous to the concept of Physics-Informed Neural Networks (PINNs).
+
+While the overall framework extends beyond standard PINNs, it embodies their central philosophy: learning from data while enforcing known physical laws. Thus, it may be best described as a hybrid PINN-based data-driven physiological modeling platform tailored for vascular health assessment and therapy evaluation.
+
+This approach offers a promising path to improve the precision and scalability of early-phase clinical trials by:
+
+Reducing dependence on labor-intensive outcome measurements
+
+Enabling individualized response modeling
+
+Accelerating feedback cycles in intervention optimization
+
+
+                    </p>
+                </div>
+            </section>
         </main>
 
         <footer class="project-footer">
