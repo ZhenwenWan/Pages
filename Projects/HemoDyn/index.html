@@ -29,21 +29,19 @@
 <p>Two trial strategies are compared:</p>
 <ul>
 <li><strong>Strategy A:</strong> Two groups are monitored (with/without intervention); walking distance is the primary metric.</li>
-<li><strong>Strategy B:</strong> Same walking data is collected, but a hemodynamics model also simulates muscular oxygen concentration based on wearable data.</li>
+<li><strong>Strategy B:</strong> Same walking data is collected, but a hemodynamics model also is extended to simulate muscular oxygen concentration based on wearable data.</li>
 </ul>
 <p>While Strategy B introduces modeling uncertainties, it enables early learning, physiological personalization, and potential mathematical superiority.</p>
 <h4>Use Case Justification</h4>
-<p>LEAO is an ideal entry point: common, quantifiable, and severe. Traditional severity metrics like arterial narrowing are hard to measure dynamically. Hemodynamic simulation offers a way to track disease progression and intervention impact.</p>
-<p>[Insert Image Placeholder: Illustration of LEAO and arterial narrowing]</p>
+<p>LEAO is an ideal entry point: common, quantifiable, and moderate. Traditional severity metrics like arterial narrowing are hard to measure directly. Hemodynamic simulation offers a way to track disease progression and intervention impact.</p>
 <h4>Prototype Overview: HemoDyn</h4>
 <p><strong>HemoDyn</strong> simulates blood and oxygen dynamics using:</p>
 <ul>
 <li>1D ROM solver from SimVascular for hemodynamics</li>
-<li>Elmer Multiphysics solvers for oxygen transport and exchange</li>
+<li>Elmer Multiphysics solvers for oxygen transport, transmembrane exchange and consumption</li>
 <li>Wearable pulse data (e.g., Apple Watch) and oximeter readings</li>
 </ul>
 <p>ML maps oxygen dynamics to clinical outcomes like walking distance.</p>
-<p>[Insert Animation Placeholder: VTK-rendered vascular flow]</p>
 <h4>Implementation Steps</h4>
 <ol>
 <li>Create simplified leg model with vessels and muscles</li>
