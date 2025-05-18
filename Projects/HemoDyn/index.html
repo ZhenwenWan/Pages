@@ -1,87 +1,92 @@
 <!DOCTYPE html>
+
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HemoDyn - Hemdynamics Simulator</title>
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HemoDyn - Hemdynamics Simulator</title>
+<link href="../styles.css" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
 </head>
-
 <body>
-    <div class="project-container">
-        <header class="project-header">
-            <a href="../../index.html" class="back-link">
-                <i class="fas fa-arrow-left"></i> Back to Main
+<div class="project-container">
+<header class="project-header">
+<a class="back-link" href="../../index.html">
+<i class="fas fa-arrow-left"></i> Back to Main
             </a>
-            <h1>HemoDyn</h1>
-            <h2>A reduced order hemodynamics Simulator</h2>
-        </header>
-
-        <main class="project-content">
-            <section class="content-block">
-                <div class="text-content">
-                    <h3>Initiatives</h3>
-                    <p>Will gold still be golden, given a hemodynamics model? This question is to inspire the significance of a hemodynamics model in health.</p>
-                    <p>The smaller the sample size, the shorter the duration and the less the costs in clinic trials, particularly significant for chronic diseases. A medical intervention for LEAO is considered as the example. Strategy A is common and straightforward. Two identical groups are called, but one group takes the intervention. Walking distance is recorded for every member of both groups for some days. Strategy B records walking distance and simultaneously runs a hemodynamics model. The strategy features the group size and the number of days. Which strategy is better? Certainly, A is gold, B is air, because the model is cheap and inaccurate. The argument is that gold won’t be golden, given a hemodynamics model.
-</p>
-<p>
-There are two points in the argument. The first, since Strategy A cannot predict the group size and the trial days, why not give B a try?  The second argument is that Strategy A involves also a model, intuitively. Both walking distance and muscular oxygen consumption may be selected to benchmark intervention effects. Once the latter is selected, the former is a model in statistics, vice versa.
-</p>
-                    <h3>Status</h3>
-<p>
-HemoDyn aims to simulate blood flow and physiological dynamics for boosting bioengineering development and assessing the effects of medical intervention. The preliminary goal is to reduce the sample size in clinical trials for LEAO. Oxygen concentration in leg muscles is the selected bioinfo for measuring the severity of LEAO. ML is employed to map oxygen with functional index, e.g. walk distance. Oxygen comes from a physiological model which connects a vascular hemodynamics model. The hemodynamics model is driven by pulse data from wearable devices, e.g. Apple Watch, while assimilating other data, like readings from a toe-tip oximeter. The hemodynamics model is solved by the 1D ROM solver of SimVascular. The physiological model of oxygen allowing for transport, transmembrane exchange and muscular consumption is solved by multiple solvers from Elmer Multiphysics. VTK is used to animate model results. API to access pulse data from wearable devices and functionalities to facilitate ML is being developed.
-</p>
-                    <h3>Application scenario</h3>
-                    <p>Mobility impairment is common among the elderly, with nearly half of the cases attributed to varying degrees of lower limb arterial occlusion. What role can hemodynamic numerical simulation technology play in this context? Frankly speaking, when it comes to changes that doctors and patients can directly see or feel, its role is limited. However, for subtle variations that are invisible and imperceptible yet detectable by instruments, simulation offers unique value.</p>
-                    <p>As the saying goes, “The wind begins at the tiniest stir; waves rise from subtle ripples.” Simulation models can uncover the earliest signs of instability, verify them against real measurements, and thereby “perceive the unseen from the seen.” This capability holds great significance for disease prediction and treatment evaluation.</p>
-                    <p>Hemodynamic simulation has vast application potential across all diseases involving blood flow. Lower limb arterial occlusion stands out as a particularly illustrative entry point due to its prevalence, visual clarity, and relatively intuitive severity. One can define the condition’s severity using metrics such as the percentage narrowing of the iliac artery, or the ratio of cross-sectional area in diseased versus healthy states. While these indicators seem straightforward, they are difficult to measure directly.</p>
-                    <p>Some might argue, “Can’t 4D ultrasound just show this directly?” Yes and no. 4D ultrasound captures only a momentary snapshot, and cannot reflect the dynamic evolution over a time span. For instance, assessing the effect of a certain drug soon after administration is difficult based on such instantaneous imaging. Moreover, the idea that “4D ultrasound gives instant results” is a misconception — just like a thermometer reading shows temperature at a given moment, but not the climate temperature.</p>
-                    <p>This issue also applies to pharmaceutical development. To evaluate drug efficacy, long-term patient observation is often needed, causing research costs to grow exponentially. So, should we distrust doctors and patients and rely solely on mathematical models? Certainly not. Mathematical modeling is not a replacement for clinical judgment, but rather a quantitative tool that complements it. These models are based on anatomical geometry extracted from medical imaging, and governed by fluid dynamics equations that treat blood as a viscous fluid.</p>
-                    <p>Once a model is successfully assembled, it can be used to generate a simulation video — marking the first milestone of the simulation workflow. The next step is to adjust model parameters to match the results with data from 4D ultrasound. Finally, by linking the model with real-time pulse and blood oxygen data from smartwatches, we can track and predict subtle symptom progression. This outlines a clear blueprint for developing blood flow analysis technologies that contribute to the future of health management.</p>
-                    <h4>Display Panel Design Overview</h4>
-                    <ul class="feature-list">
-                        <li>Panel 1: Shows oxygenation changes in leg muscles and vessels (with different gait options)</li>
-                        <li>Panel 2: Displays dynamic parameters of the iliac arterial network (selectable metrics: blood pressure, flow velocity, wall shear stress, etc.)</li>
-                        <li>Panel 3: Linked to Panel 2; use a slider to observe any segment of the vascular network</li>
-                        <li>Panel 4: Linked to Panel 1; use a slider to examine blood oxygen variation between selected upper and lower leg points</li>
-                    </ul>
-                </div>
-            </section>
-
-            <section class="content-block">
-                <div class="text-content">
-                    <h3>Simulation Video</h3>
-                    <p>Below is a demonstration of the hemodynamic simulation, showcasing blood flow dynamics in the lower limb arterial network.</p>
-                    <video controls class="simulation-video">
-                        <source src="video.mp4" type="video/mp4">
-                    </video>
-                </div>
-            </section>
-            <section class="content-block">
-                <div class="text-content">
-                    <h3>Hemodynamic Digital Technology Breaks the Diagnostic and Treatment Deadlock of Lower Limb Arterial Occlusion</h3>
-                    <p>When elderly people struggle to walk, many assume it's simply due to natural aging. In reality, a large portion of these cases stem from blood flow problems. Lower limb arterial occlusion (also known as lower extremity atherosclerosis, LEAO) is the leading cause of walking difficulties among the elderly, accounting for nearly half of all cases. Data shows that around 12% of “young-old” individuals aged about 65 suffer from LEAO, and the prevalence rises to 50% in those over 80. This is a chronic condition with major impact that has long been neglected.</p>
-		    <p>Currently, except in rare cases that require surgery, most interventions for LEAO—such as medication or catheter-based procedures—are difficult to evaluate in the short term. This makes it hard for doctors to quickly determine treatment effectiveness, and for pharmaceutical companies to efficiently screen new drugs. This evaluation bottleneck is at the heart of why LEAO is considered a "diagnostic and treatment deadlock."</p>
-                    <p>Now, hemodynamic digital technology offers hope of breaking through this stalemate.</p>
-                    <p>By leveraging a smartwatch at the center of a closed-loop system that integrates artificial intelligence and physiological modeling, it enables digital tracking of the condition and rapid feedback on treatment effects. The mechanism is simple: the watch automatically records pulse and blood oxygen levels. In addition, a fingertip pulse oximeter is used twice daily—once at rest and once after activity (such as a brisk 15-minute walk). The data is uploaded to the cloud, where the system models and analyzes it, providing real-time feedback on trends.</p>
-                    <p>As a result, the effectiveness of interventions can become “visible” within just a few days or weeks.</p>
-                </div>
-            </section>
-            <section class="content-block">
-                <div class="text-content">
-                    <h3>Product prototype</h3>
-                    <video controls class="simulation-video">
-                        <source src="HemoDyn_video.mp4" type="video/mp4">
-                    </video>
-                </div>
-            </section>
-            <section class="content-block">
-                <div class="text-content">
-                    <h3>The innovative method</h3>
-		    <p>To assess the effectiveness of medical interventions for Lower Extremity Arterial Occlusive disease (LEAO) during clinical trials, I propose an innovative modeling approach that reduces reliance on conventional functional outcome data by directly estimating oxygen concentration in muscle tissue.
+<h1>HemoDyn</h1>
+<h2>A reduced order hemodynamics Simulator</h2>
+</header>
+<main class="project-content">
+<section class="content-block">
+<div class="text-content">
+<h3>Project Overview</h3>
+<h4>Motivation</h4>
+<p>I am a simulation expert with a background in modeling, data assimilation, optimization, and machine learning. I believe that individual-specific hemodynamics models can transform healthcare. Among various application areas, clinical trials—particularly for chronic vascular diseases—offer the fastest path to real-world impact.</p>
+<p>These models can reduce the sample size needed to evaluate medical interventions. Though less precise than industrial CFD, they capture meaningful physiological insights. This project uses Lower Extremity Artery Occlusion (LEAO) as a use case.</p>
+<h4>Trial Framing: Strategy A vs. B</h4>
+<p>Two trial strategies are compared:</p>
+<ul>
+<li><strong>Strategy A:</strong> Two groups are monitored (with/without intervention); walking distance is the primary metric.</li>
+<li><strong>Strategy B:</strong> Same walking data is collected, but a hemodynamics model also simulates muscular oxygen concentration based on wearable data.</li>
+</ul>
+<p>While Strategy B introduces modeling uncertainties, it enables early learning, physiological personalization, and potential mathematical superiority.</p>
+<h4>Use Case Justification</h4>
+<p>LEAO is an ideal entry point: common, quantifiable, and severe. Traditional severity metrics like arterial narrowing are hard to measure dynamically. Hemodynamic simulation offers a way to track disease progression and intervention impact.</p>
+<p>[Insert Image Placeholder: Illustration of LEAO and arterial narrowing]</p>
+<h4>Prototype Overview: HemoDyn</h4>
+<p><strong>HemoDyn</strong> simulates blood and oxygen dynamics using:</p>
+<ul>
+<li>1D ROM solver from SimVascular for hemodynamics</li>
+<li>Elmer Multiphysics solvers for oxygen transport and exchange</li>
+<li>Wearable pulse data (e.g., Apple Watch) and oximeter readings</li>
+</ul>
+<p>ML maps oxygen dynamics to clinical outcomes like walking distance.</p>
+<p>[Insert Animation Placeholder: VTK-rendered vascular flow]</p>
+<h4>Implementation Steps</h4>
+<ol>
+<li>Create simplified leg model with vessels and muscles</li>
+<li>Mesh with Gmsh and convert using ElmerGrid</li>
+<li>Configure ElmerSolver (ModelPDE, HeatSolve)</li>
+<li>Run SimVascular ROM and ElmerSolver</li>
+<li>Visualize results with VTK</li>
+<li>Develop sliders for vascular sections and muscle positions</li>
+</ol>
+<p>[Insert Image Placeholder: GUI panel and model output]</p>
+</div>
+</section>
+<section class="content-block">
+<div class="text-content">
+<h3>Simulation Video</h3>
+<p>Below is a demonstration of the hemodynamic simulation, showcasing blood flow dynamics in the lower limb arterial network.</p>
+<video class="simulation-video" controls="">
+<source src="video.mp4" type="video/mp4"/>
+</video>
+</div>
+</section>
+<section class="content-block">
+<div class="text-content">
+<h3>Hemodynamic Digital Technology Breaks the Diagnostic and Treatment Deadlock of Lower Limb Arterial Occlusion</h3>
+<p>When elderly people struggle to walk, many assume it's simply due to natural aging. In reality, a large portion of these cases stem from blood flow problems. Lower limb arterial occlusion (also known as lower extremity atherosclerosis, LEAO) is the leading cause of walking difficulties among the elderly, accounting for nearly half of all cases. Data shows that around 12% of “young-old” individuals aged about 65 suffer from LEAO, and the prevalence rises to 50% in those over 80. This is a chronic condition with major impact that has long been neglected.</p>
+<p>Currently, except in rare cases that require surgery, most interventions for LEAO—such as medication or catheter-based procedures—are difficult to evaluate in the short term. This makes it hard for doctors to quickly determine treatment effectiveness, and for pharmaceutical companies to efficiently screen new drugs. This evaluation bottleneck is at the heart of why LEAO is considered a "diagnostic and treatment deadlock."</p>
+<p>Now, hemodynamic digital technology offers hope of breaking through this stalemate.</p>
+<p>By leveraging a smartwatch at the center of a closed-loop system that integrates artificial intelligence and physiological modeling, it enables digital tracking of the condition and rapid feedback on treatment effects. The mechanism is simple: the watch automatically records pulse and blood oxygen levels. In addition, a fingertip pulse oximeter is used twice daily—once at rest and once after activity (such as a brisk 15-minute walk). The data is uploaded to the cloud, where the system models and analyzes it, providing real-time feedback on trends.</p>
+<p>As a result, the effectiveness of interventions can become “visible” within just a few days or weeks.</p>
+</div>
+</section>
+<section class="content-block">
+<div class="text-content">
+<h3>Product prototype</h3>
+<video class="simulation-video" controls="">
+<source src="HemoDyn_video.mp4" type="video/mp4"/>
+</video>
+</div>
+</section>
+<section class="content-block">
+<div class="text-content">
+<h3>The innovative method</h3>
+<p>To assess the effectiveness of medical interventions for Lower Extremity Arterial Occlusive disease (LEAO) during clinical trials, I propose an innovative modeling approach that reduces reliance on conventional functional outcome data by directly estimating oxygen concentration in muscle tissue.
 </p>
 <p>The core of this method is a reduced-order physiological model that simulates oxygen dynamics, including:
 </p>
@@ -112,17 +117,13 @@ HemoDyn aims to simulate blood flow and physiological dynamics for boosting bioe
 <p>-Accelerating feedback cycles in intervention optimization
 </p>
 
-                    </p>
-                </div>
-            </section>
-        </main>
-
-        <footer class="project-footer">
-            <p>&copy; 2025 Zhenwen Wan. All rights reserved.</p>
-        </footer>
-    </div>
+</div>
+</section>
+</main>
+<footer class="project-footer">
+<p>© 2025 Zhenwen Wan. All rights reserved.</p>
+</footer>
+</div>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93a8dd255e2b4558',t:'MTc0NjM3MDc4Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
-
 </html>
-
