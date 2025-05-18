@@ -1,121 +1,61 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zhenwen Wan - Personal Website</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-    <!-- Auto-redirect after video ends -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const video = document.querySelector('.simulation-video');
-            if (video) {
-                video.addEventListener('ended', () => {
-                    window.location.href = "Projects/HemoDyn/";
-                });
-            }
-        });
-    </script>
+    <title>Zhenwen Wan - CV</title>
+    <link rel="stylesheet" href="../styles.css">
 </head>
-
 <body>
     <div class="container">
-        <!-- Left Static Section -->
         <aside class="left-panel">
-            <h1 class="fade-in">Zhenwen Wan</h1>
-            <h2 class="fade-in">Simulation specialist</h2>
-            <p class="fade-in">Excellent in FEM, FVM, FDM and optimization of CAE software.</p>
+            <h1>Zhenwen Wan</h1>
+            <h2>Simulation specialist</h2>
+            <p>Excellent in FEM, FVM, FDM and optimization of CAE software.</p>
             <nav>
                 <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="../index.html#about">About</a></li>
+                    <li><a href="../index.html#experience">Experience</a></li>
+                    <li><a href="../index.html#projects">Projects</a></li>
+                    <li><a href="#">CV</a></li>
                 </ul>
             </nav>
-
-            <!-- Social Icons -->
-            <div class="social-icons">
-                <a href="https://github.com/NickWanDenmark" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/zhenwen-wan-13958a75/" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="mailto:aw4wzw@gmail.com">
-                    <i class="fas fa-envelope"></i>
-                </a>
-            </div>
-
-            <footer class="footer">
-                <p>&copy; 2025 Zhenwen Wan. All rights reserved.</p>
-            </footer>
         </aside>
-
-        <!-- Scrollable Right Section -->
         <main class="right-content">
-            <section id="about" class="section">
-                <h2> </h2>
-                <img src="PictureID.png" alt="Profile Picture">
-                <p>I am a simulation expert with a focus on algorithm development for CAE software since 2017. I have released multiple beta versions and prototypes. In addition, I have developed a compact 2D geometric library and a surface meshing library in C++, demonstrating full-stack numerical and geometric programming capabilities.
-Before transitioning to IT development, I was a researcher in maritime and ecosystem modeling from 1996 to 2016, with nine years at the Danish Meteorological Institute and four years at Xiamen University. I currently provide algorithm development and consultancy.
-I am now prototyping an innovative solution to reduce the sample size in clinical trials for vascular disease interventions. This approach uses a hybrid physics-informed machine learning (PIML) framework to map wearable-derived physiological signals to clinical outcomes.</p>
-            </section>
-            <section id="experience" class="section">
-                <h2>Experience</h2>
+            <section class="section">
+                <h2>Curriculum Vitae</h2>
+                <p><strong>Email:</strong> <a href="mailto:aw4wzw@gmail.com">aw4wzw@gmail.com</a> | <strong>Phone:</strong> +45 52 63 43 29</p>
+                <p><strong>Address:</strong> Hørbakken 6B, 2765 Smørum, Denmark</p>
+                <h3>Professional Summary</h3>
+                <p>I am a simulation expert focused on algorithm development for CAE software since 2017. I have released multiple beta versions and prototypes, including the electromagnetic wave simulator <strong>EML beta</strong>, the multiphysics simulator <strong>MySim beta</strong> (based on open-source frameworks), and the vascular hemodynamics simulator prototype <strong>HemoDyn</strong>. I have also independently developed a compact 2D geometric library and a surface meshing library in C++.</p>
+                <p>Before transitioning to IT development, I was a researcher in maritime and ecosystem modeling from 1996 to 2016, including nine years at the Danish Meteorological Institute and four years at Xiamen University. I currently provide algorithm development and consultancy.</p>
+
+                <h3>Work Experience</h3>
                 <ul>
-                    <li>Freelance developer, open to projects</li>
-                    <p>--Vascular Hemodynamics Simulator prototype <a href="Projects/HemoDyn/index.html" class="highlight-link">HemoDyn</a></p>
-                    <li>Founder, Nanjing MySim Digital Technology (2019 ~ 2024)</li>
-                    <p>--multiphysics simulator <a href="Projects/MySim/index.html"
-                            class="highlight-link">MySim beta</a></p>
-                    <p>--micro climate simulator prototype <a href="Projects/MicroClimate/index.html"
-                            class="highlight-link">MiClimatere</a></p>
-                    <p>--geometric lib <a href="Projects/libs/index.html"
-                            class="highlight-link">Geo2D</a></p>
-                    <p>--mesh lib <a href="Projects/libs_mesh/index.html"
-                            class="highlight-link"></a></p>
-                    <li>FEA Expert, Beijing Leviathan Technology (2016 - 2018)</li>
-                    <p>--electromagnatic wave simulator <a href="Projects/EML/index.html"
-                            class="highlight-link">EML beta</a></p>
-                    <li>Research Scientist, Danish Meteorological Institute (2007 - 2017)</li>
-                    <p>Metrics: <a href="Research/index.html" class="highlight-link">Research articles</a></p>
-                    <li>Associate Professor, Xiamen University (2004 - 2007)</li>
-                    <p>Metrics: <a href="Research/index.html" class="highlight-link">Research articles</a></p>
+                    <li><strong>Algorithm Expert</strong> – Nanjing MySim Digital Technology, China (Remote), Apr 2019 – Sep 2024</li>
+                    <li><strong>Project Manager & FEA Expert</strong> – Beijing Leviathan Technology Co., Ltd. (Remote), Nov 2016 – Oct 2018</li>
+                    <li><strong>Research Scientist (Marine Ecosystems)</strong> – Danish Meteorological Institute, Dec 2007 – May 2017</li>
+                    <li><strong>Associate Professor</strong> – Xiamen University, Apr 2004 – Dec 2007</li>
+                    <li><strong>Postdoctoral Researcher</strong> – Marine Biological Laboratory, Woods Hole, MA, USA, Jan 2002 – Jan 2004</li>
+                    <li><strong>Visiting Scientist</strong> – University of Alaska Fairbanks, Nov 2001 – Jan 2002</li>
+                    <li><strong>Assistant Research Scientist</strong> – First Institute of Oceanography, SOA, China, Jul 1999 – Nov 2001</li>
                 </ul>
-            </section>
-            <section id="projects" class="section">
-                <h2>Projects</h2>
+
+                <h3>Education</h3>
                 <ul>
-                    <li>HemoDyn - Vascular Hemodynamics Simulator prototype</li>
-                    <p>HemoDyn aims to simulate blood flow and physiological dynamics for boosting bioengineering development and assessing the effects of medical intervention. The preliminary goal is to reduce the sample size in clinical trials for LEAO. Oxygen concentration in leg muscules is the selected bioinfo for measuring the severity of LEAO. ML is employed to map oxygen with functional index, e.g. walk distance. Oxygen comes from a physiological model which connects a vascular hemodynamics model. The hemodynamics model is driven by pulse data from wearable devices, e.g. Apple Watch, while assimilating other data, like readings from a toe-tip oximeter. The hemodynaimcs model is solved by the 1D ROM solver of SimVascular. The physiological model of oxgen allowig for transport, transmembrane exchange and muscular consumption is solved by multiple solvers from Elmer Multiphysics. VTK is used to animate model results. API to access pulse data from wearable devices and functionalities to faciliate ML is being developed.</p>
-                    <video controls class="simulation-video">
-                        <source src="HemoDyn_video.mp4" type="video/mp4">
-                    </video>
-                    <li>EML - High Frequency Electromagnetic Wave Simulator</li>
-                    <a href="Projects/EML/">
-                        <img src="EML_Symbolic.png" alt="EML picture">
-                    </a>
-                    <li>MySim - Multiphysics Simulator</li>
-                    <a href="Projects/MySim/">
-                        <img src="MySim_Symbolic.png" alt="MySim picture">
-                    </a>
-                    <li>MicroClimate Simulator</li>
-                    <a href="Projects/MicroClimate/">
-                        <img src="MicroClimate_Symbolic.png" alt="MicroClimate picture">
-                    </a>
-                    <li>CAE Algorithm Libraries</li>
-                    <a href="Projects/libs/">
-                        <img src="Geolib_Symbolic.png" alt="Geolib picture">
-                    </a>
+                    <li>Ph.D. in Physical Oceanography, Institute of Oceanology, CAS (1996–1999)</li>
+                    <li>M.Sc. in Fluid Mechanics, Nanjing University of Science and Technology (1993–1996)</li>
+                    <li>B.Sc. in Physics, Jiangxi Normal University (1988–1992)</li>
+                </ul>
+
+                <h3>Technical Skills</h3>
+                <ul>
+                    <li><strong>Languages:</strong> Fortran, C/C++, Python, Java, Matlab, Basic, Shell scripting</li>
+                    <li><strong>Tools:</strong> FreeCAD, Elmer Multiphysics, Gmsh, Ansys APDL, Matlab</li>
+                    <li><strong>OS:</strong> Windows, Linux/Unix, macOS</li>
                 </ul>
             </section>
         </main>
     </div>
 </body>
-
 </html>
-
