@@ -1,113 +1,178 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
 
-<!DOCTYPE html>
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Zhenwen Wan - Full CV</title>
-    <link rel="stylesheet" href="../styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhenwen Wan - Curriculum Vitae</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 <body>
-    <div class="container">
-        <aside class="left-panel">
-            <h1>Zhenwen Wan</h1>
-            <h2>Simulation specialist</h2>
-            <p>Excellent in FEM, FVM, FDM and optimization of CAE software.</p>
-            <nav>
-                <ul>
-                    <li><a href="../index.html#about">About</a></li>
-                    <li><a href="../index.html#experience">Experience</a></li>
-                    <li><a href="../index.html#projects">Projects</a></li>
-                </ul>
-            </nav>
-        </aside>
-        <main class="right-content">
-            <section class="section">
-                <h2>Curriculum Vitae</h2>
-                <p><strong>Email:</strong> <a href="mailto:aw4wzw@gmail.com">aw4wzw@gmail.com</a> |
-                <strong>Phone:</strong> +45 52 63 43 29 | <strong>Address:</strong> Smørum 2765, Denmark</p>
-
-                <h3>Professional Summary</h3>
-                <p>I am a simulation expert with a focus on algorithm development for CAE software since 2017. I have released multiple beta versions and prototypes, including the electromagnetic wave simulator <strong>EML beta</strong>, the multiphysics simulator <strong>MySim beta</strong> (based on open-source frameworks), and the vascular hemodynamics simulator prototype <strong>HemoDyn</strong>. In addition, I have independently developed a compact 2D geometric library and a surface meshing librar...
-                <p>I am now prototyping an innovative solution to reduce the sample size in clinical trials for vascular disease interventions. This approach uses a hybrid <strong>physics-informed machine learning (PIML)</strong> framework to map wearable-derived physiological signals to clinical outcomes. 👉 <a href="https://zhenwenwan.github.io/Pages/Projects/HemoDyn/">HemoDyn</a></p>
-
-                <h3>Work Experience</h3>
-                <p><strong>Algorithm Expert</strong> – Nanjing MySim Digital Technology (Remote), Apr 2019 – Sep 2024</p>
+    <header class="animate__animated animate__fadeIn">
+        <h1>Zhenwen Wan</h1>
+        <p class="subtitle">Simulation Specialist</p>
+        <p>Expert in FEM, FVM, FDM, and CAE Software Optimization</p>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="https://zhenwenwan.github.io">Back to Main Page</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="about" class="section-card animate__animated animate__fadeInUp">
+            <h2>Curriculum Vitae</h2>
+            <div class="contact-info">
+                <p><strong>Email:</strong> <a href="mailto:[email protected]">[email protected]</a></p>
+                <p><strong>Phone:</strong> +45 52 63 43 29</p>
+                <p><strong>Address:</strong> Smørum 2765, Denmark (permanent base since 2007)</p>
+            </div>
+            <h3>Professional Summary</h3>
+            <p>I am a simulation expert with a focus on algorithm development for CAE software since 2017. I have released multiple beta versions and prototypes, including the electromagnetic wave simulator <a href="#">EML beta</a>, the multiphysics simulator <a href="#">MySim beta</a> (based on open-source frameworks), and the vascular hemodynamics simulator prototype <a href="#">HemoDyn</a>. In addition, I have independently developed a compact 2D geometric library and a surface meshing library.</p>
+            <p>I am now prototyping an innovative solution to reduce the sample size in clinical trials for vascular disease interventions. This approach uses a hybrid physics-informed machine learning (PIML) framework to map wearable-derived physiological signals to clinical outcomes. 👉 <a href="#">HemoDyn</a></p>
+        </section>
+        <section id="experience" class="section-card animate__animated animate__fadeInUp">
+            <h2>Work Experience</h2>
+            <article>
+                <h3>Algorithm Expert – Nanjing MySim Digital Technology (Remote)</h3>
+                <p><em>Apr 2019 – Sep 2024</em></p>
                 <ul>
                     <li>Operated as a one-person offshore R&D unit for CAE algorithm development.</li>
                     <li>Developed solvers, meshing, geometry engines, and visualization tasks.</li>
                     <li>Created surface meshing tools and a 2D geometric engine.</li>
-                    <li>Built <strong>MySim2021</strong> – a lightweight COMSOL alternative. 👉 <a href="https://zhenwenwan.github.io/Pages/Projects/MySim/">MySim</a></li>
+                    <li>Built MySim2021 – a lightweight COMSOL alternative. 👉 <a href="#">MySim</a></li>
                 </ul>
-
-                <p><strong>Project Manager & FEA Expert</strong> – Beijing Leviathan Technology (Remote), Nov 2016 – Oct 2018</p>
+            </article>
+            <article>
+                <h3>Project Manager & FEA Expert – Beijing Leviathan Technology (Remote)</h3>
+                <p><em>Nov 2016 – Oct 2018</em></p>
                 <ul>
                     <li>Led a development consortium on high-frequency EM simulation.</li>
                     <li>Fully responsible for algorithm design based on open-source tools.</li>
-                    <li>Reproduced benchmarks from a commercial competitor. 👉 <a href="https://zhenwenwan.github.io/Pages/Projects/EML/">EML</a></li>
+                    <li>Reproduced benchmarks from a commercial competitor. 👉 <a href="#">EML</a></li>
                 </ul>
-
-                <p><strong>Research Scientist (Marine Ecosystems)</strong> – Danish Meteorological Institute, 2007–2017</p>
+            </article>
+            <article>
+                <h3>Research Scientist (Marine Ecosystems) – Danish Meteorological Institute</h3>
+                <p><em>2007 – 2017</em></p>
                 <ul>
                     <li>Specialized in coupled physical-biogeochemical modeling.</li>
                     <li>Contributed to operational forecasting and HPC systems.</li>
                 </ul>
-
-                <p><strong>Associate Professor</strong> – Xiamen University, 2004–2007</p>
+            </article>
+            <article>
+                <h3>Associate Professor – Xiamen University</h3>
+                <p><em>2004 – 2007</em></p>
                 <ul>
                     <li>Hydrodynamic, biogeochemical, and inverse modeling.</li>
                     <li>Introduced AI techniques into marine simulations.</li>
                 </ul>
-
-                <p><strong>Postdoc</strong> – Marine Biological Laboratory, Woods Hole, 2002–2004</p>
+            </article>
+            <article>
+                <h3>Postdoc – Marine Biological Laboratory, Woods Hole</h3>
+                <p><em>2002 – 2004</em></p>
                 <ul>
                     <li>Developed stream ecosystem models with integrated sensing.</li>
                 </ul>
-
-                <p><strong>Visiting Scientist</strong> – University of Alaska Fairbanks, 2001–2002</p>
-                <p><strong>Assistant Research Scientist</strong> – First Institute of Oceanography, SOA, 1999–2001</p>
-
-                <h3>Education</h3>
-                <ul>
-                    <li>Ph.D., Physical Oceanography, Institute of Oceanology, CAS (1996–1999)</li>
-                    <li>M.Sc., Fluid Mechanics, Nanjing Univ. of Science & Technology (1993–1996)</li>
-                    <li>B.Sc., Physics, Jiangxi Normal University (1988–1992)</li>
-                </ul>
-
-                <h3>Technical Skills</h3>
-                <ul>
-                    <li><strong>Languages:</strong> Fortran, C/C++, Python, Java, Matlab, Basic, Shell scripting</li>
-                    <li><strong>Tools:</strong> FreeCAD, Elmer, Gmsh, Ansys APDL</li>
-                    <li><strong>OS:</strong> Windows, Linux/Unix, macOS</li>
-                </ul>
-
-                <h3>Selected Publications</h3>
-                <ul>
-                    <li>Z. Wan, H. Bi (2014). <em>Ecological Modelling</em>, 272, 28–39.</li>
-                    <li>Z. Wan, H. Bi, J. She (2013). <em>Ecological Modelling</em>. https://doi.org/10.1016/j.ecolmodel.2013.03.010</li>
-                    <li>Z. Wan, et al. (2012). <em>Ocean Science</em>, 8, 683–701.</li>
-                    <li>Z. Wan, et al. (2011). <em>Ocean Science</em>, 7, 693–704.</li>
-                    <li>Z. Wan, J. Vallino, B. Peterson (2008). <em>Ecological Modelling</em>, 211(1–2).</li>
-                    <li>Z. Wan, J. Vallino (2005). <em>Ecological Modelling</em>, 187(4).</li>
-                    <li>Ding Y., et al., Wan Z.* (2016). <em>Marine Pollution Bulletin</em>, 106(1–2)</li>
-                    <li>Yang J., Lin X., Wan Z.* (2008). <em>Journal of Xiamen Univ. (Natural Science)</em></li>
-                </ul>
-
-                <h3>Software Released</h3>
-                <ul>
-                    <li>Tide Forecast System – China Copyright Bureau (2006)</li>
-                    <li>EML (Electromagnetic Wave Simulator) – 2018</li>
-                    <li>MySim2021 (Multiphysics Simulation) – 2021</li>
-                </ul>
-
-                <h3>Other Metrics</h3>
-                <ul>
-                    <li><strong>H-index:</strong> 14 (total), 9 (since 2019) – <a href="https://scholar.google.com/citations?user=SyE-T7wAAAAJ&hl=en">Google Scholar</a></li>
-                    <li><strong>ORCID:</strong> <a href="https://orcid.org/0000-0002-1372-6885">0000-0002-1372-6885</a></li>
-                </ul>
-
-                <p><a href="../index.html" class="button">← Back to Main Page</a></p>
-            </section>
-        </main>
-    </div>
+            </article>
+            <article>
+                <h3>Visiting Scientist – University of Alaska Fairbanks</h3>
+                <p><em>2001 – 2002</em></p>
+            </article>
+            <article>
+                <h3>Assistant Research Scientist – First Institute of Oceanography, SOA</h3>
+                <p><em>1999 – 2001</em></p>
+            </article>
+        </section>
+        <section id="education" class="section-card animate__animated animate__fadeInUp">
+            <h2>Education</h2>
+            <ul>
+                <li>Ph.D., Physical Oceanography, Institute of Oceanology, CAS (1996 – 1999)</li>
+                <li>M.Sc., Fluid Mechanics, Nanjing Univ. of Science & Technology (1993 – 1996)</li>
+                <li>B.Sc., Physics, Jiangxi Normal University (1988 – 1992)</li>
+            </ul>
+        </section>
+        <section id="skills" class="section-card animate__animated animate__fadeInUp">
+            <h2>Technical Skills</h2>
+            <ul>
+                <li><strong>Languages:</strong> Fortran, C/C++, Python, Java, Matlab, Basic, Shell scripting</li>
+                <li><strong>Tools:</strong> FreeCAD, Elmer, Gmsh, Ansys APDL</li>
+                <li><strong>OS:</strong> Windows, Linux/Unix, macOS</li>
+            </ul>
+        </section>
+        <section id="publications" class="section-card animate__animated animate__fadeInUp">
+            <h2>Selected Publications</h2>
+            <ul>
+                <li>Z. Wan, H. Bi (2014). Ecological Modelling, 272, 28–39.</li>
+                <li>Z. Wan, H. Bi, J. She (2013). Ecological Modelling. <a href="https://doi.org/10.1016/j.ecolmodel.2013.03.010">https://doi.org/10.1016/j.ecolmodel.2013.03.010</a></li>
+                <li>Z. Wan, et al. (2012). Ocean Science, 8, 683–701.</li>
+                <li>Z. Wan, et al. (2011). Ocean Science, 7, 693–704.</li>
+                <li>Z. Wan, J. Vallino, B. Peterson (2008). Ecological Modelling, 211(1–2).</li>
+                <li>Z. Wan, J. Vallino (2005). Ecological Modelling, 187(4).</li>
+                <li>Ding Y., et al., Wan Z.* (2016). Marine Pollution Bulletin, 106(1–2).</li>
+                <li>Yang J., Lin X., Wan Z.* (2008). Journal of Xiamen Univ. (Natural Science).</li>
+            </ul>
+        </section>
+        <section id="software" class="section-card animate__animated animate__fadeInUp">
+            <h2>Software Released</h2>
+            <ul>
+                <li>Tide Forecast System – China Copyright Bureau (2006)</li>
+                <li>EML (Electromagnetic Wave Simulator) – 2018</li>
+                <li>MySim2021 (Multiphysics Simulation) – 2021</li>
+            </ul>
+        </section>
+        <section id="metrics" class="section-card animate__animated animate__fadeInUp">
+            <h2>Other Metrics</h2>
+            <ul>
+                <li>H-index: 14 (total), 9 (since 2019) – Google Scholar</li>
+                <li>ORCID: 0000-0002-1372-6885</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Zhenwen Wan. All rights reserved.</p>
+    </footer>
 </body>
 </html>
