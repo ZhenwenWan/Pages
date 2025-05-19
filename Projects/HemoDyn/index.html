@@ -21,6 +21,78 @@
 <main class="project-content">
 <section class="content-block">
 <div class="text-content">
+<h3>Advancing Clinical Trials with Physiological-Model Informed Neural Networks (PMINNs)</h3>
+<p>An original concept and working prototype by Zhenwen Wan</p>
+
+<h4>Introduction</h4>
+<p>As a Computational Scientist & Algorithm Developer, I have created a novel solution that bridges the gap between physiological modeling and machine learning for clinical trials. I conceptualized, designed, and implemented what I call Physiological-Model Informed Neural Networks (PMINNs) — a specialized subclass of Physics-Informed Neural Networks (PINNs) tailored for medical applications.</p>
+
+<p>This approach goes beyond academic theory: I've built a working software prototype, named HemoDyn, to demonstrate that PMINNs can reduce sample sizes in early-phase clinical trials by making physiological responses computable and explainable through personalized models.</p>
+
+<h4>Why I Created PMINNs</h4>
+<p>Traditional clinical trial analysis relies heavily on statistical inference from large populations. Machine learning offers promise but suffers from the black-box problem — especially in medicine where explainability and trust are non-negotiable. On the other hand, physiological models are transparent but computationally costly and uncertain, particularly compared to industrial CFD.</p>
+
+<p>Recognizing these trade-offs, I asked:</p>
+
+<p>Can we simulate individual physiological responses efficiently and use them to reduce trial sample sizes?</p>
+
+<p>PMINNs are my answer: an architecture where neural network nodes represent physiological mechanisms (e.g. blood flow, oxygen transport, muscular consumption), and machine learning fills in uncertain parts while obeying biological constraints. This hybrid structure maintains scientific rigor while enabling real-time adaptability.</p>
+
+<h4>Prototyping HemoDyn: From Concept to Code</h4>
+<p>To move beyond the whiteboard, I built HemoDyn, a PMINN-driven simulation platform specifically designed for clinical trials targeting Lower Extremity Arterial Occlusive Disease (LEAO) — a chronic vascular disease that limits walking ability in elderly patients.</p>
+
+<p>The prototype includes:</p>
+
+<ul>
+<li>1D Hemodynamics Solver: using SimVascular's ROM framework to model arterial blood flow.</li>
+<li>Oxygen Dynamics Model: built with Elmer Multiphysics to simulate oxygen delivery, exchange, and consumption in muscle tissue.</li>
+<li>Wearable Integration: the model consumes real-world pulse data from smartwatches (e.g. Apple Watch) and fingertip oximeters.</li>
+<li>Machine Learning Layer: neural networks trained on trial outcomes (e.g. walking distance, ABI) parameterize physiological uncertainties.</li>
+<li>Live Feedback: the system updates predictions dynamically as new biosignals arrive, enabling early detection of intervention effects.</li>
+</ul>
+
+<h4>What Makes PMINNs Unique</h4>
+<p>PMINNs are not just another machine learning architecture. They represent a methodological shift:</p>
+
+<ul>
+<li>Nodes are not abstract units but grounded in physiology.</li>
+<li>Predictions are interpretable because they map to known biological processes.</li>
+<li>The model reduces uncertainty by combining measured signals with physics-informed structure.</li>
+</ul>
+
+<p>In my LEAO prototype, this means:</p>
+
+<ul>
+<li>Fewer patients are needed to observe treatment effects.</li>
+<li>Clinicians can understand why the model predicts a change.</li>
+<li>Trials are faster, cheaper, and more aligned with personalized care.</li>
+</ul>
+
+<h4>Impact and Future Vision</h4>
+<p>My prototype demonstrates that PMINNs can be a game changer for early-phase clinical trials. Immediate benefits include:</p>
+
+<ul>
+<li>Smaller sample sizes without compromising statistical power.</li>
+<li>Physiological personalization from day one.</li>
+<li>Faster iteration between treatment and feedback.</li>
+</ul>
+
+<p>I envision future extensions of this platform into:</p>
+
+<ul>
+<li>Chronic disease monitoring (e.g. diabetes, heart failure).</li>
+<li>Drug efficacy evaluation with real-time biomarkers.</li>
+<li>Integration with EHRs and genomic profiles for richer modeling.</li>
+</ul>
+
+<h4>Conclusion</h4>
+<p>I am the original proposer, designer, and developer behind Physiological-Model Informed Neural Networks. This is not a generic framework — it is a purpose-built system, grounded in biological insight and realized in code. With PMINNs and the HemoDyn prototype, I offer a new way to accelerate and humanize clinical research.</p>
+</div>
+</section>
+
+<!-- Existing content preserved from "Prototype Overview: HemoDyn" onward -->
+<section class="content-block">
+<div class="text-content">
 <h3>Project Overview</h3>
 <h4>Motivation</h4>
 <p>I am a simulation expert with a background in modeling, optimization, data assimilation, and machine learning. I believe that individual-specific hemodynamics models can transform healthcare. Among various application areas, clinical trials—particularly for chronic vascular diseases—offer the fastest path to real-world impact.</p>
@@ -110,11 +182,11 @@
 <section class="content-block">
 <div class="text-content">
 <h3>Outlook</h3>
-<p>When elderly people struggle to walk, many assume it's simply due to natural aging. In reality, a large portion of these cases stem from blood flow problems. Lower limb arterial occlusion (also known as lower extremity atherosclerosis, LEAO) is the leading cause of walking difficulties among the elderly, accounting for nearly half of all cases. Data shows that around 12% of “young-old” individuals aged about 65 suffer from LEAO, and the prevalence rises to 50% in those over 80. This is a chronic condition with major impact that has long been neglected.</p>
+<p>When elderly people struggle to walk, many assume it's simply due to natural aging. In reality, a large portion of these cases stem from blood flow problems. Lower limb arterial occlusion (also known as lower extremity atherosclerosis, LEAO) is the leading cause of walking difficulties among the elderly, accounting for nearly half of all cases. Data shows that around 12% of "young-old" individuals aged about 65 suffer from LEAO, and the prevalence rises to 50% in those over 80. This is a chronic condition with major impact that has long been neglected.</p>
 <p>Currently, except in rare cases that require surgery, most interventions for LEAO—such as medication or catheter-based procedures—are difficult to evaluate in the short term. This makes it hard for doctors to quickly determine treatment effectiveness, and for pharmaceutical companies to efficiently screen new drugs. This evaluation bottleneck is at the heart of why LEAO is considered a "diagnostic and treatment deadlock."</p>
 <p>Now, hemodynamic digital technology offers hope of breaking through this stalemate.</p>
 <p>By leveraging a smartwatch at the center of a closed-loop system that integrates artificial intelligence and physiological modeling, it enables digital tracking of the condition and rapid feedback on treatment effects. The mechanism is simple: the watch automatically records pulse and blood oxygen levels. In addition, a fingertip pulse oximeter is used twice daily—once at rest and once after activity (such as a brisk 15-minute walk). The data is uploaded to the cloud, where the system models and analyzes it, providing real-time feedback on trends.</p>
-<p>As a result, the effectiveness of interventions can become “visible” within just a few days or weeks.</p>
+<p>As a result, the effectiveness of interventions can become "visible" within just a few days or weeks.</p>
 </div>
 </section>
 </main>
