@@ -1,0 +1,734 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MySimIIGui::Boundariess</class>
+ <widget class="QWidget" name="MySimIIGui::Boundariess">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>364</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>40000</width>
+    <height>80000</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Boundary settings</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <layout class="QFormLayout" name="formLayout_2">
+     <item row="0" column="0" colspan="2">
+      <widget class="QTabWidget" name="TabWid_1">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>30000</width>
+         <height>30000</height>
+        </size>
+       </property>
+       <property name="currentIndex">
+        <number>4</number>
+       </property>
+       <widget class="QWidget" name="TabContent1">
+        <attribute name="title">
+         <string>CFD</string>
+        </attribute>
+        <layout class="QGridLayout" name="gridLayout_Tab1">
+         <item row="8" column="0">
+          <widget class="QLabel" name="label_FSI">
+           <property name="text">
+            <string>FSI：</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QLineEdit" name="lineEdit_Pressure">
+           <property name="text">
+            <string>0</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="2">
+          <widget class="QCheckBox" name="Wall">
+           <property name="maximumSize">
+            <size>
+             <width>121</width>
+             <height>18</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_Vel">
+           <property name="text">
+            <string>Vel.(m/s)：</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="2">
+          <widget class="QCheckBox" name="NTCoord">
+           <property name="maximumSize">
+            <size>
+             <width>121</width>
+             <height>18</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_NTCoord">
+           <property name="text">
+            <string>NTCoord：</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="0">
+          <widget class="QLabel" name="label_FreeSurf">
+           <property name="text">
+            <string>FreeSurf：</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="2">
+          <widget class="QLineEdit" name="lineEdit_SlipCoeff">
+           <property name="text">
+            <string>0.00002</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="2">
+          <widget class="QCheckBox" name="NoSlipWall">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="2">
+          <widget class="QCheckBox" name="FSI">
+           <property name="maximumSize">
+            <size>
+             <width>121</width>
+             <height>18</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="label_Wall">
+           <property name="text">
+            <string>Wall：</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLineEdit" name="lineEdit_Vel">
+           <property name="text">
+            <string>1, 0, 0</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="2">
+          <widget class="QCheckBox" name="FreeSurf">
+           <property name="maximumSize">
+            <size>
+             <width>121</width>
+             <height>18</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="0">
+          <widget class="QLabel" name="label_9">
+           <property name="text">
+            <string>NoSlipWall</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_SlipCoeff">
+           <property name="text">
+            <string>SlipCoeff：</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_Pressure">
+           <property name="text">
+            <string>Pressure(N/m^2)：</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="TabContent2">
+        <attribute name="title">
+         <string>Heat</string>
+        </attribute>
+        <layout class="QGridLayout" name="gridLayout_Tab2">
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="lineEdit_Temperature"/>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_Temperature">
+           <property name="text">
+            <string>Temperature(^oC)：</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_HeatFlx.">
+           <property name="text">
+            <string>HeatFlux(Watt/m^2/s)：</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="lineEdit_HeatFlux"/>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="TabContent3">
+        <attribute name="title">
+         <string>EM</string>
+        </attribute>
+        <layout class="QGridLayout" name="gridLayout_Tab3">
+         <item row="8" column="1">
+          <widget class="QLineEdit" name="lineEdit_IncWave">
+           <property name="text">
+            <string>1, 0, 0</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="0">
+          <widget class="QLabel" name="Labal_ForcingType">
+           <property name="maximumSize">
+            <size>
+             <width>200</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Forcing type:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="0">
+          <widget class="QLabel" name="label_IncWave">
+           <property name="text">
+            <string>IncWave：</string>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="0">
+          <widget class="QLabel" name="label_IncProp">
+           <property name="text">
+            <string>IncProp：</string>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="1">
+          <widget class="QLineEdit" name="lineEdit_IncProp">
+           <property name="text">
+            <string>0, 0, 1</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="QComboBox" name="ComB_EM">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>30000</width>
+             <height>30000</height>
+            </size>
+           </property>
+           <property name="editable">
+            <bool>false</bool>
+           </property>
+           <item>
+            <property name="text">
+             <string>Empty</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>PEC</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Rad.</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>WavePort</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>LumpPort</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Inc.Wave</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="TabContent5">
+        <attribute name="title">
+         <string>Elastic</string>
+        </attribute>
+        <layout class="QGridLayout" name="gridLayout_2">
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>Force</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="LE_Displacement"/>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_10">
+           <property name="text">
+            <string>MeshUpdate</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="LE_MeshUpdate"/>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="LE_NormalForce"/>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_7">
+           <property name="text">
+            <string>Normal force</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_5">
+           <property name="text">
+            <string>Displacement</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="LE_Force"/>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="tab">
+        <attribute name="title">
+         <string>General</string>
+        </attribute>
+        <widget class="QLineEdit" name="LE_Dirichlet">
+         <property name="geometry">
+          <rect>
+           <x>149</x>
+           <y>36</y>
+           <width>211</width>
+           <height>20</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_Neumann">
+         <property name="geometry">
+          <rect>
+           <x>149</x>
+           <y>96</y>
+           <width>211</width>
+           <height>20</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_RobinCoef">
+         <property name="geometry">
+          <rect>
+           <x>149</x>
+           <y>156</y>
+           <width>211</width>
+           <height>20</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_RobinExt">
+         <property name="geometry">
+          <rect>
+           <x>149</x>
+           <y>216</y>
+           <width>211</width>
+           <height>20</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_13">
+         <property name="geometry">
+          <rect>
+           <x>2</x>
+           <y>36</y>
+           <width>81</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Dirichlet fixation:</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_14">
+         <property name="geometry">
+          <rect>
+           <x>2</x>
+           <y>96</y>
+           <width>70</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Neumann flux:</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_15">
+         <property name="geometry">
+          <rect>
+           <x>2</x>
+           <y>156</y>
+           <width>101</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Robin coefficient:</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_16">
+         <property name="geometry">
+          <rect>
+           <x>2</x>
+           <y>216</y>
+           <width>141</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Robin external reference:</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_3">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>270</y>
+           <width>101</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>GNT_Coord:</string>
+         </property>
+        </widget>
+        <widget class="QCheckBox" name="CB_NTCoordG">
+         <property name="geometry">
+          <rect>
+           <x>150</x>
+           <y>270</y>
+           <width>70</width>
+           <height>17</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="tab">
+        <attribute name="title">
+         <string>FGeneral</string>
+        </attribute>
+        <widget class="QLineEdit" name="LE_DirichletF">
+         <property name="geometry">
+          <rect>
+           <x>149</x>
+           <y>36</y>
+           <width>211</width>
+           <height>20</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_NeumannF">
+         <property name="geometry">
+          <rect>
+           <x>149</x>
+           <y>96</y>
+           <width>211</width>
+           <height>20</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_RobinCoefF">
+         <property name="geometry">
+          <rect>
+           <x>149</x>
+           <y>156</y>
+           <width>211</width>
+           <height>20</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_RobinExtF">
+         <property name="geometry">
+          <rect>
+           <x>149</x>
+           <y>216</y>
+           <width>211</width>
+           <height>20</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_13">
+         <property name="geometry">
+          <rect>
+           <x>2</x>
+           <y>36</y>
+           <width>101</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>FDirichlet fixation:</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_14">
+         <property name="geometry">
+          <rect>
+           <x>2</x>
+           <y>96</y>
+           <width>91</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>FNeumann flux:</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_15">
+         <property name="geometry">
+          <rect>
+           <x>2</x>
+           <y>156</y>
+           <width>101</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>FRobin coefficient:</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_16">
+         <property name="geometry">
+          <rect>
+           <x>2</x>
+           <y>216</y>
+           <width>141</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>FRobin external reference:</string>
+         </property>
+        </widget>
+        <widget class="QCheckBox" name="CB_NTCoordF">
+         <property name="geometry">
+          <rect>
+           <x>150</x>
+           <y>260</y>
+           <width>70</width>
+           <height>17</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>260</y>
+           <width>121</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>FNT_Coord:</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="TabContent4">
+        <property name="maximumSize">
+         <size>
+          <width>374</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <attribute name="title">
+         <string>Self-Defining</string>
+        </attribute>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <widget class="QLabel" name="Labal_GeometryInfo">
+           <property name="maximumSize">
+            <size>
+             <width>250</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Variable list (separated by &quot;,&quot;):</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QTextEdit" name="textEdit_SelfDef1">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>30000</width>
+             <height>30000</height>
+            </size>
+           </property>
+           <property name="html">
+            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;SD1: Time, Coordinate 1, Coordinate 2, Temperature&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="text" stdset="0">
+            <string>## Geometry Info ##</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Labal_SelfDefinition2">
+           <property name="maximumSize">
+            <size>
+             <width>250</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>MATC function statements (separated by &quot;;&quot;):</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QTextEdit" name="textEdit_SelfDef2">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>30000</width>
+             <height>30000</height>
+            </size>
+           </property>
+           <property name="html">
+            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;SD1: a=1.0; b=2.1; Tx(0)+a*Tx(1)-Tx(2)*Tx(3)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="text" stdset="0">
+            <string>## including as Elmer MATC function.</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_Blank2">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>FSI</tabstop>
+  <tabstop>lineEdit_Vel</tabstop>
+  <tabstop>lineEdit_Pressure</tabstop>
+  <tabstop>lineEdit_SlipCoeff</tabstop>
+  <tabstop>FreeSurf</tabstop>
+  <tabstop>NTCoord</tabstop>
+  <tabstop>Wall</tabstop>
+  <tabstop>NoSlipWall</tabstop>
+  <tabstop>lineEdit_Temperature</tabstop>
+  <tabstop>lineEdit_HeatFlux</tabstop>
+  <tabstop>lineEdit_IncWave</tabstop>
+  <tabstop>lineEdit_IncProp</tabstop>
+  <tabstop>ComB_EM</tabstop>
+  <tabstop>TabWid_1</tabstop>
+  <tabstop>LE_NormalForce</tabstop>
+  <tabstop>LE_Force</tabstop>
+  <tabstop>LE_Displacement</tabstop>
+  <tabstop>LE_MeshUpdate</tabstop>
+  <tabstop>textEdit_SelfDef1</tabstop>
+  <tabstop>textEdit_SelfDef2</tabstop>
+  <tabstop>LE_Dirichlet</tabstop>
+  <tabstop>LE_Neumann</tabstop>
+  <tabstop>LE_RobinCoef</tabstop>
+  <tabstop>LE_RobinExt</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

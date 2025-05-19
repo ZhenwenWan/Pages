@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MySimIIGui::Materials</class>
+ <widget class="QWidget" name="MySimIIGui::Materials">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>500</width>
+    <height>750</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>40000</width>
+    <height>80000</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Material settings</string>
+  </property>
+  <layout class="QFormLayout" name="formLayout">
+   <item row="0" column="0" colspan="2">
+    <layout class="QGridLayout" name="gridLayout_3">
+     <item row="0" column="0">
+      <widget class="QTabWidget" name="TabWid_1">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>30000</width>
+         <height>30000</height>
+        </size>
+       </property>
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <widget class="QWidget" name="TabContent1">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <attribute name="title">
+         <string>General</string>
+        </attribute>
+        <widget class="QLabel" name="Lab_HeatConduct">
+         <property name="geometry">
+          <rect>
+           <x>9</x>
+           <y>61</y>
+           <width>109</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>HeatConduct(W/m/K)：</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_HeatConduct">
+         <property name="geometry">
+          <rect>
+           <x>125</x>
+           <y>61</y>
+           <width>301</width>
+           <height>20</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLabel" name="Lab_Density">
+         <property name="geometry">
+          <rect>
+           <x>9</x>
+           <y>22</y>
+           <width>87</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Density(kg/m^3)：</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_Density">
+         <property name="geometry">
+          <rect>
+           <x>125</x>
+           <y>22</y>
+           <width>301</width>
+           <height>20</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLabel" name="Lab_HeatExpansion">
+         <property name="geometry">
+          <rect>
+           <x>9</x>
+           <y>100</y>
+           <width>110</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>HeatExpansion(K^-1)：</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_HeatExpansion">
+         <property name="geometry">
+          <rect>
+           <x>125</x>
+           <y>100</y>
+           <width>301</width>
+           <height>20</height>
+          </rect>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="TabContent2">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <attribute name="title">
+         <string>Heating</string>
+        </attribute>
+        <layout class="QGridLayout" name="gridLayout_Tab2">
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="LE_HeatCapacity"/>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="Lab_HeatCapacity">
+           <property name="text">
+            <string>Spec.HeatCapacity(J/Kg/K)：</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="LE_RefTemperature"/>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="Lab_RefTemperature">
+           <property name="text">
+            <string>Ref.Temperature(^oC)：</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="LE_SpecHeatRatio"/>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="Lab_SpecHeatRatio">
+           <property name="text">
+            <string>Spec.HeatRatio:</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="TabContent3">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <attribute name="title">
+         <string>Flowing</string>
+        </attribute>
+        <layout class="QGridLayout" name="gridLayout_Tab3">
+         <item row="9" column="0">
+          <widget class="QLabel" name="Lab_RefPressure">
+           <property name="text">
+            <string>RefPressure(Pascal)：</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="1">
+          <widget class="QLineEdit" name="LE_Viscosity">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="0">
+          <widget class="QLabel" name="Lab_CompressModel">
+           <property name="maximumSize">
+            <size>
+             <width>200</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Compress model:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="QComboBox" name="CB_CompressModel">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>30000</width>
+             <height>30000</height>
+            </size>
+           </property>
+           <property name="editable">
+            <bool>false</bool>
+           </property>
+           <item>
+            <property name="text">
+             <string>Empty</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>PEC</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Rad.</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>WavePort</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>LumpPort</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Inc.Wave</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="10" column="1">
+          <widget class="QLineEdit" name="LE_MeshElasticModulus"/>
+         </item>
+         <item row="9" column="1">
+          <widget class="QLineEdit" name="LE_RefPressure">
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="0">
+          <widget class="QLabel" name="Lab_Viscosity">
+           <property name="text">
+            <string>Viscosity(m^2/s)：</string>
+           </property>
+          </widget>
+         </item>
+         <item row="11" column="1">
+          <widget class="QLineEdit" name="LE_MeshPoissonRatio"/>
+         </item>
+         <item row="11" column="0">
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>MeshPoissonRatio</string>
+           </property>
+          </widget>
+         </item>
+         <item row="10" column="0">
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>MeshElasticModulus</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="TabContent4">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <attribute name="title">
+         <string>Elastic</string>
+        </attribute>
+        <layout class="QGridLayout" name="gridLayout">
+         <item row="0" column="0" colspan="2">
+          <widget class="QLabel" name="Lab_YoungsModulus">
+           <property name="text">
+            <string>Youngs Modulus (N/m^2):</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLineEdit" name="LE_YoungsModulus"/>
+         </item>
+         <item row="1" column="2">
+          <widget class="QLineEdit" name="LE_PoissonRatio"/>
+         </item>
+         <item row="1" column="0" colspan="2">
+          <widget class="QLabel" name="Lab_PoissonRatio">
+           <property name="text">
+            <string>Poisson Ratio:</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="TabContent5">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <attribute name="title">
+         <string>Electrostatic</string>
+        </attribute>
+        <layout class="QGridLayout" name="gridLayout_2">
+         <item row="0" column="0">
+          <widget class="QLabel" name="Lab_RelativePermittivity">
+           <property name="text">
+            <string>Relative permittivity:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="LE_RelativePermittivity"/>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="TabContent6">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <attribute name="title">
+         <string>Flow2D</string>
+        </attribute>
+        <widget class="QLineEdit" name="LE_BFriction">
+         <property name="geometry">
+          <rect>
+           <x>110</x>
+           <y>11</y>
+           <width>321</width>
+           <height>20</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_CForce">
+         <property name="geometry">
+          <rect>
+           <x>110</x>
+           <y>37</y>
+           <width>321</width>
+           <height>20</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_TDepth">
+         <property name="geometry">
+          <rect>
+           <x>110</x>
+           <y>63</y>
+           <width>321</width>
+           <height>20</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="LE_RForce">
+         <property name="geometry">
+          <rect>
+           <x>110</x>
+           <y>89</y>
+           <width>321</width>
+           <height>20</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_3">
+         <property name="geometry">
+          <rect>
+           <x>11</x>
+           <y>89</y>
+           <width>54</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Rest force:</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_4">
+         <property name="geometry">
+          <rect>
+           <x>11</x>
+           <y>63</y>
+           <width>93</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Topography depth:</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_5">
+         <property name="geometry">
+          <rect>
+           <x>11</x>
+           <y>37</y>
+           <width>66</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Coriolis force:</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_6">
+         <property name="geometry">
+          <rect>
+           <x>11</x>
+           <y>11</y>
+           <width>72</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Bottom friction:</string>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
