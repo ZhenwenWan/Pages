@@ -16,13 +16,13 @@
 <i class="fas fa-arrow-left"></i> Back to Main
             </a>
 <h1>HemoDyn</h1>
-<h2>A reduced order hemodynamics Simulator</h2>
+<h2>An innovative PMINNS application prototype</h2>
 </header>
 <main class="project-content">
 <section class="content-block">
 <div class="text-content">
 <h3>Advancing Clinical Trials with Physiological-Model Informed Neural Networks (PMINNs)</h3>
-<p>An original concept and working prototype by Zhenwen Wan</p>
+<p>An original concept and working prototype by Zhenwen Wan PhD</p>
 
 <h4>Introduction</h4>
 <p>As a Computational Scientist & Algorithm Developer, I have created a novel solution that bridges the gap between physiological modeling and machine learning for clinical trials. I conceptualized, designed, and implemented what I call Physiological-Model Informed Neural Networks (PMINNs) — a specialized subclass of Physics-Informed Neural Networks (PINNs) tailored for medical applications.</p>
@@ -93,20 +93,8 @@
 <!-- Existing content preserved from "Prototype Overview: HemoDyn" onward -->
 <section class="content-block">
 <div class="text-content">
-<h3>Project Overview</h3>
-<h4>Motivation</h4>
-<p>I am a simulation expert with a background in modeling, optimization, data assimilation, and machine learning. I believe that individual-specific hemodynamics models can transform healthcare. Among various application areas, clinical trials—particularly for chronic vascular diseases—offer the fastest path to real-world impact.</p>
-<p>These models can reduce the sample size needed to evaluate medical interventions. Though less precise than industrial CFD, they capture meaningful physiological insights. This project uses Lower Extremity Artery Occlusion (LEAO) as a use case.</p>
-<h4>Trial Framing: Strategy A vs. B</h4>
-<p>Two trial strategies are compared:</p>
-<ul>
-<li><strong>Strategy A:</strong> Two groups are monitored (with/without intervention); walking distance is the primary metric.</li>
-<li><strong>Strategy B:</strong> Same walking data is collected, but a hemodynamics model also is extended to simulate muscular oxygen concentration based on wearable data.</li>
-</ul>
-<p>While Strategy B introduces modeling uncertainties, it enables early learning, physiological personalization, and potential mathematical superiority.</p>
-<h4>Use Case Justification</h4>
-<p>LEAO is an ideal entry point: common, quantifiable, and moderate. Traditional severity metrics like arterial narrowing are hard to measure directly. Hemodynamic simulation offers a way to track disease progression and intervention impact.</p>
-<h4>Prototype Overview: HemoDyn</h4>
+<h3>Prototype: HemoDyn</h3>
+<h4>Prototype Overview</h4>
 <p><strong>HemoDyn</strong> simulates blood and oxygen dynamics using:</p>
 <ul>
 <li>1D ROM solver from SimVascular for hemodynamics</li>
@@ -114,7 +102,7 @@
 <li>Wearable pulse data (e.g., Apple Watch) and oximeter readings</li>
 </ul>
 <p>ML maps oxygen dynamics to clinical outcomes like walking distance.</p>
-<h4>Implementation Steps</h4>
+<h4>Prototype Implementation</h4>
 <ol>
 <li>Create simplified leg model with vessels and muscles</li>
 <li>Mesh with Gmsh and convert using ElmerGrid</li>
@@ -141,42 +129,6 @@
 <video class="simulation-video" controls="">
 <source src="HemoDyn_video.mp4" type="video/mp4"/>
 </video>
-</div>
-</section>
-<section class="content-block">
-<div class="text-content">
-<h3>The innovative method</h3>
-<p>To assess the effectiveness of medical interventions for Lower Extremity Arterial Occlusive disease (LEAO) during clinical trials, I propose an innovative modeling approach that reduces reliance on conventional functional outcome data by directly estimating oxygen concentration in muscle tissue.
-</p>
-<p>The core of this method is a reduced-order physiological model that simulates oxygen dynamics, including:
-</p>
-<p>-Hemodynamic transport
-</p>
-<p>-Transmembrane oxygen exchange
-</p>
-<p>-Muscular oxygen consumption
-</p>
-<p>To achieve real-time performance, I applied dimensional reduction techniques and spatial abstraction to the muscle domain. This simplification introduces additional degrees of uncertainty due to underdetermined parameters. However, it enables efficient assimilation of real-time physiological data such as:
-</p>
-<p>-Pulse waveforms from wearable devices (e.g., Apple Watch)
-</p>
-<p>-Intermittent readings from toe-tip oximeters
-</p>
-<p>This model operates under a data assimilation framework, dynamically integrating observed biosignals to update internal states and improve prediction fidelity.
-</p>
-<p>To handle model uncertainties and individual variability, I parameterize uncertain physiological components using neural networks, which are trained using conventional clinical data (e.g., walking distance, ABI, or imaging-derived perfusion metrics). In doing so, I effectively embed a learned closure model within the physics-based simulation—analogous to the concept of Physics-Informed Neural Networks (PINNs).
-</p>
-<p>While the overall framework extends beyond standard PINNs, it embodies their central philosophy: learning from data while enforcing known physical laws. Thus, it may be best described as a hybrid PINN-based data-driven physiological modeling platform tailored for vascular health assessment and therapy evaluation.
-</p>
-<p>This approach offers a promising path to improve the precision and scalability of early-phase clinical trials by:
-</p>
-<p>-Reducing dependence on labor-intensive outcome measurements
-</p>
-<p>-Enabling individualized response modeling
-</p>
-<p>-Accelerating feedback cycles in intervention optimization
-</p>
-
 </div>
 </section>
 <section class="content-block">
