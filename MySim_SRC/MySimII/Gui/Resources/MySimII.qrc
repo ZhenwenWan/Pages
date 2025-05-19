@@ -1,0 +1,29 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource> 
+	<file>icons/log01.svg</file>
+	<file>icons/log02.svg</file>
+	<file>icons/log03.svg</file>
+	<file>icons/log04.svg</file>
+	<file>icons/log05.svg</file>
+	<file>icons/log06.svg</file>
+	<file>icons/log07.svg</file>
+	<file>icons/log08.svg</file>
+	<file>icons/log09.svg</file>
+	<file>icons/log10.svg</file>
+	<file>icons/MySimII-analysis.svg</file>
+	<file>icons/materials.svg</file>
+	<file>icons/MySimIIWorkbench.svg</file>
+	<file>icons/MySimII-Materials-standard.svg</file>
+	<file>icons/MySimII-Materials.svg</file>
+	<file>icons/MySimII-Initiatives.svg</file>
+	<file>icons/MySimII-Forces.svg</file>
+	<file>icons/MySimII-Boundaries.svg</file>
+	<file>icons/MySimII-MeshNodes.svg</file>
+	<file>icons/MySimII-MeshBoundaries.svg</file>
+	<file>icons/MySimII-MeshRegions.svg</file>
+	<file>icons/MySimII-MeshCreate.svg</file>
+	<file>icons/MySimII-Simulation.svg</file>
+	<file>icons/MySimII-Solvers.svg</file>
+	<file>icons/MySimII-LocalRun.svg</file>
+    </qresource>
+</RCC> 

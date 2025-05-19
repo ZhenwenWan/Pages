@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SelectFrequency</class>
+ <widget class="QDialog" name="SelectFrequency">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>491</width>
+    <height>390</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>491</width>
+    <height>390</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>491</width>
+    <height>390</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Select Frequency</string>
+  </property>
+  <widget class="QComboBox" name="SelectFreqComB">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>60</y>
+     <width>131</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="OKPB">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>340</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Ok</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="CancelPB">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>340</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Cancel</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="RotateXL">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>141</y>
+     <width>101</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>RotateX:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="RotateYL">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>210</y>
+     <width>101</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>RotateY:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="RotateZL">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>280</y>
+     <width>101</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>RotateZ:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="RotateXLE">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>139</y>
+     <width>131</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>0</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="RotateYLE">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>210</y>
+     <width>131</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>0</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="RotateZLE">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>280</y>
+     <width>131</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>0</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="RotateXDegL">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>141</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>deg</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="RotateYDegL">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>210</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>deg</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="RotateZDegL">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>280</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>deg</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="GHzL">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>60</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>GHz</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="FrequencyL">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>60</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Frequency:</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

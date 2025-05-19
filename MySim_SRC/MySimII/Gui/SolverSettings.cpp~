@@ -1,0 +1,79 @@
+#include "PreCompiled.h"
+#ifndef _PreComp_
+#include <QMessageBox>
+#include <QtCore/QCoreApplication>
+#include <QSettings>
+#include <QStringList>
+#include <QList>
+#include <QListIterator>
+#include <string>
+#endif
+#include <Base/Reader.h>
+#include <Base/Console.h>
+#include <Gui/Application.h>
+#include "SolverSettings.h"
+
+using namespace MySimIIGui;
+using namespace std;
+
+SolverSettings::SolverSettings(QWidget *parent) :
+QWidget(parent), 
+ui(new Ui::SolverSettings)
+{
+	ui->setupUi(this);
+	ui->IterativeSolver->setChecked(true);
+	connect(ui->PushButton_Ok, SIGNAL(clicked()), this, SLOT(PushButtonok()));
+	connect(ui->IterativeSolver, SIGNAL(clicked()), this, SLOT(EnableIterativeSolver()));
+	connect(ui->DirectSolver, SIGNAL(clicked()), this, SLOT(EnableIterativeSolver()));
+}
+
+
+void SolverSettings::PushButtonok(void)
+{
+	QSettings settings(QObject::tr("../ini/MySimII-ui.ini"), QSettings::IniFormat);
+	settings.setValue(QObject::tr("SolverSettings/Solver"), ui->ComboBox_Solvers->currentText());
+	settings.setValue(QObject::tr("SolverSettings/IterativeSolver"), ui->IterativeSolver->isChecked() == 1 ? tr("TRUE") : tr("FALSE"));
+	Gui::Application::Instance->AddProjectTreeObject("MySimIIGui::Solvers", ui->ComboBox_Solvers->currentText().toStdString().c_str());
+	QWidget::close();
+}
+
+
+void SolverSettings::reviseinit(const char* str)
+{
+	QSettings settings(QObject::tr("../ini/MySimII-ui.ini"), QSettings::IniFormat);
+        QString textToFind = settings.value(tr("SolverSettings/Solver")).toString();
+	Gui::Application::Instance->DeleteProjectTreeObject("MySimIIGui::Solvers", textToFind.toStdString().c_str());
+
+	static MySimIIGui::SolverSettings p;
+	p.show();
+	
+        int index = p.ui->ComB_Solvers->findText(textToFind);
+        p.ui->ComB_Solvers->setCurrentIndex(index);
+	QString tf = settings.value(tr("SolverSettings/IterativeSolver")).toString();
+	QString RelativeError = settings.value(tr("SolverSettings/RelativeError")).toString();
+	QString MaxinumIteraton = settings.value(tr("SolverSettings/MaxinumIteraton")).toString();
+	if (tf == tr("TRUE")){
+	}
+	else{
+	}
+}
+
+
+void SolverSettings::EnableIterativeSolver()
+{
+	if (!ui->IterativeSolver->isChecked())
+	{
+	}
+	else
+	{
+	}
+}
+
+
+SolverSettings::~SolverSettings()
+{
+
+}
+
+
+#include "moc_SolverSettings.cpp"

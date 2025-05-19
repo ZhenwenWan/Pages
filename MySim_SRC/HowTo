@@ -1,0 +1,21 @@
+How To Release Python Module
+
+Make a copy
+Example: cd Mod; cp -r MySimII MySimII_res
+
+Compile into *pyc and delete *.py
+            2.1 Launch MySim0.02
+            2.2 os.chdir(“MySimII_res”)
+            >>> from release import Releaser
+            >>> rel = Releaser()
+            >>> rel.compile()
+            >>> rel.delete()
+ 
+Packing up MySimII_res
+Mv MySimII_res  $Local4release/MySimII
+Cd $Local4release
+Tar -cf MySimII.tar MySimII
+Gzip MySimII.tar
+
+Deliver MySimII.tar.gz to whoever is interested
+

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MeshViewD</class>
+ <widget class="QDialog" name="MeshViewD">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>519</width>
+    <height>519</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>519</width>
+    <height>519</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>519</width>
+    <height>519</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Mesh View</string>
+  </property>
+  <widget class="QPushButton" name="OkPB">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>470</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Ok</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="CancelPB">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>470</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Cancel</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="HideCB">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>160</y>
+     <width>91</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Hide</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="MeshViewL">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>91</y>
+     <width>111</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Mesh View:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="CheckedFaceL">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>161</y>
+     <width>111</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Checked Face:</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="MeshViewComB">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>90</y>
+     <width>151</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="editable">
+    <bool>false</bool>
+   </property>
+   <item>
+    <property name="text">
+     <string>Mesh All Faces</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Mesh and Model</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QComboBox" name="CheckedFaceComB">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>160</y>
+     <width>151</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="EnabledCB">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>90</y>
+     <width>91</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Enabled</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="MultiFacesL">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>232</y>
+     <width>111</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>MultiFaces:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="MultiFacesLE">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>230</y>
+     <width>251</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="SelectFacesL">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>300</y>
+     <width>121</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>SelectFaces:</string>
+   </property>
+  </widget>
+  <widget class="QListWidget" name="SelectFacesLW">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>300</y>
+     <width>151</width>
+     <height>141</height>
+    </rect>
+   </property>
+   <property name="selectionMode">
+    <enum>QAbstractItemView::ExtendedSelection</enum>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

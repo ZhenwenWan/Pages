@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MySimIIGui::Animat</class>
+ <widget class="QWidget" name="MySimIIGui::Animat">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>300</width>
+    <height>450</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>20</width>
+    <height>40</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>400</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Animation</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_Variable">
+       <property name="maximumSize">
+        <size>
+         <width>100</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Variable:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_SN">
+       <property name="maximumSize">
+        <size>
+         <width>100</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>SN_Start:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QComboBox" name="SN_Start">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>200</width>
+         <height>20</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_SN">
+       <property name="maximumSize">
+        <size>
+         <width>100</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>SN_End:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="Labal_NumOfContours">
+       <property name="maximumSize">
+        <size>
+         <width>100</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>ContourNumber:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="LineEdit_NumOfContours">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>200</width>
+         <height>200</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>10</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="Labal_ScaleFactor">
+       <property name="maximumSize">
+        <size>
+         <width>100</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>GlyphFactor:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLineEdit" name="LineEdit_ScaleFactor">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>200</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>0.01</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="Labal_VMin">
+       <property name="maximumSize">
+        <size>
+         <width>100</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>VMin:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QLineEdit" name="LineEdit_VMin"/>
+     </item>
+     <item row="6" column="0">
+      <widget class="QLabel" name="Labal_VMax">
+       <property name="maximumSize">
+        <size>
+         <width>100</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>VMax:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QLineEdit" name="LineEdit_VMax"/>
+     </item>
+     <item row="7" column="0">
+      <widget class="QLabel" name="label_Space">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QComboBox" name="SelectVariable"/>
+     </item>
+     <item row="8" column="0" colspan="2">
+      <widget class="QCheckBox" name="CheckBoxCuttingProf">
+       <property name="maximumSize">
+        <size>
+         <width>100</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>CuttingProf.</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QComboBox" name="SN_End">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>200</width>
+         <height>20</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="1" column="0">
+    <widget class="QTabWidget" name="TabWid_1">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>300</width>
+       <height>200</height>
+      </size>
+     </property>
+     <property name="currentIndex">
+      <number>3</number>
+     </property>
+     <widget class="QWidget" name="TabContent1">
+      <attribute name="title">
+       <string>C.Face</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_Tab1">
+       <item row="7" column="0">
+        <widget class="QLabel" name="label_CFPX">
+         <property name="text">
+          <string>CFP X：</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <widget class="QLineEdit" name="lineEdit_CFPX"/>
+       </item>
+       <item row="10" column="0">
+        <widget class="QLabel" name="label_CFDX">
+         <property name="text">
+          <string>CFD X：</string>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="1">
+        <widget class="QLineEdit" name="lineEdit_CFDX"/>
+       </item>
+       <item row="8" column="0">
+        <widget class="QLabel" name="label_CFPY">
+         <property name="text">
+          <string>CFP Y：</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="1">
+        <widget class="QLineEdit" name="lineEdit_CFPY"/>
+       </item>
+       <item row="11" column="0">
+        <widget class="QLabel" name="label_CFDY">
+         <property name="text">
+          <string>CFD Y：</string>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="1">
+        <widget class="QLineEdit" name="lineEdit_CFDY"/>
+       </item>
+       <item row="9" column="0">
+        <widget class="QLabel" name="label_CFPZ">
+         <property name="text">
+          <string>CFP Z：</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="1">
+        <widget class="QLineEdit" name="lineEdit_CFPZ"/>
+       </item>
+       <item row="12" column="0">
+        <widget class="QLabel" name="label_CFDZ">
+         <property name="text">
+          <string>CFD Z：</string>
+         </property>
+        </widget>
+       </item>
+       <item row="12" column="1">
+        <widget class="QLineEdit" name="lineEdit_CFDZ"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="TabContent2">
+      <attribute name="title">
+       <string>Camera</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_Tab2">
+       <item row="7" column="0">
+        <widget class="QLabel" name="label_CameraPX">
+         <property name="text">
+          <string>CameraP X：</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <widget class="QLineEdit" name="lineEdit_CameraPX"/>
+       </item>
+       <item row="10" column="0">
+        <widget class="QLabel" name="label_CameraDX">
+         <property name="text">
+          <string>CameraD X：</string>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="1">
+        <widget class="QLineEdit" name="lineEdit_CameraDX"/>
+       </item>
+       <item row="8" column="0">
+        <widget class="QLabel" name="label_CameraPY">
+         <property name="text">
+          <string>CameraP Y：</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="1">
+        <widget class="QLineEdit" name="lineEdit_CameraPY"/>
+       </item>
+       <item row="11" column="0">
+        <widget class="QLabel" name="label_CameraDY">
+         <property name="text">
+          <string>CameraD Y：</string>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="1">
+        <widget class="QLineEdit" name="lineEdit_CameraDY"/>
+       </item>
+       <item row="9" column="0">
+        <widget class="QLabel" name="label_CameraPZ">
+         <property name="text">
+          <string>CameraP Z：</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="1">
+        <widget class="QLineEdit" name="lineEdit_CameraPZ"/>
+       </item>
+       <item row="12" column="0">
+        <widget class="QLabel" name="label_CameraDZ">
+         <property name="text">
+          <string>CameraD Z：</string>
+         </property>
+        </widget>
+       </item>
+       <item row="12" column="1">
+        <widget class="QLineEdit" name="lineEdit_CameraDZ"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="TabContent3">
+      <attribute name="title">
+       <string>Focus</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_Tab3">
+       <item row="7" column="0">
+        <widget class="QLabel" name="label_FocusPX">
+         <property name="text">
+          <string>FocusP X：</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <widget class="QLineEdit" name="lineEdit_FocusPX"/>
+       </item>
+       <item row="10" column="0">
+        <widget class="QLabel" name="label_FocusZoom">
+         <property name="text">
+          <string>FocusZoom：</string>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="1">
+        <widget class="QLineEdit" name="lineEdit_FocusZoom"/>
+       </item>
+       <item row="8" column="0">
+        <widget class="QLabel" name="label_FocusPY">
+         <property name="text">
+          <string>FocusP Y：</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="1">
+        <widget class="QLineEdit" name="lineEdit_FocusPY"/>
+       </item>
+       <item row="9" column="0">
+        <widget class="QLabel" name="label_FocusPZ">
+         <property name="text">
+          <string>FocusP Z：</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="1">
+        <widget class="QLineEdit" name="lineEdit_FocusPZ"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="TabContent4">
+      <attribute name="title">
+       <string>Window</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_Tab3">
+       <item row="7" column="0">
+        <widget class="QLabel" name="label_WindowX">
+         <property name="text">
+          <string>WindowX：</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <widget class="QLineEdit" name="lineEdit_WindowX"/>
+       </item>
+       <item row="8" column="0">
+        <widget class="QLabel" name="label_WindowY">
+         <property name="text">
+          <string>WindowY：</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="1">
+        <widget class="QLineEdit" name="lineEdit_WindowY"/>
+       </item>
+       <item row="9" column="0">
+        <widget class="QLabel" name="label_WRate">
+         <property name="text">
+          <string>WRate(ms)：</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="1">
+        <widget class="QLineEdit" name="lineEdit_WRate"/>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="pushButton_ok">
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>25</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Ok</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_Cancel">
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>25</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Cancel</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

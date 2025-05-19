@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MaterialWidget</class>
+ <widget class="QWidget" name="MaterialWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>262</width>
+    <height>163</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MySim Physical Porperty</string>
+  </property>
+  <layout class="QFormLayout" name="formLayout_2">
+   <item row="0" column="0">
+    <widget class="QGroupBox" name="MaterialInput">
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>1677215</height>
+      </size>
+     </property>
+     <property name="title">
+      <string>Physical property input</string>
+     </property>
+     <layout class="QFormLayout" name="formLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="MaterialNameLabel">
+        <property name="text">
+         <string>Material name</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QComboBox" name="MaterialName">
+        <property name="editable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="UnitLabel">
+        <property name="text">
+         <string>Unit</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QComboBox" name="Unit">
+        <property name="editable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="MainValueLabel">
+        <property name="text">
+         <string>Mainbody value</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="Gui::InputField" name="MainbodyValue">
+        <property name="cursorPosition">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="ExtraValueLabel">
+        <property name="text">
+         <string>Extra value</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="Gui::InputField" name="ExtraValue"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>Gui::InputField</class>
+   <extends>QLineEdit</extends>
+   <header>Gui/InputField.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
