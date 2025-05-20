@@ -1,145 +1,117 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>HemoDyn - Hemdynamics Simulator</title>
-<link href="../styles.css" rel="stylesheet"/>
-<link href="styles.css" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>HemoDyn - Hemodynamics Simulator</title>
+    <link href="../styles.css" rel="stylesheet"/>
+    <link href="styles.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
 </head>
 <body>
-<div class="project-container">
-<header class="project-header">
-<a class="back-link" href="../../index.html">
-<i class="fas fa-arrow-left"></i> Back to Main
+    <div class="project-container">
+        <header class="project-header">
+            <a class="back-link" href="../../index.html">
+                <i class="fas fa-arrow-left"></i> Back to Main
             </a>
-<h1>HemoDyn</h1>
-<h2>Hemodynamic CFD</h2>
-</header>
-<main class="project-content">
-<section class="content-block">
-<div class="text-content">
-<h3>An innovative PINNs application prototype</h3>
+            <h1>HemoDyn</h1>
+            <h2>Hemodynamic CFD Simulation Platform</h2>
+        </header>
+        <main class="project-content">
+            <section class="content-block">
+                <div class="text-content">
+                    <h3>Physiological-Model Informed Neural Networks for Hemodynamics</h3>
+                    
+                    <h4>Bridging Knowledge Gaps in Vascular Analysis</h4>
+                    <p>Traditional approaches to analyzing vascular diseases face a fundamental trade-off between statistical correlation methods and machine learning techniques. While neural networks offer powerful pattern recognition capabilities, they typically require extensive training data and suffer from interpretability challenges. Physiological-model informed neural networks (PMINNs) present an alternative approach that combines the transparency of physiological models with the adaptability of machine learning.</p>
+                    
+                    <p>Computational fluid dynamics (CFD) has established significant value in industrial applications, yet hemodynamic CFD has struggled to achieve comparable clinical impact due to accuracy limitations. The HemoDyn platform addresses this challenge through a balanced approach that allocates computational resources between physiological knowledge representation and numerical precision.</p>
+                </div>
+            </section>
 
-<h4>Neural networks or physiological networks?</h4>
-<p>When a knowledge gap must be bridged using machine learning (ML), which would you prefer: a traditional neural network or a physiological-model-informed network? While neural networks are powerful, they often require a large number of nodes (and therefore a large amount of training data) to perform well. This not only increases the sample burden but also reduces transparency, as their internal logic remains largely opaque. In contrast, a physiological network uses fewer, well-defined nodes grounded in known mechanisms (such as a validated physiological model) making it both more interpretable and more sample-efficient.</p>
-<p>Computational fluid dynamics (CFD) has been widely playing significant roles in Computer-Aided Engineering (CAE). In principle, the hemodynamics CFD should be able to play a role in dealing with vascular diseases. If the hemodynamics CFD has to play a role, should we follow the strategy how CFD is played in CAE? As a computational scientist and algorithm developer, I have long noticed the vast waste of computational resources on proccessal accurracy, rather than used on final accurracy.</p>
-<p>It is a reality that the hemodynamic CFD has long been overshadowed by its industrial counterpart due to lower accuracy, but it is not rational in my opinion. The value of a model lies in both knowledge and numerical precision. It is wise to balance computational resources in both aspects. These concerns drive me to find a hybrid strategy. Avoiding the complex explanation based on optics, I'd rather to follow the methodology of PINNs to term the HemoDyn method as Physiological-Model Informed Neural Networks (PMINNs) — a specialized subclass of Physics-Informed Neural Networks (PINNs) tailored for medical applications.</p>
+            <section class="content-block">
+                <div class="text-content">
+                    <h4>Methodological Approach</h4>
+                    <p>The HemoDyn platform implements a hybrid architecture that integrates:</p>
+                    <ul>
+                        <li><strong>1D Reduced-Order Hemodynamics Solver:</strong> Based on SimVascular's ROM framework for efficient arterial blood flow modeling</li>
+                        <li><strong>Oxygen Transport Simulation:</strong> Implemented with Elmer Multiphysics to capture oxygen delivery, exchange, and muscular consumption dynamics</li>
+                        <li><strong>Wearable Data Integration:</strong> Real-time pulse data from smartwatches and oximeters provide continuous physiological inputs</li>
+                        <li><strong>Machine Learning Layer:</strong> Neural networks trained on clinical outcomes parameterize physiological uncertainties while maintaining biological constraints</li>
+                    </ul>
+                    
+                    <p>This architecture offers several methodological advantages:</p>
+                    <ul>
+                        <li>Network nodes represent physiological mechanisms rather than abstract mathematical constructs</li>
+                        <li>Predictions maintain interpretability through direct mapping to biological processes</li>
+                        <li>Combination of measured signals and physics-informed structure reduces uncertainty</li>
+                    </ul>
+                </div>
+            </section>
 
-<h4>Why I Created HemoDyn</h4>
-<p>In a clinical trial, the knowledge gap is bridged via either statistical correlation or ML a disease severity from observable behaviors or status. The hemodynamics CFD offers an alternative approach to map directly vascular physiological metrics with a disease severity. chronic vascular diseases,  physiologcal metrics and a disease severity.</p>
-<p>Traditional clinical trial analysis relies heavily on statistical inference from large populations. Machine learning offers promise but suffers from the black-box problem — especially in medicine where explainability and trust are non-negotiable. On the other hand, physiological models are transparent but computationally costly and uncertain, particularly compared to industrial CFD.</p>
+            <section class="content-block">
+                <div class="text-content">
+                    <h4>Implementation Framework</h4>
+                    <p>The HemoDyn implementation follows a structured workflow:</p>
+                    <ol>
+                        <li>Simplified anatomical modeling of lower extremity vasculature and muscle tissue</li>
+                        <li>Mesh generation using Gmsh with conversion via ElmerGrid</li>
+                        <li>Configuration of ElmerSolver components (ModelPDE, HeatSolve)</li>
+                        <li>Execution of SimVascular ROM and ElmerSolver processes</li>
+                        <li>Visualization of results through VTK pipelines</li>
+                        <li>Development of interactive controls for vascular parameter exploration</li>
+                    </ol>
+                </div>
+            </section>
 
-<p>Recognizing these trade-offs, I asked:</p>
+            <section class="content-block">
+                <div class="text-content">
+                    <h3>Simulation Demonstrations</h3>
+                    <p>The following videos demonstrate HemoDyn's hemodynamic simulation capabilities and user interface:</p>
+                    
+                    <h4>Blood Flow Dynamics</h4>
+                    <video class="simulation-video" controls="">
+                        <source src="video.mp4" type="video/mp4"/>
+                    </video>
+                    
+                    <h4>User Interface Overview</h4>
+                    <video class="simulation-video" controls="">
+                        <source src="HemoDyn_video.mp4" type="video/mp4"/>
+                    </video>
+                </div>
+            </section>
 
-<p>Can we simulate individual physiological responses efficiently and use them to reduce trial sample sizes?</p>
-
-<p>PMINNs are my answer: an architecture where neural network nodes represent physiological mechanisms (e.g. blood flow, oxygen transport, muscular consumption), and machine learning fills in uncertain parts while obeying biological constraints. This hybrid structure maintains scientific rigor while enabling real-time adaptability.</p>
-
-<p>To move beyond the whiteboard, I built HemoDyn, a PMINN-driven simulation platform specifically designed for clinical trials targeting Lower Extremity Arterial Occlusive Disease (LEAO) — a chronic vascular disease that limits walking ability in elderly patients.</p>
-
-<p>The prototype includes:</p>
-
-<ul>
-<li>1D Hemodynamics Solver: using SimVascular's ROM framework to model arterial blood flow.</li>
-<li>Oxygen Dynamics Model: built with Elmer Multiphysics to simulate oxygen delivery, exchange, and consumption in muscle tissue.</li>
-<li>Wearable Integration: the model consumes real-world pulse data from smartwatches (e.g. Apple Watch) and fingertip oximeters.</li>
-<li>Machine Learning Layer: neural networks trained on trial outcomes (e.g. walking distance, ABI) parameterize physiological uncertainties.</li>
-<li>Live Feedback: the system updates predictions dynamically as new biosignals arrive, enabling early detection of intervention effects.</li>
-</ul>
-
-<h4>What Makes HemoDyn Unique</h4>
-<p>HemoDyn is not just an instantiation of PMINN, i.e. not just another machine learning architecture. They represent a methodological shift:</p>
-
-<ul>
-<li>Nodes are not abstract units but grounded in physiology.</li>
-<li>Predictions are interpretable because they map to known biological processes.</li>
-<li>The model reduces uncertainty by combining measured signals with physics-informed structure.</li>
-</ul>
-
-<p>In my LEAO prototype, this means:</p>
-
-<ul>
-<li>Fewer patients are needed to observe treatment effects.</li>
-<li>Clinicians can understand why the model predicts a change.</li>
-<li>Trials are faster, cheaper, and more aligned with personalized care.</li>
-</ul>
-</div>
-</section>
-
-<!-- Existing content preserved from "Prototype Overview: HemoDyn" onward -->
-<section class="content-block">
-<div class="text-content">
-<h4>HemoDyn Overview</h4>
-<p><strong>HemoDyn</strong> simulates blood and oxygen dynamics using:</p>
-<ul>
-<li>1D ROM solver from SimVascular for hemodynamics</li>
-<li>Elmer Multiphysics solvers for oxygen transport, transmembrane exchange and consumption</li>
-<li>Wearable pulse data (e.g., Apple Watch) and oximeter readings</li>
-</ul>
-<p>ML maps oxygen dynamics to clinical outcomes like walking distance.</p>
-<h4>HemoDyn Implementation</h4>
-<ol>
-<li>Create simplified leg model with vessels and muscles</li>
-<li>Mesh with Gmsh and convert using ElmerGrid</li>
-<li>Configure ElmerSolver (ModelPDE, HeatSolve)</li>
-<li>Run SimVascular ROM and ElmerSolver</li>
-<li>Visualize results with VTK</li>
-<li>Develop sliders for vascular sections and muscle positions</li>
-</ol>
-<p>[Insert Image Placeholder: GUI panel and model output]</p>
-</div>
-</section>
-<section class="content-block">
-<div class="text-content">
-<h3>Simulation Video</h3>
-<p>Below is a demonstration of the hemodynamic simulation, showcasing blood flow dynamics in the lower limb arterial network.</p>
-<video class="simulation-video" controls="">
-<source src="video.mp4" type="video/mp4"/>
-</video>
-</div>
-</section>
-<section class="content-block">
-<div class="text-content">
-<h4>Prototype UI</h4>
-<video class="simulation-video" controls="">
-<source src="HemoDyn_video.mp4" type="video/mp4"/>
-</video>
-</div>
-</section>
-<section class="content-block">
-<div class="text-content">
-<h4>HemoDyn Outlook</h4>
-<p>HemoDyn demonstrates that PMINNs can be a game changer for early-phase clinical trials. Immediate benefits include:</p>
-
-<ul>
-<li>Smaller sample sizes without compromising statistical power.</li>
-<li>Physiological personalization from day one.</li>
-<li>Faster iteration between treatment and feedback.</li>
-</ul>
-
-<p>Future extensions of HemoDyn:</p>
-
-<ul>
-<li>Chronic disease monitoring (e.g. diabetes, heart failure).</li>
-<li>Drug efficacy evaluation with real-time biomarkers.</li>
-<li>Integration with EHRs and genomic profiles for richer modeling.</li>
-</ul>
-
-<p>HemoDyn offers hope of breaking through the diagnostic and treatment stalemate.</p> 
-<p>When elderly people struggle to walk, many assume it's simply due to natural aging. In reality, a large portion of these cases stem from blood flow problems. LEAO is the leading cause of walking difficulties among the elderly, accounting for nearly half of all cases. Data shows that around 12% of "young-old" individuals aged about 65 suffer from LEAO, and the prevalence rises to 50% in those over 80. This is a chronic condition with major impact that has long been neglected.</p>
-<p>Currently, except in rare cases that require surgery, most interventions for LEAO—such as medication or catheter-based procedures—are difficult to evaluate in the short term. This makes it hard for doctors to quickly determine treatment effectiveness, and for pharmaceutical companies to efficiently screen new drugs. This evaluation bottleneck is at the heart of why LEAO is considered a "diagnostic and treatment deadlock."</p>
-<p>By leveraging a smartwatch at the center of a closed-loop system that integrates artificial intelligence and physiological modeling, it enables digital tracking of the condition and rapid feedback on treatment effects. The mechanism is simple: the watch automatically records pulse and blood oxygen levels. In addition, a fingertip pulse oximeter is used twice daily—once at rest and once after activity (such as a brisk 15-minute walk). The data is uploaded to the cloud, where the system models and analyzes it, providing real-time feedback on trends.</p>
-<p>As a result, the effectiveness of interventions can become "visible" within just a few days or weeks.</p>
-</div>
-</section>
-</main>
-<footer class="project-footer">
-<p>© 2025 Zhenwen Wan. All rights reserved.</p>
-</footer>
-</div>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93a8dd255e2b4558',t:'MTc0NjM3MDc4Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+            <section class="content-block">
+                <div class="text-content">
+                    <h4>Clinical Applications and Future Directions</h4>
+                    <p>HemoDyn demonstrates particular promise in addressing Lower Extremity Arterial Occlusive Disease (LEAO), a condition affecting approximately 12% of individuals aged 65 and rising to 50% prevalence in those over 80. Current clinical challenges include:</p>
+                    <ul>
+                        <li>Difficulty in short-term evaluation of therapeutic interventions</li>
+                        <li>Lack of quantitative metrics for treatment efficacy assessment</li>
+                        <li>High variability in individual physiological responses</li>
+                    </ul>
+                    
+                    <p>The platform's closed-loop integration with wearable devices enables:</p>
+                    <ul>
+                        <li>Continuous monitoring of pulse and blood oxygen metrics</li>
+                        <li>Automated collection of resting and post-exercise physiological data</li>
+                        <li>Cloud-based analysis with real-time feedback on treatment trends</li>
+                    </ul>
+                    
+                    <p>Future development pathways include:</p>
+                    <ul>
+                        <li>Extension to chronic disease monitoring applications</li>
+                        <li>Integration with electronic health records for enriched modeling</li>
+                        <li>Development of drug efficacy evaluation frameworks</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+        <footer class="project-footer">
+            <p>© 2025 Zhenwen Wan. All rights reserved.</p>
+        </footer>
+    </div>
+    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93a8dd255e2b4558',t:'MTc0NjM3MDc4Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
 </html>
+
