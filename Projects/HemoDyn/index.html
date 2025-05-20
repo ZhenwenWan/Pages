@@ -32,7 +32,7 @@
 
 <p>As a computational scientist and algorithm developer, I have long noticed the vast waste of computational resources on proccessal accurracy, rather than used on final accurracy. Avoiding the complex explanation based on optics, I'd rather to follow the methodology of PINNs to term the HemoDyn method as Physiological-Model Informed Neural Networks (PMINNs) — a specialized subclass of Physics-Informed Neural Networks (PINNs) tailored for medical applications.</p>
 
-<h4>Why I Created PMINNs</h4>
+<h4>Why I Created HemoDyn</h4>
 <p>Traditional clinical trial analysis relies heavily on statistical inference from large populations. Machine learning offers promise but suffers from the black-box problem — especially in medicine where explainability and trust are non-negotiable. On the other hand, physiological models are transparent but computationally costly and uncertain, particularly compared to industrial CFD.</p>
 
 <p>Recognizing these trade-offs, I asked:</p>
@@ -41,7 +41,6 @@
 
 <p>PMINNs are my answer: an architecture where neural network nodes represent physiological mechanisms (e.g. blood flow, oxygen transport, muscular consumption), and machine learning fills in uncertain parts while obeying biological constraints. This hybrid structure maintains scientific rigor while enabling real-time adaptability.</p>
 
-<h4>Prototyping HemoDyn: From Concept to Code</h4>
 <p>To move beyond the whiteboard, I built HemoDyn, a PMINN-driven simulation platform specifically designed for clinical trials targeting Lower Extremity Arterial Occlusive Disease (LEAO) — a chronic vascular disease that limits walking ability in elderly patients.</p>
 
 <p>The prototype includes:</p>
@@ -54,8 +53,8 @@
 <li>Live Feedback: the system updates predictions dynamically as new biosignals arrive, enabling early detection of intervention effects.</li>
 </ul>
 
-<h4>What Makes PMINNs Unique</h4>
-<p>PMINNs are not just another machine learning architecture. They represent a methodological shift:</p>
+<h4>What Makes HemoDyn Unique</h4>
+<p>HemoDyn is not just an instantiation of PMINN, i.e. not just another machine learning architecture. They represent a methodological shift:</p>
 
 <ul>
 <li>Nodes are not abstract units but grounded in physiology.</li>
@@ -76,8 +75,7 @@
 <!-- Existing content preserved from "Prototype Overview: HemoDyn" onward -->
 <section class="content-block">
 <div class="text-content">
-<h3>Prototype: HemoDyn</h3>
-<h4>Prototype Overview</h4>
+<h4>HemoDyn Overview</h4>
 <p><strong>HemoDyn</strong> simulates blood and oxygen dynamics using:</p>
 <ul>
 <li>1D ROM solver from SimVascular for hemodynamics</li>
@@ -85,7 +83,7 @@
 <li>Wearable pulse data (e.g., Apple Watch) and oximeter readings</li>
 </ul>
 <p>ML maps oxygen dynamics to clinical outcomes like walking distance.</p>
-<h4>Prototype Implementation</h4>
+<h4>HemoDyn Implementation</h4>
 <ol>
 <li>Create simplified leg model with vessels and muscles</li>
 <li>Mesh with Gmsh and convert using ElmerGrid</li>
@@ -116,7 +114,7 @@
 </section>
 <section class="content-block">
 <div class="text-content">
-<h3>Outlook</h3>
+<h3>HemoDyn Outlook</h3>
 <p>My prototype demonstrates that PMINNs can be a game changer for early-phase clinical trials. Immediate benefits include:</p>
 
 <ul>
