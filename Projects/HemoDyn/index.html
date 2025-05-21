@@ -14,11 +14,9 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            z-index: 1001;
-            max-width: 90%;
-            max-height: 90%;
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
-            border-radius: 5px;
+            z-index: 1000;
+            max-width: 80%;
+            max-height: 80%;
         }
         .image-backdrop {
             display: none;
@@ -27,21 +25,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.8);
-            z-index: 1000;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 999;
         }
         .clickable-i {
             cursor: pointer;
-        }
-        .close-button {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            color: white;
-            font-size: 30px;
-            cursor: pointer;
-            z-index: 1002;
-            display: none;
         }
     </style>
 </head>
@@ -55,16 +43,111 @@
             <h2>Hemodynamic CFD Simulation Platform</h2>
         </header>
         <main class="project-content">
-            <!-- [Previous sections remain unchanged] -->
-            
+            <section class="content-block">
+                <div class="text-content">
+                    <h3>Physiological-Model Informed Neural Networks for Hemodynamics</h3>
+                    
+                    <h4>Bridging Knowledge Gaps in Vascular Analysis</h4>
+                    <p>Traditional approaches to analyzing vascular diseases face a fundamental trade-off between statistical correlation methods and machine learning techniques. While neural networks offer powerful pattern recognition capabilities, they typically require extensive training data and suffer from interpretability challenges. Physiological-model informed neural networks (PMINNs) present an alternative approach that combines the transparency of physiological models with the adaptability of machine learning.</p>
+                    
+                    <p>Computational fluid dynamics (CFD) has established significant value in industrial applications, yet hemodynamic CFD has struggled to achieve comparable clinical impact due to accuracy limitations. The HemoDyn platform addresses this challenge through a balanced approach that allocates computational resources between physiological knowledge representation and numerical precision.</p>
+                </div>
+            </section>
+
+            <section class="content-block">
+                <div class="text-content">
+                    <h4>Methodological Approach</h4>
+                    <p>The HemoDyn platform implements a hybrid architecture that integrates:</p>
+                    <ul>
+                        <li><strong>1D Reduced-Order Hemodynamics Solver:</strong> Based on SimVascular's ROM framework for efficient arterial blood flow modeling</li>
+                        <li><strong>Oxygen Transport Simulation:</strong> Implemented with Elmer Multiphysics to capture oxygen delivery, exchange, and muscular consumption dynamics</li>
+                        <li><strong>Wearable Data Integration:</strong> Real-time pulse data from smartwatches and oximeters provide continuous physiological inputs</li>
+                        <li><strong>Machine Learning Layer:</strong> Neural networks trained on clinical outcomes parameterize physiological uncertainties while maintaining biological constraints</li>
+                    </ul>
+                    
+                    <p>This architecture offers several methodological advantages:</p>
+                    <ul>
+                        <li>Network nodes represent physiological mechanisms rather than abstract mathematical constructs</li>
+                        <li>Predictions maintain interpretability through direct mapping to biological processes</li>
+                        <li>Combination of measured signals and physics-informed structure reduces uncertainty</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="content-block">
+                <div class="text-content">
+                    <h4>Implementation Framework</h4>
+                    <p>The HemoDyn implementation follows a structured workflow:</p>
+                    <ol>
+                        <li>Simplified anatomical modeling of lower extremity vasculature and muscle tissue</li>
+                        <li>Mesh generation using Gmsh with conversion via ElmerGrid</li>
+                        <li>Configuration of ElmerSolver components (ModelPDE, HeatSolve)</li>
+                        <li>Execution of SimVascular ROM and ElmerSolver processes</li>
+                        <li>Visualization of results through VTK pipelines</li>
+                        <li>Development of interactive controls for vascular parameter exploration</li>
+                    </ol>
+                </div>
+            </section>
+
+            <section class="content-block">
+                <div class="text-content">
+                    <h3>Simulation Demonstrations</h3>
+                    <p>The following videos demonstrate HemoDyn's hemodynamic simulation capabilities and user interface:</p>
+                    
+                    <h4>Blood Flow Dynamics</h4>
+                    <video class="simulation-video" controls="">
+                        <source src="video.mp4" type="video/mp4"/>
+                    </video>
+                    
+                    <h4>User Interface Overview</h4>
+                    <video class="simulation-video" controls="">
+                        <source src="HemoDyn_video.mp4" type="video/mp4"/>
+                    </video>
+                </div>
+            </section>
+
+            <section class="content-block">
+                <div class="text-content">
+                    <h4>Clinical Applications and Future Directions</h4>
+                    <p>HemoDyn demonstrates particular promise in addressing Lower Extremity Arterial Occlusive Disease (LEAO), a condition affecting approximately 12% of individuals aged 65 and rising to 50% prevalence in those over 80. Current clinical challenges include:</p>
+                    <ul>
+                        <li>Difficulty in short-term evaluation of therapeutic interventions</li>
+                        <li>Lack of quantitative metrics for treatment efficacy assessment</li>
+                        <li>High variability in individual physiological responses</li>
+                    </ul>
+                    
+                    <p>The platform's closed-loop integration with wearable devices enables:</p>
+                    <ul>
+                        <li>Continuous monitoring of pulse and blood oxygen metrics</li>
+                        <li>Automated collection of resting and post-exercise physiological data</li>
+                        <li>Cloud-based analysis with real-time feedback on treatment trends</li>
+                    </ul>
+                    
+                    <p>Future development pathways include:</p>
+                    <ul>
+                        <li>Extension to chronic disease monitoring applications</li>
+                        <li>Integration with electronic health records for enriched modeling</li>
+                        <li>Development of drug efficacy evaluation frameworks</li>
+                    </ul>
+                </div>
+            </section>
+
             <section class="content-block">
                 <div class="text-content">
                     <h4>Collaboration Invitation</h4>
-                    <!-- [Previous content remains unchanged] -->
-                    <p>As the algorithm developer, I now seek to connect with product developers for recognition and collaborat<span class="clickable-i" onclick="showImage()">i</span>on.</p>
+                    <p>Current digital health technologies primarily identify health conditions through data on breathing, wrist pulse, and limb movement, with neural networks serving as the algorithmic models between input and output, rarely incorporating physiological models. Even when they do, the models are simplified to near insignificance due to traditional physiological models' bottlenecks—inaccuracy and slowness. Breakthrough algorithms must be fast while capable of incorporating physiological logic.</p>
+
+                    <p>Stanford University has released the world's only open-source blood fluid model, sparking a surge of interest among algorithm pioneers. With over thirty years of experience in fluid algorithm research, particularly in numerical model forecasting, and recent years in CAE algorithm development, I bring a unique perspective to applying blood flow models in digital health.</p>
+
+                    <p>On LinkedIn, I posed the following thought-provoking question as part of my research methodology: "Is there a CFD application scenario worth attempting that hasn't been tried before, describable in one sentence?" I believe "In clinical trial design, blood flow CFD could help reduce sample sizes, thereby shortening trial cycles and lowering drug development costs" qualifies as one, as literature shows no reports of blood flow CFD being used to reduce clinical trial sample sizes.</p>
+
+                    <p>If you argue it's not worth attempting, please consider these two brief questions: If information gaps must be addressed with machine learning, would you prefer traditional neural network models or physiologically constrained models (with fewer unknown nodes and incorporating known physiological relationships)? For CFD to have practical impact on human health, how should computational resources be balanced between expressing physiological phenomena and numerical precision?</p>
+
+                    <p>Through professional discussions on these questions, I've strengthened my conviction. Since then, I've proceeded with algorithm design planning and programming implementation. This webpage contains all publicly available materials.</p>
+
+                    <p>As the algorithm developer, I now seek to connect with product developers for recognition and collaboration<span class="clickable-i" onclick="showImage()">i</span>.</p>
 
                     <div class="image-backdrop" id="imageBackdrop" onclick="hideImage()"></div>
-                    <div class="close-button" id="closeButton" onclick="hideImage()">×</div>
                     <img src="CollaborationInvitation_Chinese.png" class="hidden-image" id="hiddenImage" alt="Collaboration Invitation Details">
                 </div>
             </section>
@@ -74,29 +157,16 @@
         </footer>
     </div>
     <script>
-        // Ensure the image doesn't show on load
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('hiddenImage').style.display = 'none';
-            document.getElementById('imageBackdrop').style.display = 'none';
-            document.getElementById('closeButton').style.display = 'none';
-        });
-
         function showImage() {
             document.getElementById('hiddenImage').style.display = 'block';
             document.getElementById('imageBackdrop').style.display = 'block';
-            document.getElementById('closeButton').style.display = 'block';
-            // Prevent scrolling when image is shown
-            document.body.style.overflow = 'hidden';
         }
 
         function hideImage() {
             document.getElementById('hiddenImage').style.display = 'none';
             document.getElementById('imageBackdrop').style.display = 'none';
-            document.getElementById('closeButton').style.display = 'none';
-            // Restore scrolling
-            document.body.style.overflow = 'auto';
         }
     </script>
-    <!-- [Remaining script remains unchanged] -->
+    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93a8dd255e2b4558',t:'MTc0NjM3MDc4Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
 </html>
