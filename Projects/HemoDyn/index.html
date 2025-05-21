@@ -7,6 +7,31 @@
     <link href="../styles.css" rel="stylesheet"/>
     <link href="styles.css" rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <style>
+        .hidden-image {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            max-width: 80%;
+            max-height: 80%;
+        }
+        .image-backdrop {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 999;
+        }
+        .clickable-i {
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <div class="project-container">
@@ -106,12 +131,42 @@
                     </ul>
                 </div>
             </section>
+
+            <section class="content-block">
+                <div class="text-content">
+                    <h4>Collaboration Invitation</h4>
+                    <p>Current digital health technologies primarily identify health conditions through data on breathing, wrist pulse, and limb movement, with neural networks serving as the algorithmic models between input and output, rarely incorporating physiological models. Even when they do, the models are simplified to near insignificance due to traditional physiological models' bottlenecks—inaccuracy and slowness. Breakthrough algorithms must be fast while capable of incorporating physiological logic.</p>
+
+                    <p>Stanford University has released the world's only open-source blood fluid model, sparking a surge of interest among algorithm pioneers. With over thirty years of experience in fluid algorithm research, particularly in numerical model forecasting, and recent years in CAE algorithm development, I bring a unique perspective to applying blood flow models in digital health.</p>
+
+                    <p>On LinkedIn, I posed the following thought-provoking question as part of my research methodology: "Is there a CFD application scenario worth attempting that hasn't been tried before, describable in one sentence?" I believe "In clinical trial design, blood flow CFD could help reduce sample sizes, thereby shortening trial cycles and lowering drug development costs" qualifies as one, as literature shows no reports of blood flow CFD being used to reduce clinical trial sample sizes.</p>
+
+                    <p>If you argue it's not worth attempting, please consider these two brief questions: If information gaps must be addressed with machine learning, would you prefer traditional neural network models or physiologically constrained models (with fewer unknown nodes and incorporating known physiological relationships)? For CFD to have practical impact on human health, how should computational resources be balanced between expressing physiological phenomena and numerical precision?</p>
+
+                    <p>Through professional discussions on these questions, I've strengthened my conviction. Since then, I've proceeded with algorithm design planning and programming implementation. This webpage contains all publicly available materials.</p>
+
+                    <p>As the algorithm developer, I now seek to connect with product developers for recognition and collaboration<span class="clickable-i" onclick="showImage()">i</span>.</p>
+
+                    <div class="image-backdrop" id="imageBackdrop" onclick="hideImage()"></div>
+                    <img src="CollaborationInvitation_Chinese.png" class="hidden-image" id="hiddenImage" alt="Collaboration Invitation Details">
+                </div>
+            </section>
         </main>
         <footer class="project-footer">
             <p>© 2025 Zhenwen Wan. All rights reserved.</p>
         </footer>
     </div>
+    <script>
+        function showImage() {
+            document.getElementById('hiddenImage').style.display = 'block';
+            document.getElementById('imageBackdrop').style.display = 'block';
+        }
+
+        function hideImage() {
+            document.getElementById('hiddenImage').style.display = 'none';
+            document.getElementById('imageBackdrop').style.display = 'none';
+        }
+    </script>
     <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93a8dd255e2b4558',t:'MTc0NjM3MDc4Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
 </html>
-
