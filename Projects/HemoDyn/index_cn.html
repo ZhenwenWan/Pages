@@ -9,102 +9,123 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
 </head>
 <body>
-    <div class="project-container">
-        <header class="project-header">
-            <a class="back-link" href="../../index.html"><i class="fas fa-arrow-left"></i> 返回主页</a>
-            <h1>HemoDyn</h1>
-            <h2>血流动力学 CFD 模拟平台</h2>
-            <nav>
-                <a href="index.html">英文版</a>
-            </nav>
-        </header>
+<div class="project-container">
+    <header class="project-header">
+        <a class="back-link" href="../../index.html"><i class="fas fa-arrow-left"></i> 返回主页</a>
+        <h1>HemoDyn</h1>
+        <h2>血流动力学 CFD 模拟平台</h2>
+        <nav><a href="index.html">英文版</a></nav>
+    </header>
 
-        <main class="project-content">
-            <section class="content-block">
-                <div class="text-content">
-                    <h3>融合生理模型的神经网络方法</h3>
-                    <h4>弥合血管分析中的知识差距</h4>
-                    <p>传统血管疾病分析在统计方法和机器学习之间存在根本性权衡。生理模型神经网络（PMINNs）结合了生理模型的透明性与机器学习的适应性。</p>
-                    <p>工业 CFD 应用成熟，但血流动力学 CFD 在临床中的应用受到精度限制。HemoDyn 平台通过在生理表示与数值精度之间平衡资源来解决这一挑战。</p>
-                </div>
-            </section>
+    <main class="project-content">
+        <section class="content-block">
+            <div class="text-content">
+                <h3>融合生理模型的血流动力学神经网络</h3>
+                <h4>弥合血管分析中的知识鸿沟</h4>
+                <p>传统血管疾病分析方法在统计相关性和机器学习技术之间存在根本的权衡。神经网络具备强大的模式识别能力，但通常需要大量训练数据且可解释性差。融合生理模型的神经网络（PMINNs）提供了一种结合生理模型透明性与机器学习适应性的替代方案。</p>
+                <p>计算流体力学（CFD）在工业中应用广泛，但血流 CFD 在临床中的影响力因精度限制而未能匹配。HemoDyn 平台通过在生理知识表示与数值精度之间分配计算资源，解决了这一问题。</p>
+            </div>
+        </section>
 
-            <section class="content-block">
-                <div class="text-content">
-                    <h4>方法架构</h4>
-                    <ul>
-                        <li><strong>一维血流求解器：</strong>基于 SimVascular 的 ROM 框架</li>
-                        <li><strong>氧气传输模拟：</strong>使用 Elmer 模拟氧气输送与消耗</li>
-                        <li><strong>穿戴设备集成：</strong>实时脉搏与血氧输入</li>
-                        <li><strong>机器学习层：</strong>神经网络在生理约束下学习临床结果</li>
-                    </ul>
-                </div>
-            </section>
+        <section class="content-block">
+            <div class="text-content">
+                <h4>方法学框架</h4>
+                <p>HemoDyn 平台采用混合架构，集成如下组件：</p>
+                <ul>
+                    <li><strong>一维简化血流求解器：</strong> 基于 SimVascular 的 ROM 框架高效建模动脉血流</li>
+                    <li><strong>氧气传输模拟：</strong> 利用 Elmer 多物理场软件捕捉氧气输送、交换与肌肉消耗动态</li>
+                    <li><strong>穿戴设备数据集成：</strong> 实时脉搏与血氧数据提供连续生理输入</li>
+                    <li><strong>机器学习层：</strong> 在生理约束下训练的神经网络对不确定性参数建模</li>
+                </ul>
+                <p>该架构的优势包括：</p>
+                <ul>
+                    <li>神经网络节点代表生理机制，而非抽象数学函数</li>
+                    <li>预测结果具有可解释性，直接映射至生物过程</li>
+                    <li>结合测量信号与物理结构，显著减少不确定性</li>
+                </ul>
+            </div>
+        </section>
 
-            <section class="content-block">
-                <div class="text-content">
-                    <h4>实现流程</h4>
-                    <ol>
-                        <li>建立下肢血管解剖模型</li>
-                        <li>使用 Gmsh 网格并转换为 ElmerGrid 格式</li>
-                        <li>配置 ElmerSolver 模块</li>
-                        <li>运行 SimVascular ROM 与 ElmerSolver</li>
-                        <li>通过 VTK 可视化结果</li>
-                        <li>开发交互控件探索血管参数</li>
-                    </ol>
-                </div>
-            </section>
+        <section class="content-block">
+            <div class="text-content">
+                <h4>实现流程</h4>
+                <p>HemoDyn 的实现流程包括：</p>
+                <ol>
+                    <li>简化下肢血管与肌肉解剖建模</li>
+                    <li>使用 Gmsh 网格生成并通过 ElmerGrid 转换</li>
+                    <li>配置 ElmerSolver 模块（ModelPDE、HeatSolve）</li>
+                    <li>运行 SimVascular ROM 与 ElmerSolver 模拟</li>
+                    <li>使用 VTK 管线可视化结果</li>
+                    <li>开发交互控件用于血管参数探索</li>
+                </ol>
+            </div>
+        </section>
 
-            <section class="content-block">
-                <div class="text-content">
-                    <h3>模拟演示</h3>
-                    <p>以下视频展示了 HemoDyn 的模拟功能与界面：</p>
+        <section class="content-block">
+            <div class="text-content">
+                <h3>模拟演示</h3>
+                <p>以下视频展示了 HemoDyn 平台的血流模拟能力与用户界面：</p>
+                <h4>血流动力学</h4>
+                <video class="simulation-video" controls>
+                    <source src="video.mp4" type="video/mp4"/>
+                </video>
+                <h4>用户界面概览</h4>
+                <video class="simulation-video" controls>
+                    <source src="HemoDyn_video.mp4" type="video/mp4"/>
+                </video>
+            </div>
+        </section>
 
-                    <h4>血流动态</h4>
-                    <video class="simulation-video" controls>
-                        <source src="video.mp4" type="video/mp4"/>
-                    </video>
+        <section class="content-block">
+            <div class="text-content">
+                <h4>临床应用与未来方向</h4>
+                <p>HemoDyn 平台对下肢动脉阻塞性疾病（LEAO）具有显著潜力，该病在65岁人群中患病率为12%，在80岁以上人群中达50%。当前临床挑战包括：</p>
+                <ul>
+                    <li>难以短期评估治疗干预效果</li>
+                    <li>缺乏量化指标用于疗效评估</li>
+                    <li>个体生理反应差异大</li>
+                </ul>
+                <p>平台与穿戴设备的闭环集成可实现：</p>
+                <ul>
+                    <li>持续监测脉搏与血氧</li>
+                    <li>自动采集静息与运动后数据</li>
+                    <li>云端分析与实时治疗趋势反馈</li>
+                </ul>
+                <p>未来发展方向包括：</p>
+                <ul>
+                    <li>扩展至慢性病监测应用</li>
+                    <li>与电子健康记录集成以丰富建模</li>
+                    <li>开发药物疗效评估框架</li>
+                </ul>
+            </div>
+        </section>
 
-                    <h4>用户界面演示</h4>
-                    <video class="simulation-video" controls>
-                        <source src="HemoDyn_video.mp4" type="video/mp4"/>
-                    </video>
-                </div>
-            </section>
+        <section class="content-block">
+            <div class="text-content">
+                <h4>合作邀请</h4>
+                <p>当前数字健康技术主要通过神经网络建模呼吸、脉搏与动作数据，极少整合生理模型。即便整合，也因模型缓慢与不精确而被简化到几乎无效。若算法要突破，必须兼顾速度与生理逻辑表达能力。</p>
+                <p>斯坦福大学发布全球唯一开源血流模型，吸引大量算法研究者关注。本人在流体算法研究领域拥有30多年经验，近年来聚焦 CAE 算法开发，在将血流模型用于数字健康方面具独特视角。</p>
+                <p>我在 LinkedIn 上提出：“是否存在一句话能描述、尚未尝试的 CFD 应用场景？”我的答案是：“在临床试验设计中使用血流 CFD 减少样本量，从而缩短周期与降低药物开发成本。”目前文献中尚无相关报道。</p>
+                <p>欢迎产品开发者与我联系，共同推进血流算法在数字健康中的实际应用。</p>
+            </div>
+        </section>
 
-            <section class="content-block">
-                <div class="text-content">
-                    <h4>临床应用与未来方向</h4>
-                    <p>HemoDyn 在治疗下肢动脉闭塞症方面具有潜力，该病在65岁以上人群中发病率为12%，80岁以上达50%。当前挑战包括：</p>
-                    <ul>
-                        <li>难以短期评估治疗效果</li>
-                        <li>缺乏治疗效果的量化指标</li>
-                        <li>个体生理响应差异大</li>
-                    </ul>
-                    <p>平台与穿戴设备的闭环集成支持：</p>
-                    <ul>
-                        <li>持续监测脉搏和血氧</li>
-                        <li>自动采集静息和运动后数据</li>
-                        <li>云端分析与实时反馈</li>
-                    </ul>
-                </div>
-            </section>
+        <section class="content-block">
+            <div class="text-content">
+                <h3>数字健康产业的技术原理和社会经济意义</h3>
+                <p>以下音频内容探讨了数字健康产业的核心技术原理以及其在社会经济层面的深远影响，欢迎在线收听或下载。</p>
+                <audio controls>
+                    <source src="DigitalHealth_51min.m4a" type="audio/mp4">
+                    如果您的浏览器不支持音频播放，请下载。
+                </audio>
+                <p><a href="DigitalHealth_51min.m4a" download>数字健康漫谈51分钟</a></p>
+            </div>
+        </section>
+    </main>
 
-            <section class="content-block">
-                <div class="text-content">
-                    <h4>合作邀请</h4>
-                    <p>当前数字健康技术多通过神经网络连接输入输出，生理模型很少被融入。即使被使用，也因速度慢与精度差被严重简化。要突破，算法需快速且能表达生理逻辑。</p>
-                    <p>斯坦福大学发布了唯一开源的血流模型，引发算法研究兴趣。我拥有30多年流体算法经验，致力于将血流模型应用于数字健康。</p>
-                    <p>我在 LinkedIn 提出：“是否存在一个值得尝试却未被尝试的 CFD 应用场景？”我认为 “在临床试验设计中，用血流 CFD 降低样本量” 是一个。文献中尚无相关报道。</p>
-                    <p>欢迎产品开发者联系我，共同推进这一方向。</p>
-                </div>
-            </section>
-        </main>
-
-        <footer class="project-footer">
-            <p>© 2025 Zhenwen Wan. 保留所有权利。</p>
-        </footer>
-    </div>
+    <footer class="project-footer">
+        <p>© 2025 Zhenwen Wan. 保留所有权利。</p>
+    </footer>
+</div>
 </body>
 </html>
-
