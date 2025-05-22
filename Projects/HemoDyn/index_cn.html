@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>HemoDyn 血流动力学模拟平台</title>
+    <link href="../styles.css" rel="stylesheet"/>
+    <link href="styles.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="project-container">
+        <header class="project-header">
+            <a class="back-link" href="../../index.html"><i class="fas fa-arrow-left"></i> 返回主页</a>
+            <h1>HemoDyn</h1>
+            <h2>血流动力学 CFD 模拟平台</h2>
+            <nav>
+                <a href="index.html">英文版</a>
+            </nav>
+        </header>
+
+        <main class="project-content">
+            <section class="content-block">
+                <div class="text-content">
+                    <h3>融合生理模型的神经网络方法</h3>
+                    <h4>弥合血管分析中的知识差距</h4>
+                    <p>传统血管疾病分析在统计方法和机器学习之间存在根本性权衡。生理模型神经网络（PMINNs）结合了生理模型的透明性与机器学习的适应性。</p>
+                    <p>工业 CFD 应用成熟，但血流动力学 CFD 在临床中的应用受到精度限制。HemoDyn 平台通过在生理表示与数值精度之间平衡资源来解决这一挑战。</p>
+                </div>
+            </section>
+
+            <section class="content-block">
+                <div class="text-content">
+                    <h4>方法架构</h4>
+                    <ul>
+                        <li><strong>一维血流求解器：</strong>基于 SimVascular 的 ROM 框架</li>
+                        <li><strong>氧气传输模拟：</strong>使用 Elmer 模拟氧气输送与消耗</li>
+                        <li><strong>穿戴设备集成：</strong>实时脉搏与血氧输入</li>
+                        <li><strong>机器学习层：</strong>神经网络在生理约束下学习临床结果</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="content-block">
+                <div class="text-content">
+                    <h4>实现流程</h4>
+                    <ol>
+                        <li>建立下肢血管解剖模型</li>
+                        <li>使用 Gmsh 网格并转换为 ElmerGrid 格式</li>
+                        <li>配置 ElmerSolver 模块</li>
+                        <li>运行 SimVascular ROM 与 ElmerSolver</li>
+                        <li>通过 VTK 可视化结果</li>
+                        <li>开发交互控件探索血管参数</li>
+                    </ol>
+                </div>
+            </section>
+
+            <section class="content-block">
+                <div class="text-content">
+                    <h3>模拟演示</h3>
+                    <p>以下视频展示了 HemoDyn 的模拟功能与界面：</p>
+
+                    <h4>血流动态</h4>
+                    <video class="simulation-video" controls>
+                        <source src="video.mp4" type="video/mp4"/>
+                    </video>
+
+                    <h4>用户界面演示</h4>
+                    <video class="simulation-video" controls>
+                        <source src="HemoDyn_video.mp4" type="video/mp4"/>
+                    </video>
+                </div>
+            </section>
+
+            <section class="content-block">
+                <div class="text-content">
+                    <h4>临床应用与未来方向</h4>
+                    <p>HemoDyn 在治疗下肢动脉闭塞症方面具有潜力，该病在65岁以上人群中发病率为12%，80岁以上达50%。当前挑战包括：</p>
+                    <ul>
+                        <li>难以短期评估治疗效果</li>
+                        <li>缺乏治疗效果的量化指标</li>
+                        <li>个体生理响应差异大</li>
+                    </ul>
+                    <p>平台与穿戴设备的闭环集成支持：</p>
+                    <ul>
+                        <li>持续监测脉搏和血氧</li>
+                        <li>自动采集静息和运动后数据</li>
+                        <li>云端分析与实时反馈</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="content-block">
+                <div class="text-content">
+                    <h4>合作邀请</h4>
+                    <p>当前数字健康技术多通过神经网络连接输入输出，生理模型很少被融入。即使被使用，也因速度慢与精度差被严重简化。要突破，算法需快速且能表达生理逻辑。</p>
+                    <p>斯坦福大学发布了唯一开源的血流模型，引发算法研究兴趣。我拥有30多年流体算法经验，致力于将血流模型应用于数字健康。</p>
+                    <p>我在 LinkedIn 提出：“是否存在一个值得尝试却未被尝试的 CFD 应用场景？”我认为 “在临床试验设计中，用血流 CFD 降低样本量” 是一个。文献中尚无相关报道。</p>
+                    <p>欢迎产品开发者联系我，共同推进这一方向。</p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="project-footer">
+            <p>© 2025 Zhenwen Wan. 保留所有权利。</p>
+        </footer>
+    </div>
+</body>
+</html>
+
