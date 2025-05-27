@@ -178,4 +178,10 @@ a {
     padding: 8px 0;
     border-bottom: 1px solid #233554;
 }
+.responsive-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
 
