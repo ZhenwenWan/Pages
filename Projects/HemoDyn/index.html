@@ -64,6 +64,41 @@
                     
                     <h4>PMINNs: Concept and Procedure</h4>
 <p>I propose an innovative methodology called Physiological Model-Informed Neural Networks (PMINNs), where a physiologically grounded model serves as a compact and interpretable architecture. Like traditional neural networks, PMINNs learn from data—but instead of learning abstract weights in a black-box, they estimate undetermined physiological parameters embedded within a mechanistic structure. This hybrid approach combines the interpretability of physiological models with the adaptability of machine learning.</p>
+                    <h5>PMINNs Procedure</h5>
+                    <p><strong>Step 1 – Model Generalization</strong></p>
+                    <ul>
+                        <li>Begin with a validated physiological model.</li>
+                        <li>Perform sensitivity analysis to identify the most influential parameters.</li>
+                        <li>Generalize the model by introducing symbolic placeholders (unknowns) where variability is needed.</li>
+                    </ul>
+
+                    <p><strong>Step 2 – Learning Process</strong></p>
+                    <ul>
+                        <li>Construct a learning pipeline similar to neural networks:</li>
+                        <li>Define a loss function (e.g., mean squared error between model outputs and biomedical measurements).</li>
+                        <li>Apply gradient-based optimization or probabilistic learning to estimate the unknown parameters.</li>
+                        <li>Incorporate regularization informed by physiological constraints, if applicable.</li>
+                    </ul>
+
+                    <p><strong>Step 3 – Interpretation</strong></p>
+                    <ul>
+                        <li>Translate the trained parameters back into physiologically meaningful values.</li>
+                        <li>Assess generalization using cross-validation or domain-specific validation (e.g., physiological plausibility, expert review).</li>
+                    </ul>
+
+                    <h5>Analogy to Neural Networks</h5>
+                    <table border="1" cellpadding="5">
+                        <thead>
+                            <tr><th>Neural Networks</th><th>PMINNs</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Layers</td><td>Model components (e.g., chambers, vessels)</td></tr>
+                            <tr><td>Nodes</td><td>Physiological parameters</td></tr>
+                            <tr><td>Weights</td><td>Undetermined values</td></tr>
+                            <tr><td>Activations</td><td>Mechanistic responses</td></tr>
+                            <tr><td>Training</td><td>Fitting model outputs to data</td></tr>
+                        </tbody>
+                    </table>
                 </div>
             </section>
 
