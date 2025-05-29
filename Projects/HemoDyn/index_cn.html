@@ -46,7 +46,7 @@
     <li>通过交叉验证（如生理合理性检查）评估模型的泛化能力。</li>
 </ul>
 
-<h5>PMINNs与神经网络的对比</h5>
+<h5>PMINNs与神经网络的同类性</h5>
 <table border="1" cellpadding="5">
 <thead><tr><th>神经网络</th><th>PMINNs</th></tr></thead>
 <tbody>
@@ -58,6 +58,38 @@
 </tbody>
 </table>
 </div>
+</section>
+<section class="content-block">
+    <div class="text-content">
+        <h4>PMINNs 与 PINNs 的比较分析</h4>
+        <p>融合生理模型的神经网络（PMINNs）提供了一种结构化、可解释的方式来从生物医学数据中学习。与物理信息神经网络（PINNs）相比，PMINNs 在透明性和针对生理系统的实际应用方面展现出明显优势。</p>
+
+        <h5>模型结构与可解释性</h5>
+        <p><strong>PINNs</strong> 将物理定律（如偏微分方程）嵌入神经网络的损失函数中。虽然遵循了物理约束，但其网络权重仍为黑箱参数，可解释性有限。</p>
+        <p><strong>PMINNs</strong> 保留了生理模型的结构，并具有明确的参数定义。这些参数具有医学意义，提升了模型的可信度和临床相关性。</p>
+
+        <h5>数据需求与训练效率</h5>
+        <p><strong>PINNs</strong> 可能需要大量数据，并在物理损失和数据损失之间精细平衡，训练过程复杂。</p>
+        <p><strong>PMINNs</strong> 利用现有生理结构的先验知识，使得在小样本数据下也能高效训练，且收敛速度更快。</p>
+
+        <h5>适用范围</h5>
+        <p><strong>PINNs</strong> 可广泛应用于各类物理系统建模，但在医学特定场景中通常需要大量定制。</p>
+        <p><strong>PMINNs</strong> 针对生理系统优化，特别适合用于临床分析、数字健康和个体化医疗等应用场景。</p>
+
+        <h5>对比总结表</h5>
+        <table border="1" cellpadding="5">
+            <thead>
+                <tr><th>特性</th><th>PINNs</th><th>PMINNs</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>集成方式</td><td>物理定律嵌入损失函数</td><td>生理模型嵌入网络结构</td></tr>
+                <tr><td>可解释性</td><td>低</td><td>高</td></tr>
+                <tr><td>数据需求</td><td>高</td><td>中到低</td></tr>
+                <tr><td>训练效率</td><td>不确定</td><td>潜在更高</td></tr>
+                <tr><td>应用领域</td><td>通用物理建模</td><td>生物医学与生理系统</td></tr>
+            </tbody>
+        </table>
+    </div>
 </section>
 <section class="content-block">
 <div class="text-content">

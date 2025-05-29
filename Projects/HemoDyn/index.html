@@ -101,7 +101,38 @@
                     </table>
                 </div>
             </section>
+<section class="content-block">
+    <div class="text-content">
+        <h4>Comparative Analysis: PMINNs vs. PINNs</h4>
+        <p>Physiological Model-Informed Neural Networks (PMINNs) introduce a structured, interpretable approach to learning from biomedical data. Compared to Physics-Informed Neural Networks (PINNs), PMINNs offer advantages in transparency and practical implementation for physiological systems.</p>
 
+        <h5>Model Structure and Interpretability</h5>
+        <p><strong>PINNs</strong> embed physical laws such as PDEs into neural network loss functions. While physics is respected, the network's weights are still black-box parameters. Interpretability is limited.</p>
+        <p><strong>PMINNs</strong>, in contrast, retain a physiological model structure with clearly defined parameters. These parameters are directly interpretable in medical terms, enhancing model trust and clinical relevance.</p>
+
+        <h5>Data Requirements and Training Efficiency</h5>
+        <p><strong>PINNs</strong> may require large datasets and careful balancing of data and physics losses, often resulting in complex optimization dynamics.</p>
+        <p><strong>PMINNs</strong> leverage known physiological structures, enabling more efficient learning with smaller datasets and faster convergence.</p>
+
+        <h5>Application Scope</h5>
+        <p><strong>PINNs</strong> have broad applicability across physics domains but need extensive adaptation for medical-specific scenarios.</p>
+        <p><strong>PMINNs</strong> are tailored to physiological systems, making them ideal for clinical applications, digital health, and personalized medicine.</p>
+
+        <h5>Summary Table</h5>
+        <table border="1" cellpadding="5">
+            <thead>
+                <tr><th>Feature</th><th>PINNs</th><th>PMINNs</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Integration Approach</td><td>Physics laws in loss function</td><td>Physiological models in architecture</td></tr>
+                <tr><td>Interpretability</td><td>Low</td><td>High</td></tr>
+                <tr><td>Data Requirements</td><td>High</td><td>Moderate to Low</td></tr>
+                <tr><td>Training Efficiency</td><td>Variable</td><td>Potentially Higher</td></tr>
+                <tr><td>Application Domains</td><td>General physical systems</td><td>Biomedical and physiological systems</td></tr>
+            </tbody>
+        </table>
+    </div>
+</section>
             <section class="content-block">
                 <div class="text-content">
                     <h4>Why is PMINNs necessary and how to implement specifically?</h4>
