@@ -34,8 +34,8 @@
         )
     def forward(self, x):
         raw = self.extractor(x)
-        alpha = 0.1 + 0.9 * raw[:, 0:1]
-        beta = 0.1 + 0.9 * raw[:, 1:2]
+        alpha = raw[:, 0:1]
+        beta =  raw[:, 1:2]
         return torch.cat([alpha, beta], dim=1)</code></pre>
                         A feedforward neural network extracts key physical parameters (e.g., α and β) from observed data.
                     </li>
