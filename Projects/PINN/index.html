@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PINN - Physics-Informed Neural Network</title>
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <main class="right-content">
+            <section id="pinn" class="section">
+                <h1>Inverse Modeling Neural Network with Physics-Informed Loss</h1>
+
+                <p>This approach combines data-driven learning with physics-based modeling to infer key physical parameters from observed data. The goal is to develop a neural network–physics hybrid model that enables inverse modeling of dynamic systems, using simulation constraints to ensure physically meaningful predictions. This framework is especially relevant for applications such as reduced-order modeling (ROM) in biomedical systems, e.g., predicting the progression of arterial occlusion from noninvasive measurements like tissue oxygenation.</p>
+
+                <h2>Purpose</h2>
+                <p>The primary objective is to infer hidden physical parameters—such as diffusivity and source strength in a heat conduction model—by comparing simulated outputs driven by learned parameters to noisy observed data. Unlike traditional forward models, which predict system behavior from known parameters, inverse modeling solves the harder problem of recovering the parameters themselves.</p>
+
+                <h2>Implementation Strategy</h2>
+                <ul>
+                    <li>
+                        <strong>Feature Extraction Layer (Neural Network):</strong>
+                        <pre><code>class FeatureNN(nn.Module):
+    def __init__(self, input_size):
+        super().__init__()
+        self.extractor = nn.Sequential(
+            nn.Linear(input_size, 64),
+            nn.ReLU(),
+            nn.Linear(64, 2),
+            nn.Sigmoid()
+        )
+    def forward(self, x):
+        raw = self.extractor(x)
+        alpha = 0.1 + 0.9 * raw[:, 0:1]
+        beta = 0.1 + 0.9 * raw[:, 1:2]
+        return torch.cat([alpha, beta], dim=1)</code></pre>
+                        A feedforward neural network extracts key physical parameters (e.g., α and β) from observed data.
+                    </li>
+
+                    <li>
+                        <strong>Physics Layer (Differentiable Numerical Solver):</strong>
+                        <pre><code>def forward_solver(self, alpha, beta, t):
+    dt = t / self.nt
+    r = alpha * dt / self.dx**2
+    ... # Crank-Nicolson time integration loop
+    return u_out</code></pre>
+                        A finite-difference solver written in PyTorch to simulate the system using inferred parameters.
+                    </li>
+
+                    <li>
+                        <strong>Loss Function (Physics-Informed Supervision):</strong>
+                        <pre><code>loss_physics = loss_fn(u_pred, u_observed)
+loss_param = 0.1 * (loss_fn(alpha, true_alpha) + loss_fn(beta, true_beta))
+total_loss = loss_physics + loss_param
+</code></pre>
+                        The model learns parameters by minimizing simulation discrepancy.
+                    </li>
+                </ul>
+
+                <h2>Advantages</h2>
+                <ul>
+                    <li><strong>End-to-End Differentiability:</strong> Enables gradient-based training through the entire system.</li>
+                    <li><strong>Physical Interpretability:</strong> Ensures learned features correspond to real physical quantities.</li>
+                    <li><strong>Simulation-Consistent Learning:</strong> Forces conformity with known physical laws.</li>
+                    <li><strong>Efficiency:</strong> Reduces the computational cost of full simulation during inference.</li>
+                </ul>
+
+                <h2>Validation</h2>
+                <p>The following figure shows convergence of predicted parameters to the true values used in training samples:</p>
+                <img src="PINN_Training_Convergence.png" alt="Training convergence plot">
+
+                <h2>Feasibility and Precedents</h2>
+                <p>This methodology is well-supported by literature in scientific machine learning. Hybrid physics-informed frameworks have been successfully applied in aerospace, fluid mechanics, and biomechanics (e.g., Journal of Fluids and Structures, 2017; ERCOFTAC workshops, 2025), validating its robustness and utility.</p>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>
+
