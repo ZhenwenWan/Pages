@@ -49,6 +49,13 @@
 
             <section class="content-block">
                 <div class="text-content">
+                    <h3>Feasibility and Precedents</h3>
+                    <p>This methodology is well-supported by existing literature in scientific machine learning. Similar hybrid and physics-informed frameworks have been applied successfully in fields like aerospace, fluid mechanics, and structural dynamics (e.g., <em>Journal of Fluids and Structures</em>, 2017; ERCOFTAC workshops, 2025). These precedents validate both the theoretical soundness and practical relevance of embedding physical constraints into learning pipelines, especially when data are limited and interpretability is critical.</p>
+                </div>
+            </section>
+
+            <section class="content-block">
+                <div class="text-content">
                     <h3>Implementation Strategy</h3>
                     <ul class="feature-list">
                         <li><strong>Feature Extraction Layer (Neural Network):</strong> A feedforward neural network takes raw observational inputs (e.g., spatial or temporal fields generated analytically with known parameters and corrupted by noise) and learns to extract key physical parameters (e.g., α and β). These are treated as latent features that the network attempts to infer from the data.</li>
@@ -62,18 +69,12 @@
 
             <section class="content-block">
                 <div class="text-content">
-                    <h3>Validation</h3>
+                    <h3>Validation Case 1</h3>
                     <p>The following figure shows convergence of predicted parameters to the true values used in training samples:</p>
                 </div>
                 <img src="PINN_Training_Convergence.png" alt="Training convergence plot" class="visual-content">
             </section>
 
-            <section class="content-block">
-                <div class="text-content">
-                    <h3>Feasibility and Precedents</h3>
-                    <p>This methodology is well-supported by existing literature in scientific machine learning. Similar hybrid and physics-informed frameworks have been applied successfully in fields like aerospace, fluid mechanics, and structural dynamics (e.g., <em>Journal of Fluids and Structures</em>, 2017; ERCOFTAC workshops, 2025). These precedents validate both the theoretical soundness and practical relevance of embedding physical constraints into learning pipelines, especially when data are limited and interpretability is critical.</p>
-                </div>
-            </section>
         </main>
 
         <footer class="project-footer">
