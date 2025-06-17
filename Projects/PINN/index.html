@@ -70,9 +70,13 @@
             <section class="content-block">
                 <div class="text-content">
                     <h3>Validation Case 1</h3>
-		    <p>Implementatioon code:</p>
+		    <p>Implementation code:</p>
 		    <p>https://github.com/ZhenwenWan/Hemodyn/blob/main/DSML/NN_Physics_Hybrid_Training.py</p>
-                    <p>The following figure shows convergence of predicted parameters to the true values used in training samples:</p>
+		    <p>class Heat1DModelTorch is used to deliver analytical solutions which form sythesized data with added noise.</p>
+		    <p>class  PhysicsLayer is used to deliver numerical solutions.</p>
+		    <p>class  FeatureNN is a neural network for extracting feature parameters.</p>
+		    <p>The sythesized data noise represents both uncertainities from parameters and the system.</p>
+                    <p>The following figure shows convergence of predicted parameters to the values preset for the analytical solution:</p>
                 </div>
                 <img src="PINN_Training_Convergence.png" alt="Training convergence plot" class="visual-content">
             </section>
