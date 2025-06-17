@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
 </head>
 
 <body>
@@ -70,8 +71,8 @@
             <section class="content-block">
                 <div class="text-content">
                     <h3>Application Scenarios</h3>
-		            <p>Case 1 <a href="https://github.com/ZhenwenWan/Hemodyn/blob/main/DSML/NN_Physics_Hybrid_Training.py">Code</a></p>
-		            <p><strong>Mathematical Description:</strong> This case implements a physics-informed neural network to solve the inverse problem in a 1D heat conduction system. The goal is to learn physical parameters \( \alpha \) and \( \beta \) from noisy solution data \( u(x, t) \).</p>
+	            <p>Case 1 <a href="https://github.com/ZhenwenWan/Hemodyn/blob/main/DSML/NN_Physics_Hybrid_Training.py">Code</a></p>
+	            <p><strong>Mathematical Description:</strong> This case implements a physics-informed neural network to solve the inverse problem in a 1D heat conduction system. The goal is to learn physical parameters \( \alpha \) and \( \beta \) from noisy solution data \( u(x, t) \).</p>
                     <ul>
                         <li><strong>Heat Equation:</strong> \( \frac{\partial u}{\partial t} = \alpha \frac{\partial^2 u}{\partial x^2} + \beta \sin(\pi x) \)</li>
                         <li><strong>Analytical Solution:</strong> \( u(x, t) = \sin(\pi x) \left[ e^{-\pi^2 \alpha t} + \frac{\beta}{\pi^2 \alpha}(1 - e^{-\pi^2 \alpha t}) \right] \)</li>
