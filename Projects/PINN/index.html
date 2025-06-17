@@ -70,11 +70,15 @@
             <section class="content-block">
                 <div class="text-content">
                     <h3>Application Scenarios</h3>
-		    <p>Case 1 <a href="https://github.com/ZhenwenWan/Hemodyn/blob/main/DSML/NN_Physics_Hybrid_Training.py">Code</a></p>
-		    <p>class Heat1DModelTorch is used to deliver analytical solutions which form sythesized data with added noise.</p>
-		    <p>class  PhysicsLayer is used to deliver numerical solutions.</p>
-		    <p>class  FeatureNN is a neural network for extracting feature parameters.</p>
-		    <p>The sythesized data noise represents both uncertainities from parameters and the system.</p>
+		            <p>Case 1 <a href="https://github.com/ZhenwenWan/Hemodyn/blob/main/DSML/NN_Physics_Hybrid_Training.py">Code</a></p>
+		            <p><strong>Mathematical Description:</strong> This case implements a physics-informed neural network to solve the inverse problem in a 1D heat conduction system. The goal is to learn physical parameters \( \alpha \) and \( \beta \) from noisy solution data \( u(x, t) \).</p>
+                    <ul>
+                        <li><strong>Heat Equation:</strong> \( \frac{\partial u}{\partial t} = \alpha \frac{\partial^2 u}{\partial x^2} + \beta \sin(\pi x) \)</li>
+                        <li><strong>Analytical Solution:</strong> \( u(x, t) = \sin(\pi x) \left[ e^{-\pi^2 \alpha t} + \frac{\beta}{\pi^2 \alpha}(1 - e^{-\pi^2 \alpha t}) \right] \)</li>
+                        <li><strong>Numerical Solver:</strong> Crank–Nicolson scheme is used for time-stepping the PDE numerically in a differentiable manner.</li>
+                        <li><strong>Neural Network:</strong> Maps noisy field \( u(x, t) \) to \( (\alpha, \beta) \in (0, 1)^2 \) using a two-layer MLP.</li>
+                        <li><strong>Loss:</strong> \( \mathcal{L} = \| u_{\text{pred}} - u_{\text{true}} \|^2 \), ensuring that learned parameters replicate the observed dynamics.</li>
+                    </ul>
                     <p>The following figure shows convergence of predicted parameters to the values preset for the analytical solution:</p>
                 </div>
                 <img src="PINN_Training_Convergence.png" alt="Training convergence plot" class="visual-content">
