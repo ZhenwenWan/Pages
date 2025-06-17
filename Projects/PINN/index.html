@@ -37,6 +37,18 @@
 
             <section class="content-block">
                 <div class="text-content">
+                    <h3>Advantages</h3>
+                    <ul class="feature-list">
+                        <li><strong>End-to-End Differentiability:</strong> The entire model, including the physics solver, is differentiable, enabling gradient-based training.</li>
+                        <li><strong>Physical Interpretability:</strong> The learned features correspond to meaningful physical quantities.</li>
+                        <li><strong>Simulation-Consistent Learning:</strong> The model respects the underlying physics throughout the learning process.</li>
+                        <li><strong>Efficiency:</strong> The model learns a reduced representation of a full simulation, offering potential speed-ups during deployment.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="content-block">
+                <div class="text-content">
                     <h3>Implementation Strategy</h3>
                     <ul class="feature-list">
                         <li><strong>Feature Extraction Layer (Neural Network):</strong> A feedforward neural network takes raw observational inputs (e.g., spatial or temporal fields generated analytically with known parameters and corrupted by noise) and learns to extract key physical parameters (e.g., α and β). These are treated as latent features that the network attempts to infer from the data.</li>
@@ -44,18 +56,6 @@
                         <li><strong>Physics Layer (Differentiable Numerical Solver):</strong> The extracted parameters are passed to a physics-based solver that numerically simulates the system using a differentiable formulation (rewritten entirely in PyTorch). This solver serves as a physics constraint layer that translates parameters into predicted system behavior, ensuring that the network's outputs conform to the known physical laws.</li>
 
                         <li><strong>Loss Function (Physics-Informed Supervision):</strong> The training loss is computed by comparing the numerical solution driven by predicted parameters to the original noisy observational input. This enforces that the predicted parameters, when used in simulation, reproduce the input data. All inputs are generated using fixed ground-truth parameters, and the network is trained to recover these parameters by minimizing this discrepancy.</li>
-                    </ul>
-                </div>
-            </section>
-
-            <section class="content-block">
-                <div class="text-content">
-                    <h3>Advantages</h3>
-                    <ul class="feature-list">
-                        <li><strong>End-to-End Differentiability:</strong> The entire model, including the physics solver, is differentiable, enabling gradient-based training.</li>
-                        <li><strong>Physical Interpretability:</strong> The learned features correspond to meaningful physical quantities.</li>
-                        <li><strong>Simulation-Consistent Learning:</strong> The model respects the underlying physics throughout the learning process.</li>
-                        <li><strong>Efficiency:</strong> The model learns a reduced representation of a full simulation, offering potential speed-ups during deployment.</li>
                     </ul>
                 </div>
             </section>
