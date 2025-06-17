@@ -24,15 +24,14 @@
             <section class="content-block">
                 <div class="text-content">
                     <h3>Inverse Modeling Neural Network with Physics-Informed Loss</h3>
-                    <p>This approach combines data-driven learning with physics-based modeling to infer key physical parameters from observed data...</p>
-                    <p>The goal is to develop a hybrid model that enables inverse modeling of dynamic systems...</p>
+                    <p>This approach combines data-driven learning with physics-based modeling to infer key physical parameters from observed data. The goal is to develop a neural network–physics hybrid model that enables inverse modeling of dynamic systems, using simulation constraints to ensure physically meaningful predictions. This framework is especially relevant for applications such as reduced-order modeling (ROM) in biomedical systems, e.g., predicting the progression of arterial occlusion from noninvasive measurements like tissue oxygenation.</p>
                 </div>
             </section>
 
             <section class="content-block">
                 <div class="text-content">
                     <h3>Purpose</h3>
-                    <p>The primary objective is to infer hidden physical parameters...</p>
+                    <p>The primary objective is to infer hidden physical parameters—such as diffusivity and source strength in a heat conduction model—by comparing simulated outputs driven by learned parameters to noisy observed data. Unlike traditional forward models, which predict system behavior from known parameters, inverse modeling solves the harder problem of recovering the parameters themselves.</p>
                 </div>
             </section>
 
@@ -40,9 +39,11 @@
                 <div class="text-content">
                     <h3>Implementation Strategy</h3>
                     <ul class="feature-list">
-                        <li><strong>Feature Extraction Layer:</strong> A neural network extracts α and β from observed data.</li>
-                        <li><strong>Physics Layer:</strong> A differentiable solver performs time integration using inferred parameters.</li>
-                        <li><strong>Loss Function:</strong> Combines simulation error and parameter supervision.</li>
+                        <li><strong>Feature Extraction Layer (Neural Network):</strong> A feedforward neural network takes raw observational inputs (e.g., spatial or temporal fields generated analytically with known parameters and corrupted by noise) and learns to extract key physical parameters (e.g., α and β). These are treated as latent features that the network attempts to infer from the data.</li>
+
+                        <li><strong>Physics Layer (Differentiable Numerical Solver):</strong> The extracted parameters are passed to a physics-based solver that numerically simulates the system using a differentiable formulation (rewritten entirely in PyTorch). This solver serves as a physics constraint layer that translates parameters into predicted system behavior, ensuring that the network's outputs conform to the known physical laws.</li>
+
+                        <li><strong>Loss Function (Physics-Informed Supervision):</strong> The training loss is computed by comparing the numerical solution driven by predicted parameters to the original noisy observational input. This enforces that the predicted parameters, when used in simulation, reproduce the input data. All inputs are generated using fixed ground-truth parameters, and the network is trained to recover these parameters by minimizing this discrepancy.</li>
                     </ul>
                 </div>
             </section>
@@ -51,10 +52,10 @@
                 <div class="text-content">
                     <h3>Advantages</h3>
                     <ul class="feature-list">
-                        <li>End-to-End Differentiability</li>
-                        <li>Physical Interpretability</li>
-                        <li>Simulation-Consistent Learning</li>
-                        <li>Efficiency</li>
+                        <li><strong>End-to-End Differentiability:</strong> The entire model, including the physics solver, is differentiable, enabling gradient-based training.</li>
+                        <li><strong>Physical Interpretability:</strong> The learned features correspond to meaningful physical quantities.</li>
+                        <li><strong>Simulation-Consistent Learning:</strong> The model respects the underlying physics throughout the learning process.</li>
+                        <li><strong>Efficiency:</strong> The model learns a reduced representation of a full simulation, offering potential speed-ups during deployment.</li>
                     </ul>
                 </div>
             </section>
@@ -62,7 +63,7 @@
             <section class="content-block">
                 <div class="text-content">
                     <h3>Validation</h3>
-                    <p>The following figure shows convergence of predicted parameters...</p>
+                    <p>The following figure shows convergence of predicted parameters to the true values used in training samples:</p>
                 </div>
                 <img src="PINN_Training_Convergence.png" alt="Training convergence plot" class="visual-content">
             </section>
@@ -70,7 +71,7 @@
             <section class="content-block">
                 <div class="text-content">
                     <h3>Feasibility and Precedents</h3>
-                    <p>Supported by literature in scientific ML. Successfully applied in aerospace, fluid mechanics...</p>
+                    <p>This methodology is well-supported by existing literature in scientific machine learning. Similar hybrid and physics-informed frameworks have been applied successfully in fields like aerospace, fluid mechanics, and structural dynamics (e.g., <em>Journal of Fluids and Structures</em>, 2017; ERCOFTAC workshops, 2025). These precedents validate both the theoretical soundness and practical relevance of embedding physical constraints into learning pipelines, especially when data are limited and interpretability is critical.</p>
                 </div>
             </section>
         </main>
