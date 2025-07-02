@@ -93,7 +93,7 @@
       <section class="content-block">
         <div class="text-content">
           <h3>Case 1 — Inverse modeling a 1D heat conduction system with fixed parameters</h3>
-          <p><a href="https://github.com/ZhenwenWan/Hemodyn/blob/main/DSML/NN_Physics_Hybrid_Training.py">Code implementation 1</a></p>
+          <p><a href="https://github.com/ZhenwenWan/Hemodyn/blob/main/DSML/NNP_Dif.py">Code implementation 1</a></p>
           <ul>
             <li><strong>Heat Equation:</strong> \( \frac{\partial u}{\partial t} = \alpha \frac{\partial^2 u}{\partial x^2} + \beta \sin(\pi x) \)</li>
             <li><strong>Analytical Solution:</strong>
@@ -124,7 +124,6 @@
               \[
               u(x,t) = \frac{1}{\sqrt{4\pi \alpha t}} \exp\left(-\frac{(x - vt - 0.5)^2}{4\alpha t}\right)
               \]
-              Matches the implementation in your `PhysicsModel.py`.
             </li>
             <li><strong>Numerical Solver:</strong> Implicit finite difference
               scheme handling both advection and diffusion; inlet conditions
