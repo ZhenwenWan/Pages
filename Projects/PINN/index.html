@@ -154,19 +154,19 @@
   <section>
     <h2>Case 4 — Inverse modeling a 1D hemodynamic system</h2>
     <p>The governing equations are based on conservation of mass and momentum, expressed in terms of flow rate <var>Q(x,t)</var> and cross‑sectional area <var>A(x,t)</var>:</p>
-    <h3>Conservation of Mass:</h3>
+    <li><strong>Conservation of Mass:</strong></li>
     <p>$$\frac{\partial A}{\partial t} + \frac{\partial Q}{\partial x} = 0$$</p>
-    <h3>Conservation of Momentum:</h3>
+    <li><strong>Conservation of Momentum:</strong></li>
     <p>$$\frac{\partial Q}{\partial t} + \frac{\partial}{\partial x} \left( \alpha \frac{Q^2}{A} \right) + \frac{A}{\rho} \frac{\partial P}{\partial x} = -K_R \frac{Q}{A}$$</p>
     <p>The pressure <var>P</var> is related to the cross‑sectional area <var>A</var> through a constitutive relation:</p>
     <p>$$P = P_0 + \beta \left( \sqrt{A} - \sqrt{A_0} \right)$$</p>
     <p>where <var>β</var> is the stiffness parameter, <var>A₀</var> the reference area, and <var>P₀</var> the reference pressure.</p>
     <p>To numerically solve these PDEs, boundary conditions are required:</p>
-    <h3>Inlet Boundary Conditions</h3>
+    <li><strong>Inlet Boundary Conditions</strong></li>
     <ul>
       <li>Prescribe both <var>Q(t)</var> and <var>P(t)</var> (or equivalently <var>A(t)</var>) at the inlet to uniquely define inflow and pressure dynamics.</li>
     </ul>
-    <h3>Outlet Boundary Conditions</h3>
+    <li><strong>Outlet Boundary Conditions</strong></li>
     <p>Only <var>P(t)</var> is prescribed; <var>Q(t)</var> is inferred using one of four common models:</p>
     <ol>
       <li><strong>Dirichlet (Prescribed Pressure)</strong>: directly specify <var>P(t)</var>.</li>
