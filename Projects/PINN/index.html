@@ -1,141 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PINN - Physics-Informed Neural Network</title>
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
 
+<body>
+  <div class="project-container">
+    <header class="project-header">
+      <a href="../../index.html" class="back-link">
+        <i class="fas fa-arrow-left"></i> Back to Main
+      </a>
+      <h1>PINN</h1>
+      <h2>Physics-Informed Neural Network</h2>
+    </header>
 
+    <main class="project-content">
+      <section class="content-block">
+        <div class="text-content">
+          <h3>Inverse Modeling Neural Network with Physics-Informed Loss</h3>
+          <p>
+            This approach combines data-driven learning with physics-based
+            modeling to infer key physical parameters from observed data. The
+            goal is to develop a neural network–physics hybrid model that
+            enables inverse modeling of dynamic systems, using simulation
+            constraints to ensure physically meaningful predictions. This
+            framework is especially relevant for applications such as
+            reduced-order modeling (ROM) in biomedical systems, e.g.,
+            predicting the progression of arterial occlusion from noninvasive
+            measurements like tissue oxygenation.
+          </p>
+        </div>
+        <img src="PINN_Overview.png" alt="PINN Overview" class="visual-content" />
+      </section>
 
-<main class="project-content">
-  <section class="content-block">
-    <div class="text-content">
-      <h3>Inverse Modeling Neural Network with Physics-Informed Loss</h3>
-      <p>
-        This approach combines data-driven learning with physics-based
-        modeling to infer key physical parameters from observed data. The
-        goal is to develop a neural network–physics hybrid model that
-        enables inverse modeling of dynamic systems, using simulation
-        constraints to ensure physically meaningful predictions. This
-        framework is especially relevant for applications such as
-        reduced-order modeling (ROM) in biomedical systems, e.g.,
-        predicting the progression of arterial occlusion from noninvasive
-        measurements like tissue oxygenation.
-      </p>
-    </div>
-  </section>
+      <section class="content-block">
+        <div class="text-content">
+          <h3>Purpose</h3>
+          <p>
+            The primary objective is to infer hidden physical parameters—such
+            as diffusivity and source strength in a heat conduction model—by
+            comparing simulated outputs driven by learned parameters to noisy
+            observed data. Unlike traditional forward models, which predict
+            system behavior from known parameters, inverse modeling solves the
+            harder problem of recovering the parameters themselves.
+          </p>
+        </div>
+      </section>
 
-  <section class="content-block">
-    <div class="text-content">
-      <h3>Purpose</h3>
-      <p>
-        The primary objective is to infer hidden physical parameters—such
-        as diffusivity and source strength in a heat conduction model—by
-        comparing simulated outputs driven by learned parameters to noisy
-        observed data. Unlike traditional forward models, which predict
-        system behavior from known parameters, inverse modeling solves the
-        harder problem of recovering the parameters themselves.
-      </p>
-    </div>
-  </section>
+      <section class="feature-grid">
+        <div class="feature-card">
+          <h4>End-to-End Differentiability</h4>
+          <p>The entire model, including the physics solver, is differentiable, enabling gradient-based training.</p>
+        </div>
+        <div class="feature-card">
+          <h4>Physical Interpretability</h4>
+          <p>The learned features correspond to meaningful physical quantities.</p>
+        </div>
+        <div class="feature-card">
+          <h4>Simulation-Consistent Learning</h4>
+          <p>The model respects the underlying physics throughout the learning process.</p>
+        </div>
+        <div class="feature-card">
+          <h4>Efficiency</h4>
+          <p>The model learns a reduced representation of a full simulation, offering potential speed-ups during deployment.</p>
+        </div>
+      </section>
 
-  <section class="content-block">
-    <div class="text-content">
-      <h3>Advantages</h3>
-      <ul class="feature-list">
-        <li><strong>End-to-End Differentiability:</strong> The entire model,
-          including the physics solver, is differentiable, enabling
-          gradient-based training.</li>
-        <li><strong>Physical Interpretability:</strong> The learned
-          features correspond to meaningful physical quantities.</li>
-        <li><strong>Simulation-Consistent Learning:</strong> The model
-          respects the underlying physics throughout the learning
-          process.</li>
-        <li><strong>Efficiency:</strong> The model learns a reduced
-          representation of a full simulation, offering potential speed-ups
-          during deployment.</li>
-      </ul>
-    </div>
-  </section>
+      <section class="content-block">
+        <div class="text-content">
+          <h3>Feasibility and Precedents</h3>
+          <p>
+            This methodology is well-supported by existing literature in
+            scientific machine learning. Similar hybrid and physics-informed
+            frameworks have been applied successfully in fields like
+            aerospace, fluid mechanics, and structural dynamics (e.g., Journal
+            of Fluids and Structures, 2017; ERCOFTAC workshops, 2025). These
+            precedents validate both the theoretical soundness and practical
+            relevance of embedding physical constraints into learning
+            pipelines, especially when data are limited and interpretability is
+            critical.
+          </p>
+        </div>
+      </section>
 
-  <section class="content-block">
-    <div class="text-content">
-      <h3>Feasibility and Precedents</h3>
-      <p>
-        This methodology is well-supported by existing literature in
-        scientific machine learning. Similar hybrid and physics-informed
-        frameworks have been applied successfully in fields like
-        aerospace, fluid mechanics, and structural dynamics (e.g., Journal
-        of Fluids and Structures, 2017; ERCOFTAC workshops, 2025). These
-        precedents validate both the theoretical soundness and practical
-        relevance of embedding physical constraints into learning
-        pipelines, especially when data are limited and interpretability is
-        critical.
-      </p>
-    </div>
-  </section>
+      <!-- Case 1 -->
+      <section class="content-block reversed">
+        <div class="text-content">
+          <h3>Case 1 — Inverse modeling a 1D heat conduction system</h3>
+          <p><a href="https://github.com/ZhenwenWan/Hemodyn/blob/main/DSML/NNP_Dif.py">Code implementation 1</a></p>
+        </div>
+        <img src="PINN_Training_Convergence.png" alt="Training convergence plot" class="visual-content" />
+        <div class="spec-grid">
+          <div class="spec-card">
+            <i class="fas fa-cogs"></i>
+            <h4>Heat Equation</h4>
+            <p>∂u/∂t = α ∂²u/∂x² + β sin(πx)</p>
+          </div>
+          <div class="spec-card">
+            <i class="fas fa-cogs"></i>
+            <h4>Analytical Solution</h4>
+            <p>u(x,t) = sin(πx) [e^(−π²αt) + β/(π²α)(1 − e^(−π²αt))]</p>
+          </div>
+          <div class="spec-card">
+            <i class="fas fa-cogs"></i>
+            <h4>Numerical Solver</h4>
+            <p>Crank–Nicolson scheme for differentiable time-stepping.</p>
+          </div>
+          <div class="spec-card">
+            <i class="fas fa-cogs"></i>
+            <h4>Neural Network</h4>
+            <p>Maps noisy u(x,t) to (α, β) ∈ (0,1)² using a two-layer MLP.</p>
+          </div>
+          <div class="spec-card">
+            <i class="fas fa-cogs"></i>
+            <h4>Loss</h4>
+            <p>L = ||u_pred − u_true||², ensuring observed dynamics replication.</p>
+          </div>
+        </div>
+      </section>
 
-  <!-- Case 1 -->
-  <section class="content-block">
-    <div class="text-content">
-      <h3>Case 1 — Inverse modeling a 1D heat conduction system with fixed parameters</h3>
-      <p><a href="https://github.com/ZhenwenWan/Hemodyn/blob/main/DSML/NNP_Dif.py">Code implementation 1</a></p>
-      <ul>
-        <li><strong>Heat Equation:</strong> \( \frac{\partial u}{\partial t} = \alpha \frac{\partial^2 u}{\partial x^2} + \beta \sin(\pi x) \)</li>
-        <li><strong>Analytical Solution:</strong>
-          \[
-          u(x, t) = \sin(\pi x) \left[ e^{-\pi^2 \alpha t} + \frac{\beta}{\pi^2 \alpha}(1 - e^{-\pi^2 \alpha t}) \right]
-          \]
-        </li>
-        <li><strong>Numerical Solver:</strong> Crank–Nicolson scheme is
-          used for time-stepping the PDE numerically in a differentiable
-          manner.</li>
-        <li><strong>Neural Network:</strong> Maps noisy field
-          \(u(x, t)\) to \((\alpha, \beta) \in (0, 1)^2\) using a
-          two-layer MLP.</li>
-        <li><strong>Loss:</strong> \(\mathcal{L} = \| u_{\text{pred}} - u_{\text{true}} \|^2\), ensuring that learned parameters replicate the observed dynamics.</li>
-      </ul>
-      <img src="PINN_Training_Convergence.png" alt="Training convergence plot" class="visual-content" />
-    </div>
-  </section>
+      <!-- Case 2 -->
+      <section class="content-block reversed">
+        <div class="text-content">
+          <h3>Case 2 — Inverse modeling a 1D advection–diffusion system</h3>
+          <p><a href="https://github.com/ZhenwenWan/Hemodyn/blob/main/DSML/NNP_AdvDif.py">Code implementation 2</a></p>
+        </div>
+        <img src="PNN_AdvDif.png" alt="Advection-Diffusion training convergence plot" class="visual-content" />
+        <div class="spec-grid">
+          <div class="spec-card">
+            <i class="fas fa-cogs"></i>
+            <h4>Advection–Diffusion Equation</h4>
+            <p>∂u/∂t + v ∂u/∂x = α ∂²u/∂x²</p>
+          </div>
+          <div class="spec-card">
+            <i class="fas fa-cogs"></i>
+            <h4>Analytical Solution</h4>
+            <p>u(x,t) = (1/√(4παt)) exp(−(x − vt − 0.5)²/(4αt))</p>
+          </div>
+          <div class="spec-card">
+            <i class="fas fa-cogs"></i>
+            <h4>Numerical Solver</h4>
+            <p>Implicit finite difference scheme for advection and diffusion.</p>
+          </div>
+          <div class="spec-card">
+            <i class="fas fa-cogs"></i>
+            <h4>Neural Network</h4>
+            <p>Predicts (α, v) ∈ (0,1)² from noisy u(x,t) snapshots.</p>
+          </div>
+          <div class="spec-card">
+            <i class="fas fa-cogs"></i>
+            <h4>Loss</h4>
+            <p>L = ||u_pred − u_true||², ensuring physics-consistent recovery.</p>
+          </div>
+        </div>
+      </section>
 
-  <!-- Case 2 -->
-  <section class="content-block">
-    <div class="text-content">
-      <h3>Case 2 — Inverse modeling a 1D advection–diffusion system with fixed parameters</h3>
-      <p><a href="https://github.com/ZhenwenWan/Hemodyn/blob/main/DSML/NNP_AdvDif.py">Code implementation 2</a></p>
-      <ul>
-        <li><strong>Advection–Diffusion Equation:</strong> \( \frac{\partial u}{\partial t} + v \frac{\partial u}{\partial x} = \alpha \frac{\partial^2 u}{\partial x^2} \)</li>
-        <li><strong>Analytical Solution:</strong>
-          \[
-          u(x,t) = \frac{1}{\sqrt{4\pi \alpha t}} \exp\left(-\frac{(x - vt - 0.5)^2}{4\alpha t}\right)
-          \]
-        </li>
-        <li><strong>Numerical Solver:</strong> Implicit finite difference
-          scheme handling both advection and diffusion; inlet conditions
-          are defined by the analytical solution.</li>
-        <li><strong>Neural Network:</strong> Learns to predict
-          \((\alpha, v) \in (0,1)^2\) from noisy snapshots of \(u(x,t)\).</li>
-        <li><strong>Loss:</strong> \(\mathcal{L} = \| u_{\text{pred}} - u_{\text{true}} \|^2\), ensuring physics-consistent parameter recovery.</li>
-      </ul>
-      <img src="PNN_AdvDif.png" alt="Advection-Diffusion training convergence plot" class="visual-content" />
-    </div>
-  </section>
+      <!-- Case 3 -->
+      <section class="content-block reversed">
+        <div class="text-content">
+          <h3>Case 3 — Inverse modeling a 1D advection–diffusion–reaction system</h3>
+          <p><a href="https://github.com/ZhenwenWan/Hemodyn/blob/main/DSML/NNP_AdvDifRea.py">Code implementation 3</a></p>
+        </div>
+        <img src="PNN_AdvDifRea.png" alt="Advection-Diffusion-Reaction training convergence plot" class="visual-content" />
+        <div class="spec-grid">
+          <div class="spec-card">
+            <i class="fas fa-cogs"></i>
+            <h4>Advection–Diffusion–Reaction Equation</h4>
+            <p>∂u/∂t + v ∂u/∂x = α ∂²u/∂x² + R(u), with heterogeneous R(u).</p>
+          </div>
+          <div class="spec-card">
+            <i class="fas fa-cogs"></i>
+            <h4>Synthesized Data</h4>
+            <p>Noisy u(x,t) from forward PDE with (α, v, r_0, r_1), Gaussian noise.</p>
+          </div>
+          <div class="spec-card">
+            <i class="fas fa-cogs"></i>
+            <h4>Numerical Solver</h4>
+            <p>Implicit finite difference for advection, diffusion, reactions.</p>
+          </div>
+          <div class="spec-card">
+            <i class="fas fa-cogs"></i>
+            <h4>Neural Network</h4>
+            <p>Maps noisy u(x,t) to (α, v, r_0, r_1) using two-layer MLP.</p>
+          </div>
+          <div class="spec-card">
+            <i class="fas fa-cogs"></i>
+            <h4>Loss</h4>
+            <p>L = ||u_pred − u_true||², enabling inverse inference.</p>
+          </div>
+        </div>
+      </section>
 
-  <!-- Case 3 -->
-  <section class="content-block">
-    <div class="text-content">
-      <h3>Case 3 — Inverse modeling a 1D advection–diffusion–reaction system with fixed parameters</h3>
-      <p><a href="https://github.com/ZhenwenWan/Hemodyn/blob/main/DSML/NNP_AdvDifRea.py">Code implementation 3</a></p>
-      <ul>
-        <li><strong>Advection–Diffusion–Reaction Equation:</strong> \( \frac{\partial u}{\partial t} + v \frac{\partial u}{\partial x} = \alpha \frac{\partial^2 u}{\partial x^2} + R(u) \), where \( R(u) \) models spatially heterogeneous reaction terms.</li>
-        <li><strong>Synthesized Data Samples:</strong> Noisy measurements of \( u(x,t) \) are generated by simulating the forward PDE solver with known parameters \((\alpha, v, r_0, r_1)\) at random time points. Gaussian noise is added to simulate observation uncertainty.</li>
-        <li><strong>Numerical Solver:</strong> Implicit finite difference scheme that handles all three processes—advection, diffusion, and spatially varying reactions—implemented as a differentiable module for backpropagation.</li>
-        <li><strong>Neural Network:</strong> Maps input pairs of noisy solution fields and time into predicted parameters \((\alpha, v, r_0, r_1)\), using a two-layer MLP with bounded sigmoid output scaled to physical ranges.</li>
-        <li><strong>Loss:</strong> \(\mathcal{L} = \| u_{\text{pred}} - u_{\text{true}} \|^2\), comparing simulated outputs under predicted parameters to noisy observations, enabling inverse inference.</li>
-      </ul>
-      <img src="PNN_AdvDifRea.png" alt="Advection-Diffusion-Reaction training convergence plot" class="visual-content" />
-    </div>
-  </section>
-</main>
+      <section class="content-block reversed">
+        <div class="text-content">
+          <h3>Source and Implementation</h3>
+          <p>Code implementations for PINN cases:</p>
+          <p><a href="https://github.com/ZhenwenWan/Hemodyn/blob/main/DSML/NNP_Dif.py">Case 1: Heat Conduction</a></p>
+          <p><a href="https://github.com/ZhenwenWan/Hemodyn/blob/main/DSML/NNP_AdvDif.py">Case 2: Advection-Diffusion</a></p>
+          <p><a href="https://github.com/ZhenwenWan/Hemodyn/blob/main/DSML/NNP_AdvDifRea.py">Case 3: Advection-Diffusion-Reaction</a></p>
+        </div>
+      </section>
+    </main>
 
-<footer class="project-footer">
-  <p>&copy; 2025 Zhenwen Wan. All rights reserved.</p>
-</footer>
+    <footer class="project-footer">
+      <div class="social-icons"></div>
+      <p>&copy; 2025 Zhenwen Wan. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
 
-
+</html>
