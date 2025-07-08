@@ -175,6 +175,41 @@
       <li><strong>Impedance/Structured Tree</strong>: uses impedance or structured tree model—<var>Q(t)</var> is computed via convolution with the inverse FT of admittance.</li>
     </ol>
     <p>In all cases, the user prescribes <var>P(t)</var> (or its defining parameters), and the solver infers <var>Q(t)</var> based on the chosen outlet model.</p>
+    <h4>Numerical Algorithm</h4>
+    <p><strong>Unknown fields:</strong> \(P_{i,j}, Q_{i,j}, A_{i,j}\) over \(i=0,\dots,N_x-1\); \(j=0,\dots,N_t-1\). Total unknowns: <em>3·N<sub>x</sub>·N<sub>t</sub></em>.</p>
+
+    <p><strong>Constraints:</strong></p>
+    <ul>
+      <li><strong>Initialization</strong> (\(j=0\)): \(P_{i,0}, Q_{i,0}, A_{i,0}\) are prescribed.</li>
+      <li><strong>Periodicity</strong> (\(j=N_t-1\)): \(P_{i,N_t-1}=P_{i,0}\), \(Q_{i,N_t-1}=Q_{i,0}\), \(A_{i,N_t-1}=A_{i,0}\).</li>
+      <li><strong>Boundary Conditions</strong>:
+        <ul>
+          <li>Inlet (\(i=0\)): both \(Q_{0,j}\) and \(P_{0,j}\) provided.</li>
+          <li>Outlet (\(i=N_x-1\)): \(P_{N_x-1,j}\) prescribed; \(Q_{N_x-1,j}\) inferred using SimVascular models (Resistance, RCR/Windkessel, Impedance/Structured-tree).</li>
+        </ul>
+      </li>
+      <li><strong>PDE equations</strong> (interior nodes \(0<i<N_x-1\), \(0<j<N_t-1\)) using central finite differences:
+        <p>Mass: \(\frac{A_{j+1,i}-A_{j,i}}{\Delta t} + \frac{Q_{j,i+1}-Q_{j,i-1}}{2\Delta x} = 0\)</p>
+        <p>Momentum: \(\frac{Q_{j+1,i}-Q_{j,i}}{\Delta t} + \frac{\partial}{\partial x}(\alpha \frac{Q^2}{A}) + \frac{A}{\rho}\frac{\partial P}{\partial x} + K_R \frac{Q}{A} = 0\)</p>
+        <p>Constitutive: \(P_{j,i} - [P_0 + \beta (\sqrt{A_{j,i}} - \sqrt{A_0})] = 0\)</p>
+      </li>
+    </ul>
+
+    <p>Altogether, these give \(3(N_t-2)(N_x-2)\) equations matching the interior unknowns.</p>
+
+    <h4>Solver outline:</h4>
+    <ol>
+      <li>Assemble residual vector \(\mathbf{R}(U)\) across all unknowns \(U = \mathrm{vec}(P,Q,A)\).</li>
+      <li>Solve nonlinear system \(\mathbf{R}(U)=0\) using Newton–Krylov:
+        <ul>
+          <li>Approximate Jacobian–vector product via finite differences.</li>
+          <li>Solve correction \(\Delta U\) using GMRES + ILU preconditioner (avoiding direct factorization errors).</li>
+        </ul>
+      </li>
+      <li>Iterate until convergence \(\|\mathbf{R}\| < tol\).</li>
+    </ol>
+
+    <p>This fully couples the 1D system in space and time, enforcing periodic behavior and solving for the complete space-time field in a single unified step.</p>
   </section>
     </main>
 
