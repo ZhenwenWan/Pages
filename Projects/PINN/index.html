@@ -160,29 +160,21 @@
 <p>
 $$
 \frac{\partial Q}{\partial t}
-+ \frac{\partial}{\partial x}\!\left(\alpha \frac{Q^2}{A}\right)
-+ \frac{A}{\rho}\frac{\partial P}{\partial x}
++ \frac{\partial}{\partial x}\left(\alpha \frac{Q^2}{A}\right)
++ \frac{A}{\rho} \frac{\partial P}{\partial x}
 =
 -\,K_R \frac{Q}{A}
-+ \nu\,\frac{\partial}{\partial x}\left(A\,\frac{\partial u}{\partial x}\right)
++ \nu \, \frac{\partial}{\partial x}\left(A \, \frac{\partial}{\partial x}\left(\frac{Q}{A}\right)\right)
 $$
 </p>
 <p>
-where \(u = Q/A\), so the diffusion term expands to
-\[
-\nu\,\frac{\partial}{\partial x}\Bigl(A\,\frac{\partial}{\partial x}\,(Q/A)\Bigr)
-\]
-represents axial viscous diffusion.
-</p>
-<p>
-The pressure \(P\) remains:
+where \(P\) remains:
 </p>
 <p>
 $$
-P = P_0 + \beta \left(\sqrt{A} - \sqrt{A_0}\right)
+P = P_0 + \beta\left(\sqrt{A} - \sqrt{A_0}\right)
 $$
 </p>
-
     <p>To numerically solve these PDEs, boundary conditions are required:</p>
     <li><strong>Inlet Boundary Conditions</strong></li>
     <ul>
