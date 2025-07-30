@@ -157,10 +157,32 @@
     <li><strong>Conservation of Mass:</strong></li>
     <p>$$\frac{\partial A}{\partial t} + \frac{\partial Q}{\partial x} = 0$$</p>
     <li><strong>Conservation of Momentum:</strong></li>
-    <p>$$\frac{\partial Q}{\partial t} + \frac{\partial}{\partial x} \left( \alpha \frac{Q^2}{A} \right) + \frac{A}{\rho} \frac{\partial P}{\partial x} = -K_R \frac{Q}{A}$$</p>
-    <p>The pressure <var>P</var> is related to the cross‑sectional area <var>A</var> through a constitutive relation:</p>
-    <p>$$P = P_0 + \beta \left( \sqrt{A} - \sqrt{A_0} \right)$$</p>
-    <p>where <var>β</var> is the stiffness parameter, <var>A₀</var> the reference area, and <var>P₀</var> the reference pressure.</p>
+<p>
+$$
+\frac{\partial Q}{\partial t}
++ \frac{\partial}{\partial x}\!\left(\alpha \frac{Q^2}{A}\right)
++ \frac{A}{\rho}\frac{\partial P}{\partial x}
+=
+-\,K_R \frac{Q}{A}
++ \nu\,\frac{\partial}{\partial x}\left(A\,\frac{\partial u}{\partial x}\right)
+$$
+</p>
+<p>
+where \(u = Q/A\), so the diffusion term expands to
+\[
+\nu\,\frac{\partial}{\partial x}\Bigl(A\,\frac{\partial}{\partial x}\,(Q/A)\Bigr)
+\]
+represents axial viscous diffusion.
+</p>
+<p>
+The pressure \(P\) remains:
+</p>
+<p>
+$$
+P = P_0 + \beta \left(\sqrt{A} - \sqrt{A_0}\right)
+$$
+</p>
+
     <p>To numerically solve these PDEs, boundary conditions are required:</p>
     <li><strong>Inlet Boundary Conditions</strong></li>
     <ul>
