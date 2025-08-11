@@ -1,94 +1,114 @@
 # Hybrid Simulation–Data Regression Framework
-**Instantiated Example: HemoDyn – Physiological Model–Informed Neural Networks for Hemodynamics**
 
 ## Overview
-This framework models and predicts how complex systems change over time by combining **mechanistic simulation** with **observational data** in a regression workflow.  
-It is adaptable across domains — from industrial processes to environmental systems to biomedical applications.  
-In this repository, we demonstrate its use in **hemodynamics** through the **HemoDyn** project.
+This project implements a universal regression framework for modeling and predicting how complex systems change over time.
+It is designed to work across diverse domains, including engineering systems, environmental processes, and biomedical applications.
+The method combines mechanistic simulations with observational data to produce accurate, interpretable results.
+
+Mechanistic simulations capture the underlying physics or logic of the system.
+These simulations are reduced to lower-order models to minimize computational demands.
+Observational data from sensors or experiments are used to calibrate and update the model parameters.
+The calibration process is formulated as a regression problem.
+
+Unlike rigid numerical simulations, the model retains flexibility through tunable parameters.
+Unlike neural networks, the number of free parameters is kept small, reducing overfitting and data requirements.
+Nonlinear relationships can still be represented without excessive computational cost.
+The framework is suitable for systems with varying scales, configurations, or operating conditions.
+
+The regression model integrates simulated features with real-world measurements.
+Data assimilation ensures that model parameters are updated as new observations arrive.
+This allows the model to adapt in real time to changes in the system.
+The result is a model that is both predictive and diagnostic.
+
+Potential applications include fault detection, forecasting, and system optimization.
+Example use cases range from automotive climate control to large-scale weather analysis and medical condition monitoring.
+The framework is implemented in Python and can be extended with domain-specific models.
+
+Its modular design makes it adaptable to both academic research and industrial deployment.
 
 ---
 
 ## Core Methodology
-1. **Mechanistic Base Model** – Start with a validated physical or physiological model.  
-2. **Parameter Generalization** – Introduce tunable parameters representing uncertainty.  
-3. **Hybrid Learning** – Fit these parameters to real-world measurements using regression or machine learning.  
-4. **Physics + Data Fusion** – Use data assimilation to keep the model updated with new observations.  
-5. **Interpretability** – Maintain a parameter set that maps directly to physical or physiological meaning.  
 
-This is a **compact alternative to black-box deep learning**, requiring fewer parameters and less data, while retaining flexibility missing in rigid simulations.
+### 1. Universal Physics Module
+- Based on a **reduced-order advection–diffusion–reaction model**.  
+- Configurable **dimensions**: 0D (lumped) or 1D (distributed).  
+- Adjustable **domain size** and **spatial/temporal resolution**.  
+- Physical parameters can be:
+  - Fixed by configuration at initialization.
+  - Estimated (regressed) from data during training.
 
----
+This flexibility eliminates the requirement for a fully validated physics model while retaining interpretable physical meaning.
 
-## The HemoDyn Example
-In HemoDyn, the framework becomes **PMINNs** (Physiological Model–Informed Neural Networks) for modeling **lower extremity blood flow and oxygen transport**.
+### 2. Data Integration
+- Accepts **observational data** from sensors, experiments, or archives.  
+- Data are aligned with simulation outputs for parameter estimation and state correction.
 
-- **Reduced-Order CFD Solver** (SimVascular ROM) for arterial blood flow.  
-- **Oxygen Transport Simulation** (Elmer Multiphysics) for delivery, exchange, and consumption.  
-- **Wearable Integration** – Pulse and SpO₂ data from smartwatches and oximeters.  
-- **Machine Learning Layer** – Neural network estimates physiological parameters within constraints.  
+### 3. Hybrid Regression
+- Treats parameter estimation as a **regression problem**.  
+- Allows both **static** and **dynamic** parameters.  
+- Can be solved via:
+  - Classical regression methods (linear/nonlinear).
+  - Physics-informed neural networks (PINNs).
+  - Inverse modeling and optimization.
 
-This architecture enables **clinical interpretability** while improving efficiency and reducing data needs.
+### 4. Data Assimilation
+- Incorporates **sequential updating** with new observations.  
+- Supports methods like **Kalman filtering**, **variational assimilation**, or **Bayesian updates**.  
+- Enables real-time adaptation and fault detection.
 
----
-
-## General Workflow
-```python
-# 1. Import domain-specific model
-from hemodyn.model import HemodynamicsModel
-
-# 2. Load initial parameters and sensor data
-model = HemodynamicsModel(params_init)
-data = load_wearable_data("pulse_oximeter.csv")
-
-# 3. Run mechanistic simulation
-sim_results = model.run()
-
-# 4. Perform hybrid regression update
-from hybrid_regression import fit_model
-updated_model = fit_model(model, data)
-
-# 5. Predict and visualize
-predictions = updated_model.predict(time_window="next_24h")
-plot_results(predictions)
-```
+### 5. Output & Interpretation
+- Produces **predictions** that are both **quantitatively accurate** and **physically interpretable**.  
+- Diagnostic outputs help identify anomalies, parameter drifts, or system malfunctions.
 
 ---
 
-## PMINNs Mapping to Framework API
-1. **Step 1 – Mechanistic Simulation**  
-   Implement a physics-based blood flow and oxygen transport solver.  
+## Example: HemoDyn Instantiation
+In HemoDyn, the universal physics module is configured for **lower extremity blood flow and oxygen transport**:
 
-2. **Step 2 – Data Integration**  
-   Ingest wearable device data (Pulse, SpO₂) and pre-process it.  
-
-3. **Step 3 – Hybrid Regression Update**  
-   Use regression or neural network fitting constrained by physiological models.  
-
-4. **Step 4 – Output & Interpretation**  
-   Provide predictions and insights clinicians can interpret directly.
+- **Physics Core**: Reduced-order advection–diffusion–reaction solver for blood flow and oxygen exchange.
+- **Data Sources**: Pulse and SpO₂ readings from wearable devices.
+- **Regression Target**: Vascular resistance, compliance, and oxygen consumption rates.
+- **Application Goal**: Clinical interpretation and monitoring of vascular health.
 
 ---
 
-## Adapting to Other Domains
-To use the framework beyond hemodynamics:
-1. Replace the **mechanistic model** with your domain model (e.g., HVAC, climate, battery systems).  
-2. Identify key **tunable parameters**.  
-3. Set up a **data assimilation pipeline** for real-time updates.  
-4. Implement a **diagnostic interface** to interpret results.  
+## Adapting the Framework to Other Domains
+To use this framework in a different domain:
+1. Define your **system variables** and transport processes in the universal physics module.  
+2. Configure **dimensionality**, **resolution**, and **initial parameters**.  
+3. Identify parameters to **fix** and those to **regress from data**.  
+4. Supply **observational datasets** relevant to your system.  
+5. Choose an appropriate **regression/assimilation algorithm**.  
+
+Example adaptation domains:
+- HVAC temperature and airflow prediction.
+- River pollution dispersion modeling.
+- Battery thermal and chemical degradation tracking.
+- Industrial chemical reactor monitoring.
 
 ---
 
-## Why Use This Framework?
-- **Cross-domain adaptability**  
-- **Lower data requirements** than black-box models  
-- **Interpretability** via meaningful parameters  
-- **Real-time adaptability** with incoming data  
-- **Computational efficiency** for deployment in clinical, industrial, or IoT environments  
+## Example Workflow
+python
+from hybrid_framework import PhysicsModule, HybridRegressor, load_data
 
----
+# 1. Configure physics module
+physics = PhysicsModule(dim=1, size=1.2, resolution=100,
+                        parameters={"diffusivity": 0.01, "velocity": 0.1})
 
-## Potential Applications
-- Clinical decision support (e.g., vascular disease monitoring)  
-- Industrial fault detection  
-- Climate and environmental forecasting  
-- Engineering system optimization  
+# 2. Load observational data
+obs_data = load_data("sensors.csv")
+
+# 3. Initialize regression engine
+regressor = HybridRegressor(physics, method="PINN")
+
+# 4. Fit model to data
+regressor.train(obs_data)
+
+# 5. Predict and analyze
+predictions = regressor.predict(t_span=[0, 60])
+regressor.plot_results(predictions)
+
+
+
