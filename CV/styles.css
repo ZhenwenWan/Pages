@@ -31,6 +31,18 @@ header p {
     margin: 5px 0;
 }
 
+/* === Highlight ONLY the "Back to Main Page" link === */
+.nav-links .highlight-link {
+    color: #ffd700;        /* gold text */
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.nav-links .highlight-link:hover {
+    color: #ffffff;        /* white on hover */
+    background: none;      /* no background change */
+}
+
 .nav-links {
     display: flex;
     justify-content: center;
