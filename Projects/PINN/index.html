@@ -225,27 +225,30 @@ $$
 
     <p>This fully couples the 1D system in space and time, enforcing periodic behavior and solving for the complete space-time field in a single unified step.</p>
   </section>
+    
+      <!-- =============================== -->
+      <!-- Case 5 — Newly Added Section -->
+      <!-- =============================== -->
       <section class="content-block">
         <div class="text-content">
           <h3>Case 5 — Dual Pipeline Framework for Wearable Physiological Modeling</h3>
 
           <h4>Executive Summary</h4>
           <p>
-            I propose a bi-directional modeling architecture that combines 
-            (1) a forward, physiology-constrained generative pipeline, and 
-            (2) an inverse inference pipeline, enabling robust detection and 
-            interpretation of stress, cognitive load, and sleep disruptions 
-            from noisy wearable biosignals. This hybrid approach goes beyond 
-            black-box prediction by integrating mechanistic understanding with 
-            machine learning to improve interpretability, generalization, and 
+            I propose a bi-directional modeling architecture that combines
+            (1) a forward, physiology-constrained generative pipeline, and
+            (2) an inverse inference pipeline, enabling robust detection and
+            interpretation of stress, cognitive load, and sleep disruptions
+            from noisy wearable biosignals. This hybrid approach goes beyond
+            black-box prediction by integrating mechanistic understanding with
+            machine learning to improve interpretability, generalization, and
             event discovery over a long-term (&gt;6 months) engagement.
           </p>
 
           <h4>Pipeline A – Forward (Mechanistic Generative Model)</h4>
-
-          <p><strong>Purpose:</strong> Generate realistic wearable biosignals 
-          (e.g., heart rate, HRV, accelerometry) from latent physiological and 
-          contextual states.</p>
+          <p><strong>Purpose:</strong> Generate realistic wearable biosignals
+            (e.g., heart rate, HRV, accelerometry) from latent physiological and
+            contextual states.</p>
 
           <h5>Structure</h5>
           <ul>
@@ -272,42 +275,56 @@ $$
           </ul>
 
           <p>
-            This pipeline leverages mechanistic models and neural ODE–style physics layers (PINNs) to construct physiologically grounded generative modules.
+            This pipeline leverages mechanistic models and neural ODE–style physics layers (PINNs)
+            to construct physiologically grounded generative modules.
           </p>
 
-          <h4>Pipeline B – Inverse (Latent State &amp; Event Inference)</h4>
+          <h4>Pipeline B – Inference (Measurement-to-Event, Reverse Information Flow)</h4>
 
-          <p><strong>Purpose:</strong> Infer latent physiological states and detect events (stress, cognitive load, sleep disruption) from real wearable data while accounting for noise and confounds.</p>
+          <p>
+            <strong>Main feature:</strong> Pipeline B takes the <em>outputs of Pipeline A’s Physics Measurement Layer</em>
+            (wearable signals such as HR / RR, HRV features, accelerometry, etc.) as inputs and infers upstream
+            <em>status/events</em> (stress, cognitive load, sleep disruptions). “Reverse” here refers to reversing the
+            <em>information flow</em> (signals &rarr; events), not reconstructing Pipeline A’s internal physiological mechanisms.
+          </p>
 
-          <h5>Structure</h5>
+          <p><strong>Purpose:</strong> Provide a robust, deployable detection and interpretation pipeline for noisy, real-world
+            wearable data, without introducing additional mechanistic layers in the inverse path.</p>
+
+          <h5>Core Components</h5>
           <ul>
-            <li><strong>Signal Preprocessing</strong><br>
-              Artifact rejection, regime segmentation (rest vs movement), multi-resolution feature extraction.
-            </li>
-            <li><strong>Structured Inference Model</strong><br>
-              Hybrid state-space estimator integrating learned latent dynamics with observed signals.
-            </li>
-            <li><strong>Event Detection</strong><br>
-              Dual detection modes: supervised (when labeled) and unsupervised/weakly supervised pattern discovery.
-            </li>
-          </ul>
+            <li><strong>Signal preprocessing &amp; quality control</strong><br>
+              Artifact rejection (motion/PPG issues, ectopy if RR is available), missingness handling, and a
+              <em>signal-quality/confidence</em> score used to down-weight unreliable segments.</li>
 
-          <h5>Key Features</h5>
-          <ul>
-            <li>Uncertainty estimation to flag low-confidence periods.</li>
-            <li>Confounder control (movement and respiration effects on HRV).</li>
-            <li>Dynamic adaptation to individual baselines and circadian patterns.</li>
+            <li><strong>Contextual regime segmentation (lightweight internal representation)</strong><br>
+              Rest vs movement vs sleep-like regimes inferred primarily from accelerometry and circadian timing.
+              This is a practical gating variable, not a physiological hidden-state model.</li>
+
+            <li><strong>Multi-resolution feature extraction</strong><br>
+              Short windows (10–30 s) for rapid changes, medium windows (2–5 min) for HRV stability metrics, and
+              long windows (30–90 min) for sustained episodes and emerging patterns.</li>
+
+            <li><strong>Event inference (supervised + unsupervised)</strong><br>
+              Supervised detection when labels exist; weakly supervised / unsupervised discovery (change-point detection,
+              clustering/representation learning) to identify emerging or previously unlabeled events.</li>
+
+            <li><strong>Uncertainty-aware outputs</strong><br>
+              Calibrated probabilities and confidence intervals (or equivalent) plus explicit “unknown/low confidence”
+              flags when signals are ambiguous or heavily confounded.</li>
           </ul>
 
           <p>
-            This pipeline extends beyond simple classifiers by incorporating latent state estimation and structured representation learning.
+            Pipeline B is intentionally simplified relative to Pipeline A: it focuses on reliable event inference in the
+            measurement space. Pipeline A can still support Pipeline B via synthetic augmentation, personalization priors,
+            and signal-level consistency checks (i.e., detected events should be explainable in terms of the observable signals,
+            without requiring recovery of detailed physiological states).
           </p>
 
           <h4>Closed-Loop Integration (Key Enhancement)</h4>
           <p>
             Rather than treating the pipelines independently, the framework operates in a closed-loop cycle:
           </p>
-
           <ol>
             <li>Inverse pipeline retrieves latent trajectories and parameters.</li>
             <li>Forward pipeline reconstructs synthetic signals.</li>
@@ -326,7 +343,6 @@ $$
           </p>
 
           <h4>Phased 6-Month Plan</h4>
-
           <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse;">
             <tr>
               <th>Phase</th>
@@ -340,23 +356,24 @@ $$
             </tr>
             <tr>
               <td>3–4 months</td>
-              <td>Hybrid latent state inference with uncertainty</td>
-              <td>Inverse estimator + event detector</td>
+              <td>Reverse Pipeline A (physics-&gt;params-&gt;states) with uncertainty</td>
+              <td>Differentiable inverse estimator + personalized state trajectories</td>
             </tr>
             <tr>
               <td>5–6 months</td>
-              <td>Forward generative model + closed-loop integration</td>
-              <td>Simulator + consistency validation &amp; personalization</td>
+              <td>Closed-loop integration (inverse + forward) + event attribution/discovery</td>
+              <td>Simulator + consistency validation &amp; personalization + emerging event discovery</td>
             </tr>
           </table>
 
           <p>
-            Progress will be evaluated using systematic validation on real wearable datasets, with clear metrics such as ROC, F1-score, calibration quality, and reconstruction error.
+            Progress will be evaluated using systematic validation on real wearable datasets,
+            with clear metrics such as ROC, F1-score, calibration quality, and reconstruction error.
           </p>
-
         </div>
-      </section>  
-    </main>
+      </section>
+
+</main>
 
     <footer class="project-footer">
       <p>&copy; 2025 Zhenwen Wan. All rights reserved.</p>
