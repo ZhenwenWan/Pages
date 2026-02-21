@@ -244,17 +244,41 @@ $$
           <!-- ========================= -->
 
           <h4>Pipeline A – Forward (Mechanistic Generative Model)</h4>
-
-          <p><strong>Purpose:</strong> Generate physiologically grounded wearable biosignals 
-          (heart rate, HRV, accelerometry) from latent physiological and contextual states.</p>
-
           <p>
-            Pipeline A functions as a mechanistic simulator and structured feature generator. 
-            It transforms latent physiological states into observable signals using 
-            differentiable physics-based models. Importantly, it produces 
-            interpretable physiological indices that can later serve as engineered features.
+            <strong>Purpose:</strong> Generate realistic wearable biosignals (e.g., heart rate, HRV,
+            accelerometry) from latent physiological and contextual states.
           </p>
 
+          <h5>Structure</h5>
+          <ul>
+            <li><strong>Input Layer – Exogenous Drivers</strong><br>
+              Sleep/wake timing, activity context, stressor indicators, circadian phase.
+            </li>
+            <li><strong>Hidden Layer – Latent Physiological Dynamics</strong><br>
+              Autonomic balance, fatigue/recovery state, respiratory modulation.
+            </li>
+            <li><strong>Interpretable Output Parameters</strong><br>
+              Heart rate set-points, responsiveness gains, baroreflex sensitivity proxies.
+            </li>
+            <li><strong>Physics Measurement Layer</strong><br>
+              Differentiable physiological signal model translating latent state to HR/HRV and accelerometry streams under realistic noise and artifact models.
+            </li>
+          </ul>
+
+          <h5>Deliverables</h5>
+          <ul>
+            <li>A differentiable generative simulator capable of producing wearable biosignals consistent with underlying states, used for:</li>
+            <ul>
+              <li>Synthetic data generation</li>
+              <li>Personalized calibration</li>
+              <li>Counterfactual exploration (what-if stress/cognitive load scenarios)</li>
+            </ul>
+          </ul>
+
+          <p>
+            This pipeline leverages mechanistic models and neural ODE–style physics layers (PINNs)
+            to build physiologically grounded generative modules.
+          </p>
 
           <!-- ================================================= -->
           <!-- ============ MODIFIED PIPELINE B ================= -->
