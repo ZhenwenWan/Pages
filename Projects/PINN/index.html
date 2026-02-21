@@ -224,155 +224,135 @@ $$
     </ol>
 
     <p>This fully couples the 1D system in space and time, enforcing periodic behavior and solving for the complete space-time field in a single unified step.</p>
-  </section>
-    
-      <!-- =============================== -->
-      <!-- Case 5 — Newly Added Section -->
-      <!-- =============================== -->
       <section class="content-block">
         <div class="text-content">
+
           <h3>Case 5 — Dual Pipeline Framework for Wearable Physiological Modeling</h3>
 
           <h4>Executive Summary</h4>
           <p>
-            I propose a bi-directional modeling architecture that combines
-            (1) a forward, physiology-constrained generative pipeline, and
-            (2) an inverse inference pipeline, enabling robust detection and
-            interpretation of stress, cognitive load, and sleep disruptions
-            from noisy wearable biosignals. This hybrid approach goes beyond
-            black-box prediction by integrating mechanistic understanding with
-            machine learning to improve interpretability, generalization, and
-            event discovery over a long-term (&gt;6 months) engagement.
+            I propose a bi-directional modeling architecture that combines 
+            (1) a forward, physiology-constrained generative pipeline (Pipeline A), and 
+            (2) a reverse measurement-to-event inference pipeline (Pipeline B). 
+            Pipeline A provides physiologically structured signal representations, 
+            while Pipeline B performs event detection using those structured outputs 
+            as engineered features.
           </p>
+
+          <!-- ========================= -->
+          <!-- Pipeline A unchanged     -->
+          <!-- ========================= -->
 
           <h4>Pipeline A – Forward (Mechanistic Generative Model)</h4>
-          <p><strong>Purpose:</strong> Generate realistic wearable biosignals
-            (e.g., heart rate, HRV, accelerometry) from latent physiological and
-            contextual states.</p>
 
-          <h5>Structure</h5>
-          <ul>
-            <li><strong>Input Layer – Exogenous Drivers</strong><br>
-              Sleep/wake timing, activity context, stressor indicators, circadian phase.
-            </li>
-            <li><strong>Hidden Layer – Latent Physiological Dynamics</strong><br>
-              Autonomic balance, fatigue/recovery state, respiratory modulation.
-            </li>
-            <li><strong>Interpretable Output Parameters</strong><br>
-              Heart rate set-points, responsiveness gains, baroreflex sensitivity proxies.
-            </li>
-            <li><strong>Physics Measurement Layer</strong><br>
-              Differentiable physiological signal model translating latent state to HR/HRV and accelerometry streams under realistic noise and artifact models.
-            </li>
-          </ul>
-
-          <h5>Deliverables</h5>
-          <ul>
-            <li>A differentiable generative simulator capable of producing wearable biosignals consistent with underlying states.</li>
-            <li>Synthetic data generation.</li>
-            <li>Personalized calibration.</li>
-            <li>Counterfactual exploration (what-if stress/cognitive load scenarios).</li>
-          </ul>
+          <p><strong>Purpose:</strong> Generate physiologically grounded wearable biosignals 
+          (heart rate, HRV, accelerometry) from latent physiological and contextual states.</p>
 
           <p>
-            This pipeline leverages mechanistic models and neural ODE–style physics layers (PINNs)
-            to construct physiologically grounded generative modules.
+            Pipeline A functions as a mechanistic simulator and structured feature generator. 
+            It transforms latent physiological states into observable signals using 
+            differentiable physics-based models. Importantly, it produces 
+            interpretable physiological indices that can later serve as engineered features.
           </p>
+
+
+          <!-- ================================================= -->
+          <!-- ============ MODIFIED PIPELINE B ================= -->
+          <!-- ================================================= -->
 
           <h4>Pipeline B – Inference (Measurement-to-Event, Reverse Information Flow)</h4>
 
           <p>
-            <strong>Main feature:</strong> Pipeline B takes the <em>outputs of Pipeline A’s Physics Measurement Layer</em>
-            (wearable signals such as HR / RR, HRV features, accelerometry, etc.) as inputs and infers upstream
-            <em>status/events</em> (stress, cognitive load, sleep disruptions). “Reverse” here refers to reversing the
-            <em>information flow</em> (signals &rarr; events), not reconstructing Pipeline A’s internal physiological mechanisms.
+            <strong>Purpose:</strong> Infer user states (stress, cognitive load, sleep disruption) 
+            directly from wearable measurements by reversing the information flow of Pipeline A.
           </p>
 
-          <p><strong>Purpose:</strong> Provide a robust, deployable detection and interpretation pipeline for noisy, real-world
-            wearable data, without introducing additional mechanistic layers in the inverse path.</p>
+          <p>
+            Pipeline B does <strong>not</strong> reconstruct full physiological mechanisms. 
+            Instead, it operates in measurement space. It treats the outputs of 
+            Pipeline A’s Physics Measurement Layer as structured inputs and maps them 
+            directly to event probabilities.
+          </p>
 
-          <h5>Core Components</h5>
+          <p>
+            In this architecture, <strong>Pipeline A functions as advanced feature engineering</strong>. 
+            It transforms raw wearable signals into physiologically meaningful representations, 
+            reducing noise sensitivity and improving interpretability. 
+            Pipeline B then performs robust event inference using these structured features.
+          </p>
+
+          <h4>Core Components</h4>
+
           <ul>
-            <li><strong>Signal preprocessing &amp; quality control</strong><br>
-              Artifact rejection (motion/PPG issues, ectopy if RR is available), missingness handling, and a
-              <em>signal-quality/confidence</em> score used to down-weight unreliable segments.</li>
+            <li>
+              <strong>1. Structured Feature Extraction (from Pipeline A)</strong><br>
+              Rather than relying solely on raw HR or accelerometry, Pipeline B consumes:
+              <ul>
+                <li>Derived HRV indices (time-domain and frequency-domain)</li>
+                <li>Autonomic balance indicators inferred by Pipeline A</li>
+                <li>Regime classification (rest vs. movement)</li>
+                <li>Signal quality scores</li>
+                <li>Temporal stability metrics</li>
+              </ul>
+              These features are physiologically grounded outputs generated by Pipeline A.
+            </li>
 
-            <li><strong>Contextual regime segmentation (lightweight internal representation)</strong><br>
-              Rest vs movement vs sleep-like regimes inferred primarily from accelerometry and circadian timing.
-              This is a practical gating variable, not a physiological hidden-state model.</li>
+            <li>
+              <strong>2. Multi-Scale Temporal Aggregation</strong><br>
+              Features are computed across multiple time windows (e.g., 30s, 5min, 60min) 
+              to capture both transient responses and sustained deviations.
+            </li>
 
-            <li><strong>Multi-resolution feature extraction</strong><br>
-              Short windows (10–30 s) for rapid changes, medium windows (2–5 min) for HRV stability metrics, and
-              long windows (30–90 min) for sustained episodes and emerging patterns.</li>
+            <li>
+              <strong>3. Event Inference Model</strong><br>
+              A supervised or semi-supervised model maps structured features to event probabilities:
+              <ul>
+                <li>Logistic regression or gradient boosting for interpretable baselines</li>
+                <li>Lightweight neural network for nonlinear interactions</li>
+                <li>Optional anomaly detection for emerging events</li>
+              </ul>
+              The model outputs calibrated probabilities and confidence scores.
+            </li>
 
-            <li><strong>Event inference (supervised + unsupervised)</strong><br>
-              Supervised detection when labels exist; weakly supervised / unsupervised discovery (change-point detection,
-              clustering/representation learning) to identify emerging or previously unlabeled events.</li>
+            <li>
+              <strong>4. Uncertainty & Robustness Handling</strong><br>
+              Pipeline B explicitly accounts for:
+              <ul>
+                <li>Motion-induced artifacts</li>
+                <li>Circadian baseline shifts</li>
+                <li>Device-specific noise patterns</li>
+              </ul>
+              This improves generalization in uncontrolled real-world environments.
+            </li>
+          </ul>
 
-            <li><strong>Uncertainty-aware outputs</strong><br>
-              Calibrated probabilities and confidence intervals (or equivalent) plus explicit “unknown/low confidence”
-              flags when signals are ambiguous or heavily confounded.</li>
+          <h4>Relationship Between Pipeline A and Pipeline B</h4>
+
+          <p>
+            Pipeline B can operate independently using raw features. However, 
+            without Pipeline A, inference relies purely on statistical correlations 
+            and may be vulnerable to confounding and overfitting.
+          </p>
+
+          <p>
+            By introducing Pipeline A:
+          </p>
+
+          <ul>
+            <li>Signal representations become physiologically interpretable.</li>
+            <li>Feature space becomes structured and lower-noise.</li>
+            <li>Generalization improves across subjects and devices.</li>
+            <li>Event inference becomes explainable rather than purely correlational.</li>
           </ul>
 
           <p>
-            Pipeline B is intentionally simplified relative to Pipeline A: it focuses on reliable event inference in the
-            measurement space. Pipeline A can still support Pipeline B via synthetic augmentation, personalization priors,
-            and signal-level consistency checks (i.e., detected events should be explainable in terms of the observable signals,
-            without requiring recovery of detailed physiological states).
+            Therefore, Pipeline A provides structured physiological feature engineering, 
+            while Pipeline B provides operational event detection. 
+            Together they form a coherent forward–reverse modeling system.
           </p>
 
-          <h4>Closed-Loop Integration (Key Enhancement)</h4>
-          <p>
-            Rather than treating the pipelines independently, the framework operates in a closed-loop cycle:
-          </p>
-          <ol>
-            <li>Inverse pipeline retrieves latent trajectories and parameters.</li>
-            <li>Forward pipeline reconstructs synthetic signals.</li>
-            <li>Reconstruction errors drive calibration and model refinement.</li>
-          </ol>
-
-          <p>This enables:</p>
-          <ul>
-            <li>Model validation and self-consistency checks.</li>
-            <li>Identification of emerging or novel latent events.</li>
-            <li>Personalization across subjects and contexts.</li>
-          </ul>
-
-          <p>
-            This feedback mechanism is critical in noisy real-world settings where labels are sparse and confounds are prevalent.
-          </p>
-
-          <h4>Phased 6-Month Plan</h4>
-          <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse;">
-            <tr>
-              <th>Phase</th>
-              <th>Objectives</th>
-              <th>Deliverables</th>
-            </tr>
-            <tr>
-              <td>1–2 months</td>
-              <td>Robust preprocessing &amp; baseline modeling</td>
-              <td>Workflow + baseline classification</td>
-            </tr>
-            <tr>
-              <td>3–4 months</td>
-              <td>Reverse Pipeline A (physics-&gt;params-&gt;states) with uncertainty</td>
-              <td>Differentiable inverse estimator + personalized state trajectories</td>
-            </tr>
-            <tr>
-              <td>5–6 months</td>
-              <td>Closed-loop integration (inverse + forward) + event attribution/discovery</td>
-              <td>Simulator + consistency validation &amp; personalization + emerging event discovery</td>
-            </tr>
-          </table>
-
-          <p>
-            Progress will be evaluated using systematic validation on real wearable datasets,
-            with clear metrics such as ROC, F1-score, calibration quality, and reconstruction error.
-          </p>
         </div>
       </section>
-
 </main>
 
     <footer class="project-footer">
