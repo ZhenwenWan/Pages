@@ -376,6 +376,65 @@ $$
           </p>
 
         </div>
+<h4>Conceptual Comparison – Ordinary ML vs Mechanistic-Informed ML</h4>
+
+<div style="display: flex; gap: 40px; flex-wrap: wrap; margin-top: 20px;">
+
+  <!-- Ordinary ML -->
+  <div style="flex: 1; min-width: 280px; border: 1px solid #ccc; padding: 20px; border-radius: 8px;">
+    <h5 style="text-align:center;">Ordinary ML Pipeline</h5>
+    <ol>
+      <li><strong>Raw Signals</strong><br>
+        HR, PPG, ACC, etc.
+      </li>
+      <li><strong>Basic Preprocessing</strong><br>
+        Filtering, normalization
+      </li>
+      <li><strong>Generic Feature Extraction</strong><br>
+        Statistical descriptors (mean, variance, FFT, etc.)
+      </li>
+      <li><strong>Black-Box ML Model</strong><br>
+        Learns correlations directly from features
+      </li>
+      <li><strong>Predicted State</strong><br>
+        Stress / Sleep / Cognitive Load
+      </li>
+    </ol>
+    <p><em>Characteristics:</em> Correlation-driven, limited interpretability, sensitive to noise and distribution shifts.</p>
+  </div>
+
+  <!-- Mechanistic-Informed ML -->
+  <div style="flex: 1; min-width: 280px; border: 1px solid #2c5aa0; padding: 20px; border-radius: 8px; background-color: #f8fbff;">
+    <h5 style="text-align:center; color:#2c5aa0;">Mechanistic Model + ML (Proposed)</h5>
+    <ol>
+      <li><strong>Raw Signals</strong><br>
+        HR, PPG, ACC, etc.
+      </li>
+      <li><strong>Physiological Signal Quality & Structuring</strong><br>
+        Artifact-aware filtering, regime detection
+      </li>
+      <li><strong>Mechanistic Feature Synthesis</strong><br>
+        Autonomic balance proxies, recovery dynamics, response gains
+      </li>
+      <li><strong>ML with Physiological Priors</strong><br>
+        Structured inference constrained by mechanistic meaning
+      </li>
+      <li><strong>Predicted State + Interpretation</strong><br>
+        Event probability with physiological explanation
+      </li>
+    </ol>
+    <p><em>Characteristics:</em> Physiology-grounded features, improved robustness, enhanced interpretability, better cross-subject generalization.</p>
+  </div>
+
+</div>
+
+<p style="margin-top: 20px;">
+  In the proposed framework, the mechanistic model does not replace machine learning. 
+  Instead, it structures the feature space before learning occurs. 
+  This reduces the hypothesis space the ML model must explore, embeds domain knowledge 
+  into the pipeline, and transforms event detection from pure correlation to 
+  physiology-informed inference.
+</p>	
       </section>
 </main>
 
