@@ -1,0 +1,212 @@
+/* Project Page Styles */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #0a192f;
+    color: #e6f1ff;
+    line-height: 1.6;
+    font-family: Arial, sans-serif;
+}
+
+.project-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+    color: #e6f1ff;
+    background: #0a192f;
+    min-height: 100vh;
+}
+
+.project-header {
+    text-align: center;
+    margin-bottom: 60px;
+    padding: 20px 0;
+    border-bottom: 1px solid #233554;
+}
+
+.back-link,
+a {
+    color: #64ffda;
+    text-decoration: none;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 30px;
+    transition: opacity 0.3s ease;
+}
+
+.back-link:hover {
+    opacity: 0.8;
+}
+
+.content-block {
+    margin-bottom: 46px;
+}
+
+.text-content {
+    max-width: 940px;
+    margin: 0 auto;
+}
+
+.hero-image {
+    margin-bottom: 34px;
+    border: 2px solid #64ffda;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.responsive-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.spec-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+    margin-top: 30px;
+}
+
+.spec-item {
+    text-align: center;
+    padding: 25px;
+    background: #112240;
+    border-radius: 8px;
+    border: 1px solid #233554;
+}
+
+.spec-item i {
+    font-size: 2.2rem;
+    color: #64ffda;
+    margin-bottom: 15px;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+}
+
+.feature-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid #233554;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 24px;
+    background: #112240;
+}
+
+th,
+td {
+    border: 1px solid #233554;
+    padding: 12px;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    color: #64ffda;
+}
+
+.equation-card {
+    background: #112240;
+    border: 1px solid #233554;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin: 24px 0;
+    color: #e6f1ff;
+    overflow-x: auto;
+}
+
+.workflow-line {
+    color: #64ffda;
+    font-weight: bold;
+    background: #112240;
+    border-left: 4px solid #64ffda;
+    padding: 16px 20px;
+}
+
+.highlight-link {
+    color: #64ffda;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.highlight-link:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.project-footer {
+    margin-top: 60px;
+    text-align: center;
+    border-top: 1px solid #233554;
+    padding-top: 30px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    color: #64ffda;
+    margin: 20px 0;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.75rem;
+}
+
+h4 {
+    font-size: 1.35rem;
+}
+
+p {
+    line-height: 1.6;
+    margin: 15px 0;
+}
+
+ol {
+    padding-left: 24px;
+}
+
+li {
+    margin: 8px 0;
+}
+
+@media (max-width: 768px) {
+    .project-container {
+        padding: 24px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.35rem;
+    }
+
+    .spec-grid {
+        grid-template-columns: 1fr;
+    }
+
+    th,
+    td {
+        padding: 10px;
+        font-size: 0.95rem;
+    }
+}

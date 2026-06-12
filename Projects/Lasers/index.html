@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Lasers - Telecom Laser EDA with PINNs</title>
+    <link href="../../styles.css" rel="stylesheet"/>
+    <link href="styles.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="project-container">
+        <header class="project-header">
+            <a class="back-link" href="../../index.html">
+                <i class="fas fa-arrow-left"></i> Back to Main
+            </a>
+            <h1>Lasers</h1>
+            <h2>CFD-Type Semiconductor Dynamics for PINN-Driven Telecom Laser EDA</h2>
+        </header>
+
+        <main class="project-content">
+            <section class="content-block hero-block">
+                <div class="text-content">
+                    <img class="responsive-img hero-image" src="Lasers_Symbolic.png" alt="Lasers project symbolic workflow">
+                    <h3>Project Vision</h3>
+                    <p>Lasers develops a compact physics-informed model for telecom laser Electronic Design Automation (EDA). The model is designed for Physics-Informed Neural Networks (PINNs), linking engineering inputs, semiconductor carrier transport, band-energy dynamics, photon density, electromagnetic frequency, and heat generation to laser performance outputs.</p>
+                    <p>The aim is not to reproduce every microscopic quantum process. The aim is to build an interpretable CFD-type simulator that can be calibrated with experimental data and operated inside an EDA workflow for telecom laser design.</p>
+                    <p><a class="highlight-link" href="cfd_semiconductor_model_v2_2.pdf">Read the revised model PDF</a></p>
+                </div>
+            </section>
+
+            <section class="content-block">
+                <div class="text-content">
+                    <h3>Modelling Principle</h3>
+                    <p>The core modelling idea is to introduce the current velocity of semiconductor carriers as an independent field variable. This current velocity is different from classical electrical current density and from quantum band velocity. Treating it as a CFD-type transport velocity changes the semiconductor model from a traditional drift-diffusion form into a system containing advection, diffusion, source, and sink terms.</p>
+                    <p>This gives the PINN a structured physics backbone while leaving uncertain closures available for calibration. It is intended as a practical middle path between a fully mechanistic semiconductor laser model, which can be too expensive to verify experimentally, and a pure neural network model, which can be limited by sparse data and uncertainty.</p>
+                </div>
+            </section>
+
+            <section class="content-block">
+                <div class="text-content">
+                    <h3>EDA Outputs</h3>
+                    <p>From the EDA perspective, the important outputs are stable and predictable engineering metrics under a given design and operating condition:</p>
+                    <div class="spec-grid">
+                        <div class="spec-item"><i class="fas fa-bolt"></i><h4>Optical Power</h4><p>P<sub>opt</sub></p></div>
+                        <div class="spec-item"><i class="fas fa-wave-square"></i><h4>Output Frequency</h4><p>f<sub>out</sub></p></div>
+                        <div class="spec-item"><i class="fas fa-ruler-horizontal"></i><h4>Wavelength</h4><p>&lambda;<sub>out</sub></p></div>
+                        <div class="spec-item"><i class="fas fa-temperature-high"></i><h4>Thermal Limit</h4><p>T<sub>max</sub></p></div>
+                        <div class="spec-item"><i class="fas fa-chart-line"></i><h4>Stability</h4><p>&Delta;f</p></div>
+                        <div class="spec-item"><i class="fas fa-plug"></i><h4>Efficiency</h4><p>&eta;<sub>EO</sub></p></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-block">
+                <div class="text-content">
+                    <h3>State Variables</h3>
+                    <p>The model uses a set of electrical, carrier, optical, and thermal variables that are directly connected to laser-device behavior.</p>
+                    <table>
+                        <thead>
+                            <tr><th>Variable</th><th>Meaning</th><th>EDA Role</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>&psi;</td><td>Electric potential</td><td>Electrical forcing</td></tr>
+                            <tr><td>E<sub>0</sub> = -&nabla;&psi;</td><td>Quasi-static electric field</td><td>Carrier driving field</td></tr>
+                            <tr><td>n, p</td><td>Electron and hole densities</td><td>Carrier populations</td></tr>
+                            <tr><td>V<sub>n</sub>, V<sub>p</sub></td><td>Electron and hole current velocities</td><td>CFD-type transport fields</td></tr>
+                            <tr><td>e</td><td>Effective transition band energy</td><td>Determines photon frequency</td></tr>
+                            <tr><td>T</td><td>Lattice or ambient temperature</td><td>Thermal and band-energy stability</td></tr>
+                            <tr><td>s</td><td>Photon density</td><td>Optical energy population</td></tr>
+                            <tr><td>E</td><td>Optical electric field phasor</td><td>Electromagnetic wave output</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="content-block">
+                <div class="text-content">
+                    <h3>Corrected Formula Set</h3>
+                    <p>The revised version 2.2 organizes the semiconductor laser model into a consistent formula set:</p>
+                    <ul class="feature-list">
+                        <li><strong>Electrostatics:</strong> Poisson's equation defines the quasi-static electric field that drives carrier transport.</li>
+                        <li><strong>Carrier conservation:</strong> Electron and hole densities follow advection-diffusion equations with volumetric generation and recombination sources.</li>
+                        <li><strong>Current velocity dynamics:</strong> Electron and hole current velocities are governed by CFD-type momentum-like equations with electric forcing, band-energy-gradient forcing, diffusion, damping, and calibrated sources.</li>
+                        <li><strong>Band-energy dynamics:</strong> Effective transition energy is transported and diffused, perturbed by electrical work, and relaxed toward a temperature-dependent equilibrium band energy.</li>
+                        <li><strong>Photon density:</strong> Photon population is generated by radiative recombination, reduced by absorption, and limited by photon lifetime or escape time.</li>
+                        <li><strong>Heat conservation:</strong> Temperature responds to electrical work, non-radiative recombination, photon absorption, photon decay, and cooling through package or heat-sink effects.</li>
+                        <li><strong>Electromagnetic output:</strong> The frequency-domain wave equation is linked to the band-energy equation through photon frequency and angular frequency.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="content-block">
+                <div class="text-content">
+                    <h3>Band-Energy Closure</h3>
+                    <p>The effective transition band energy is the key bridge between semiconductor transport and optical output. In this model, band energy is not allowed to fluctuate freely. It relaxes toward a local temperature-dependent equilibrium value, making the model more physically interpretable and numerically stable.</p>
+                    <p>A simple first-stage closure uses a linear temperature relation. A Varshni-type empirical relation can be used when measured material data are available. Higher temperature lowers the effective band gap, shifting the output frequency downward and wavelength upward.</p>
+                    <div class="equation-card">
+                        <p>f<sub>&gamma;</sub> = &eta;<sub>&gamma;</sub>e / h</p>
+                        <p>&Omega;<sub>&gamma;</sub> = &eta;<sub>&gamma;</sub>e / &#8463;</p>
+                        <p>&lambda;<sub>&gamma;</sub> = ch / (n<sub>r</sub>&eta;<sub>&gamma;</sub>e)</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-block">
+                <div class="text-content">
+                    <h3>PINN Training Formulation</h3>
+                    <p>The model is prepared for experimental-data-assisted PINN operation. The input vector includes current, voltage, heat-sink temperature, cavity dimensions, reflectivities, and material parameters. The target vector contains optical power, output frequency, output wavelength, frequency variation, maximum temperature, and electrical-to-optical efficiency.</p>
+                    <p>The loss combines data agreement, physics residuals, boundary constraints, energy consistency, and stability penalties. Physics residuals are formed from the electrostatic, carrier, current velocity, band-energy, photon, thermal, and electromagnetic equations.</p>
+                    <div class="equation-card">
+                        <p>L = L<sub>data</sub> + &lambda;<sub>phys</sub>L<sub>phys</sub> + &lambda;<sub>bc</sub>L<sub>bc</sub> + &lambda;<sub>energy</sub>L<sub>energy</sub> + &lambda;<sub>stable</sub>L<sub>stable</sub></p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-block">
+                <div class="text-content">
+                    <h3>EDA Workflow</h3>
+                    <ol>
+                        <li>Define device geometry, material parameters, electrical inputs, optical cavity properties, and heat-sink conditions.</li>
+                        <li>Solve or train the PINN-calibrated CFD-type semiconductor model.</li>
+                        <li>Predict telecom laser output metrics: P<sub>opt</sub>, f<sub>out</sub>, &lambda;<sub>out</sub>, &Delta;f, T<sub>max</sub>, and &eta;<sub>EO</sub>.</li>
+                        <li>Apply a design objective that balances target optical power, target frequency, frequency stability, thermal limits, and efficiency.</li>
+                        <li>Search for the optimized laser design variables inside the EDA loop.</li>
+                    </ol>
+                    <p>The intended workflow is:</p>
+                    <p class="workflow-line">engineering inputs &rarr; PINN-calibrated CFD-type simulator &rarr; telecom laser output metrics &rarr; optimized design</p>
+                </div>
+            </section>
+
+            <section class="content-block">
+                <div class="text-content">
+                    <h3>Development Repository</h3>
+                    <p>The project code is developed separately from this website in the GitHub repository:</p>
+                    <p><a class="highlight-link" href="https://github.com/ZhenwenWan/Lasers" target="_blank" rel="noopener noreferrer">github.com/ZhenwenWan/Lasers</a></p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="project-footer">
+            <p>&copy; 2026 Zhenwen Wan. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
