@@ -142,13 +142,21 @@
                     <h3>Task 1.1 Geometry Model</h3>
                     <p>The first simulator task provides a parametric geometric model generator for a contemporary telecom edge-emitting ridge-waveguide semiconductor laser. The Python generator exposes adjustable dimensions for the chip, substrate, cladding, separate-confinement heterostructure layers, multi-quantum-well active region, ridge, dielectric isolation, metal contacts, and facet coatings.</p>
                     <p>The static preview and interactive viewer below use the generated JSON model. Thin epitaxial layers are vertically scaled for inspection while physical dimensions remain stored in micrometers.</p>
+                    <p>For layer-by-layer inspection, open the VTU file in ParaView and filter by <code>part_id</code>, <code>material_id</code>, or <code>layer_order</code>. For FreeCAD, run the macro to create one colored solid object per device part, then save as FCStd or export selected solids to STEP.</p>
                 </div>
                 <img class="responsive-img geometry-preview" src="telecom_laser_geometry_preview.png" alt="Colored telecom semiconductor laser geometry model with detailed materials">
                 <div id="laser-geometry-viewer" class="model-viewer" aria-label="Interactive telecom laser geometry model">Loading interactive geometry model...</div>
                 <div class="text-content">
                     <p id="laser-geometry-summary" class="geometry-summary"></p>
                     <div id="laser-geometry-legend" class="geometry-legend"></div>
-                    <p><a class="highlight-link" href="telecom_laser_geometry.json">Download geometry JSON</a> | <a class="highlight-link" href="telecom_laser_geometry.obj">Download geometry OBJ</a></p>
+                    <p>
+                        <a class="highlight-link" href="telecom_laser_geometry.json">JSON</a> |
+                        <a class="highlight-link" href="telecom_laser_geometry.obj">OBJ</a> |
+                        <a class="highlight-link" href="telecom_laser_geometry.vtu">ParaView VTU</a> |
+                        <a class="highlight-link" href="telecom_laser_geometry_freecad.FCMacro">FreeCAD macro</a> |
+                        <a class="highlight-link" href="telecom_laser_part_objs.zip">Layer OBJ ZIP</a> |
+                        <a class="highlight-link" href="FREECAD_STEP_EXPORT.md">STEP export note</a>
+                    </p>
                 </div>
             </section>
         </main>
