@@ -83,6 +83,50 @@ a {
     background: #0a192f;
 }
 
+.profile2d-toolbar {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.profile2d-toolbar button {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #233554;
+    background: #112240;
+    color: #64ffda;
+    cursor: pointer;
+}
+
+.profile2d-toolbar button:hover {
+    border-color: #64ffda;
+}
+
+.profile2d-viewer {
+    width: 100%;
+    height: 520px;
+    overflow: hidden;
+    background: #0a192f;
+    border: 1px solid #233554;
+    cursor: grab;
+    position: relative;
+}
+
+.profile2d-viewer.is-dragging {
+    cursor: grabbing;
+}
+
+.profile2d-content {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform-origin: 0 0;
+    user-select: none;
+    pointer-events: none;
+}
+
 .model-viewer {
     width: 100%;
     height: 560px;
@@ -278,6 +322,10 @@ li {
 
     .model-viewer {
         height: 440px;
+    }
+
+    .profile2d-viewer {
+        height: 360px;
     }
 
     th,
