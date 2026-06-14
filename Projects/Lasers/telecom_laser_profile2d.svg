@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="880" viewBox="0 0 1500 880" role="img" aria-label="2D telecom laser ridge cross-section">
+  <style>
+    .title { fill: #64ffda; font: 44px Arial, sans-serif; }
+    .subtitle { fill: #e6f1ff; font: 22px Arial, sans-serif; }
+    .note { fill: #d3dce6; font: 18px Arial, sans-serif; }
+    .axis { stroke: #8892b0; stroke-width: 1.2; }
+    .axis-label { fill: #e6f1ff; font: 18px Arial, sans-serif; }
+    .small-label { fill: #e6f1ff; font: 15px Arial, sans-serif; }
+    .legend-title { fill: #64ffda; font: 24px Arial, sans-serif; }
+    .legend-text { fill: #e6f1ff; font: 17px Arial, sans-serif; }
+  </style>
+  <rect width="100%" height="100%" fill="#0a192f"/>
+  <text x="56" y="58" class="title">2D Ridge-Center Cross-Section</text>
+  <text x="58" y="96" class="subtitle">Plane perpendicular to the ridge direction at the middle of the telecom laser cavity</text>
+  <text x="58" y="125" class="note">Horizontal axis: lateral y. Vertical axis: layer height z, visually scaled by 12.0x.</text>
+  <line x1="78" y1="810" x2="1140" y2="810" class="axis"/>
+  <line x1="78" y1="86" x2="78" y2="810" class="axis"/>
+  <text x="1000" y="852" class="axis-label">lateral y (um)</text>
+  <text x="92" y="110" class="axis-label">height z (um)</text>
+  <rect x="78.00" y="127.40" width="141.85" height="680.90" fill="#2f6ed3" fill-opacity="0.88" stroke="#0a192f" stroke-width="1"/><rect x="78.00" y="113.78" width="141.85" height="13.62" fill="#5aa3ff" fill-opacity="0.88" stroke="#0a192f" stroke-width="1"/><rect x="78.00" y="103.57" width="141.85" height="10.21" fill="#4f86f7" fill-opacity="0.88" stroke="#0a192f" stroke-width="1"/><rect x="78.00" y="101.86" width="141.85" height="1.70" fill="#62d2a2" fill-opacity="0.88" stroke="#0a192f" stroke-width="1"/><rect x="78.00" y="101.32" width="141.85" height="0.54" fill="#ff4f81" fill-opacity="0.88" stroke="#0a192f" stroke-width="1"/><rect x="78.00" y="99.62" width="141.85" height="1.70" fill="#62d2a2" fill-opacity="0.88" stroke="#0a192f" stroke-width="1"/><rect x="148.08" y="87.70" width="1.70" height="11.92" fill="#b75cff" fill-opacity="0.88" stroke="#0a192f" stroke-width="1"/><rect x="78.00" y="95.87" width="70.08" height="3.74" fill="#b75cff" fill-opacity="0.88" stroke="#0a192f" stroke-width="1"/><rect x="149.78" y="95.87" width="70.08" height="3.74" fill="#b75cff" fill-opacity="0.88" stroke="#0a192f" stroke-width="1"/><rect x="78.85" y="94.17" width="68.37" height="1.70" fill="#8ed6ff" fill-opacity="0.88" stroke="#0a192f" stroke-width="1"/><rect x="150.63" y="94.17" width="68.37" height="1.70" fill="#8ed6ff" fill-opacity="0.88" stroke="#0a192f" stroke-width="1"/><rect x="147.57" y="86.00" width="2.72" height="1.70" fill="#f2b84b" fill-opacity="0.88" stroke="#0a192f" stroke-width="1"/><rect x="78.00" y="808.30" width="141.85" height="1.70" fill="#c8ccd4" fill-opacity="0.88" stroke="#0a192f" stroke-width="1"/>
+  <text x="227.85" y="113.86" class="small-label">Lower SCH waveguide</text><text x="227.85" y="113.32" class="small-label">MQW active region</text><text x="227.85" y="111.62" class="small-label">Upper SCH waveguide</text><text x="157.78" y="99.70" class="small-label">p-InP ridge and cladding</text><text x="158.29" y="98.00" class="small-label">top p-metal stripe</text>
+  <rect x="1161" y="78" width="315" height="418" rx="8" fill="#112240" stroke="#233554" stroke-width="2"/>
+  <text x="1186" y="106" class="legend-title">Materials</text>
+  <rect x="1186" y="111" width="18" height="18" fill="#2f6ed3" stroke="#e6f1ff" stroke-width="1"/><text x="1216" y="126" class="legend-text">InP substrate</text><rect x="1186" y="147" width="18" height="18" fill="#5aa3ff" stroke="#e6f1ff" stroke-width="1"/><text x="1216" y="162" class="legend-text">n-InP buffer</text><rect x="1186" y="183" width="18" height="18" fill="#4f86f7" stroke="#e6f1ff" stroke-width="1"/><text x="1216" y="198" class="legend-text">n-InP cladding</text><rect x="1186" y="219" width="18" height="18" fill="#62d2a2" stroke="#e6f1ff" stroke-width="1"/><text x="1216" y="234" class="legend-text">InGaAsP lower SCH</text><rect x="1186" y="255" width="18" height="18" fill="#ff4f81" stroke="#e6f1ff" stroke-width="1"/><text x="1216" y="270" class="legend-text">InGaAsP MQW active</text><rect x="1186" y="291" width="18" height="18" fill="#62d2a2" stroke="#e6f1ff" stroke-width="1"/><text x="1216" y="306" class="legend-text">InGaAsP upper SCH</text><rect x="1186" y="327" width="18" height="18" fill="#b75cff" stroke="#e6f1ff" stroke-width="1"/><text x="1216" y="342" class="legend-text">p-InP ridge/cladding</text><rect x="1186" y="363" width="18" height="18" fill="#8ed6ff" stroke="#e6f1ff" stroke-width="1"/><text x="1216" y="378" class="legend-text">SiN dielectric</text><rect x="1186" y="399" width="18" height="18" fill="#f2b84b" stroke="#e6f1ff" stroke-width="1"/><text x="1216" y="414" class="legend-text">Au p-contact</text><rect x="1186" y="435" width="18" height="18" fill="#c8ccd4" stroke="#e6f1ff" stroke-width="1"/><text x="1216" y="450" class="legend-text">Ti/Pt/Au n-contact</text>
+  <text x="58" y="850" class="note">Physical profile width: 250.0 um; physical height: 106.33 um.</text>
+</svg>

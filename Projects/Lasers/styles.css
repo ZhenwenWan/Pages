@@ -77,6 +77,12 @@ a {
     border-bottom: 1px solid #233554;
 }
 
+.geometry-profile2d {
+    margin: 18px auto 18px;
+    border: 1px solid #233554;
+    background: #0a192f;
+}
+
 .model-viewer {
     width: 100%;
     height: 560px;

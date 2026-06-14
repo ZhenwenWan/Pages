@@ -1,0 +1,252 @@
+{
+  "metadata": {
+    "name": "Telecom laser ridge-center 2D cross-section",
+    "version": "task-1.1-2d",
+    "units": "micrometer",
+    "cut_plane": "x = 0, perpendicular to ridge direction",
+    "description": "2D y-z profile through the middle of the telecom laser ridge.",
+    "visual_scale": {
+      "y": 1.0,
+      "z": 12.0
+    },
+    "physical_bounds_um": {
+      "width_y": 250.0,
+      "height_z": 106.33,
+      "y_min": -125.0,
+      "y_max": 125.0,
+      "z_min": -0.25,
+      "z_max": 106.08
+    }
+  },
+  "parameters": {
+    "length_um": 300.0,
+    "chip_width_um": 250.0,
+    "substrate_thickness_um": 100.0,
+    "n_buffer_thickness_um": 2.0,
+    "n_cladding_thickness_um": 1.5,
+    "lower_waveguide_thickness_um": 0.25,
+    "active_mqw_thickness_um": 0.08,
+    "upper_waveguide_thickness_um": 0.25,
+    "p_cladding_thickness_um": 1.5,
+    "p_cap_thickness_um": 0.25,
+    "ridge_width_um": 3.0,
+    "ridge_etch_depth_um": 1.2,
+    "dielectric_thickness_um": 0.25,
+    "p_metal_thickness_um": 0.25,
+    "n_metal_thickness_um": 0.25,
+    "facet_coating_thickness_um": 0.08,
+    "output_window_width_um": 3.0,
+    "vertical_visual_scale": 12.0,
+    "lateral_visual_scale": 1.0
+  },
+  "rectangles": [
+    {
+      "name": "InP substrate",
+      "material": "InP substrate",
+      "role": "Mechanical support and n-side electrical path.",
+      "color": "#2f6ed3",
+      "bounds_um": {
+        "y_min": -125.0,
+        "y_max": 125.0,
+        "z_min": 0.0,
+        "z_max": 100.0
+      },
+      "size_um": {
+        "width_y": 250.0,
+        "height_z": 100.0
+      }
+    },
+    {
+      "name": "n-InP buffer",
+      "material": "n-InP buffer",
+      "role": "Defect smoothing and transition layer above substrate.",
+      "color": "#5aa3ff",
+      "bounds_um": {
+        "y_min": -125.0,
+        "y_max": 125.0,
+        "z_min": 100.0,
+        "z_max": 102.0
+      },
+      "size_um": {
+        "width_y": 250.0,
+        "height_z": 2.0
+      }
+    },
+    {
+      "name": "n-InP lower cladding",
+      "material": "n-InP cladding",
+      "role": "Lower optical and carrier confinement.",
+      "color": "#4f86f7",
+      "bounds_um": {
+        "y_min": -125.0,
+        "y_max": 125.0,
+        "z_min": 102.0,
+        "z_max": 103.5
+      },
+      "size_um": {
+        "width_y": 250.0,
+        "height_z": 1.5
+      }
+    },
+    {
+      "name": "Lower SCH waveguide",
+      "material": "InGaAsP lower SCH",
+      "role": "Separate-confinement heterostructure below active region.",
+      "color": "#62d2a2",
+      "bounds_um": {
+        "y_min": -125.0,
+        "y_max": 125.0,
+        "z_min": 103.5,
+        "z_max": 103.75
+      },
+      "size_um": {
+        "width_y": 250.0,
+        "height_z": 0.25
+      }
+    },
+    {
+      "name": "MQW active region",
+      "material": "InGaAsP MQW active",
+      "role": "Carrier recombination and photon generation region.",
+      "color": "#ff4f81",
+      "bounds_um": {
+        "y_min": -125.0,
+        "y_max": 125.0,
+        "z_min": 103.75,
+        "z_max": 103.83000000000001
+      },
+      "size_um": {
+        "width_y": 250.0,
+        "height_z": 0.08
+      }
+    },
+    {
+      "name": "Upper SCH waveguide",
+      "material": "InGaAsP upper SCH",
+      "role": "Separate-confinement heterostructure above active region.",
+      "color": "#62d2a2",
+      "bounds_um": {
+        "y_min": -125.0,
+        "y_max": 125.0,
+        "z_min": 103.83,
+        "z_max": 104.08
+      },
+      "size_um": {
+        "width_y": 250.0,
+        "height_z": 0.25
+      }
+    },
+    {
+      "name": "p-InP ridge and cladding",
+      "material": "p-InP ridge/cladding",
+      "role": "Narrow ridge waveguide for lateral optical and current confinement.",
+      "color": "#b75cff",
+      "bounds_um": {
+        "y_min": -1.5,
+        "y_max": 1.5,
+        "z_min": 104.08,
+        "z_max": 105.83
+      },
+      "size_um": {
+        "width_y": 3.0,
+        "height_z": 1.75
+      }
+    },
+    {
+      "name": "left etched p-InP shoulder",
+      "material": "p-InP ridge/cladding",
+      "role": "Etched p-cladding shoulder after ridge definition.",
+      "color": "#b75cff",
+      "bounds_um": {
+        "y_min": -125.0,
+        "y_max": -1.5,
+        "z_min": 104.08,
+        "z_max": 104.63000000000001
+      },
+      "size_um": {
+        "width_y": 123.5,
+        "height_z": 0.55
+      }
+    },
+    {
+      "name": "right etched p-InP shoulder",
+      "material": "p-InP ridge/cladding",
+      "role": "Etched p-cladding shoulder after ridge definition.",
+      "color": "#b75cff",
+      "bounds_um": {
+        "y_min": 1.5,
+        "y_max": 125.0,
+        "z_min": 104.08,
+        "z_max": 104.63000000000001
+      },
+      "size_um": {
+        "width_y": 123.5,
+        "height_z": 0.55
+      }
+    },
+    {
+      "name": "left SiN isolation",
+      "material": "SiN dielectric",
+      "role": "Current blocking and surface passivation.",
+      "color": "#8ed6ff",
+      "bounds_um": {
+        "y_min": -123.5,
+        "y_max": -3.0,
+        "z_min": 104.63,
+        "z_max": 104.88
+      },
+      "size_um": {
+        "width_y": 120.5,
+        "height_z": 0.25
+      }
+    },
+    {
+      "name": "right SiN isolation",
+      "material": "SiN dielectric",
+      "role": "Current blocking and surface passivation.",
+      "color": "#8ed6ff",
+      "bounds_um": {
+        "y_min": 3.0,
+        "y_max": 123.5,
+        "z_min": 104.63,
+        "z_max": 104.88
+      },
+      "size_um": {
+        "width_y": 120.5,
+        "height_z": 0.25
+      }
+    },
+    {
+      "name": "top p-metal stripe",
+      "material": "Au p-contact",
+      "role": "P-side current injection stripe.",
+      "color": "#f2b84b",
+      "bounds_um": {
+        "y_min": -2.4000000000000004,
+        "y_max": 2.4000000000000004,
+        "z_min": 105.83,
+        "z_max": 106.08
+      },
+      "size_um": {
+        "width_y": 4.800000000000001,
+        "height_z": 0.25
+      }
+    },
+    {
+      "name": "backside n-metal",
+      "material": "Ti/Pt/Au n-contact",
+      "role": "Backside n-side ohmic contact.",
+      "color": "#c8ccd4",
+      "bounds_um": {
+        "y_min": -125.0,
+        "y_max": 125.0,
+        "z_min": -0.25,
+        "z_max": 0.0
+      },
+      "size_um": {
+        "width_y": 250.0,
+        "height_z": 0.25
+      }
+    }
+  ]
+}
