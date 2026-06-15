@@ -9,7 +9,7 @@
     "triangle_count": 1440,
     "visual_scale": {
       "y": 1.0,
-      "z": 18.0
+      "z": 1.0
     },
     "physical_bounds_um": {
       "width_y": 12.0,
