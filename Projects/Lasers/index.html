@@ -173,6 +173,25 @@
                         <a class="highlight-link" href="telecom_laser_profile2d.svg">2D SVG</a> |
                         <a class="highlight-link" href="telecom_laser_profile2d.json">2D JSON</a>
                     </p>
+
+                    <h4>Reduced 2D dynamics model and mesh</h4>
+                    <p>The simulation model removes the thick InP substrate and facet details from the realistic geometry. It keeps the left and right edges identical, retains the semiconductor, active, dielectric, and contact regions needed for carrier, optical, and thermal dynamics, and exports material ids for solver setup.</p>
+                    <div class="simulation-model-grid">
+                        <figure>
+                            <img class="responsive-img geometry-profile2d" src="telecom_laser_geo2d_model.svg" alt="Reduced 2D telecom laser dynamics geometry model">
+                            <figcaption>Reduced symmetric 2D dynamics geometry.</figcaption>
+                        </figure>
+                        <figure>
+                            <img class="responsive-img geometry-profile2d" src="telecom_laser_geo2d_mesh.svg" alt="Triangular mesh for the reduced 2D telecom laser dynamics model">
+                            <figcaption>Triangular mesh generated from the reduced model.</figcaption>
+                        </figure>
+                    </div>
+                    <p>
+                        <a class="highlight-link" href="telecom_laser_geo2d_model.svg">Dynamics geometry SVG</a> |
+                        <a class="highlight-link" href="telecom_laser_geo2d_model.json">Dynamics geometry JSON</a> |
+                        <a class="highlight-link" href="telecom_laser_geo2d_mesh.svg">Mesh SVG</a> |
+                        <a class="highlight-link" href="telecom_laser_geo2d_mesh.json">Mesh JSON</a>
+                    </p>
                 </div>
             </section>
         </main>

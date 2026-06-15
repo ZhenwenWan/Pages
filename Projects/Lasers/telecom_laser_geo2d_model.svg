@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1300" height="860" viewBox="0 0 1300 860" role="img" aria-label="Reduced 2D telecom laser dynamics model">
+  <style>
+    .title { fill: #64ffda; font: 38px Arial, sans-serif; }
+    .subtitle { fill: #e6f1ff; font: 20px Arial, sans-serif; }
+    .note { fill: #d3dce6; font: 17px Arial, sans-serif; }
+    .axis { stroke: #8892b0; stroke-width: 1.2; }
+    .axis-label { fill: #e6f1ff; font: 17px Arial, sans-serif; }
+    .legend-title { fill: #64ffda; font: 22px Arial, sans-serif; }
+    .legend-text { fill: #e6f1ff; font: 16px Arial, sans-serif; }
+  </style>
+  <rect width="100%" height="100%" fill="#0a192f"/>
+  <text x="52" y="56" class="title">Reduced 2D Dynamics Geometry</text>
+  <text x="54" y="92" class="subtitle">Symmetric y-z telecom laser model without the thick InP substrate</text>
+  <text x="54" y="122" class="note">Horizontal axis: lateral y. Vertical axis: height z, visually scaled by 18.0x.</text>
+  <line x1="95" y1="765" x2="940" y2="765" class="axis"/>
+  <line x1="95" y1="170" x2="95" y2="765" class="axis"/>
+  <text x="820" y="807" class="axis-label">lateral y (um)</text>
+  <text x="109" y="194" class="axis-label">height z (um)</text>
+  <rect x="95.00" y="736.87" width="93.77" height="28.13" fill="#c8ccd4" fill-opacity="0.90" stroke="#0a192f" stroke-width="1.2"/><rect x="95.00" y="525.87" width="93.77" height="210.99" fill="#4f86f7" fill-opacity="0.90" stroke="#0a192f" stroke-width="1.2"/><rect x="95.00" y="490.71" width="93.77" height="35.17" fill="#62d2a2" fill-opacity="0.90" stroke="#0a192f" stroke-width="1.2"/><rect x="95.00" y="479.46" width="93.77" height="11.25" fill="#ff4f81" fill-opacity="0.90" stroke="#0a192f" stroke-width="1.2"/><rect x="95.00" y="444.29" width="93.77" height="35.17" fill="#62d2a2" fill-opacity="0.90" stroke="#0a192f" stroke-width="1.2"/><rect x="95.00" y="366.93" width="35.17" height="77.36" fill="#b75cff" fill-opacity="0.90" stroke="#0a192f" stroke-width="1.2"/><rect x="95.00" y="331.76" width="35.17" height="35.17" fill="#8ed6ff" fill-opacity="0.90" stroke="#0a192f" stroke-width="1.2"/><rect x="153.61" y="366.93" width="35.17" height="77.36" fill="#b75cff" fill-opacity="0.90" stroke="#0a192f" stroke-width="1.2"/><rect x="153.61" y="331.76" width="35.17" height="35.17" fill="#8ed6ff" fill-opacity="0.90" stroke="#0a192f" stroke-width="1.2"/><rect x="130.17" y="198.13" width="23.44" height="246.16" fill="#b75cff" fill-opacity="0.90" stroke="#0a192f" stroke-width="1.2"/><rect x="130.17" y="170.00" width="23.44" height="28.13" fill="#f2b84b" fill-opacity="0.90" stroke="#0a192f" stroke-width="1.2"/>
+  <rect x="963" y="158" width="290" height="346" rx="8" fill="#112240" stroke="#233554" stroke-width="2"/>
+  <text x="988" y="186" class="legend-title">Materials</text>
+  <rect x="988" y="191" width="18" height="18" fill="#c8ccd4" stroke="#e6f1ff" stroke-width="1"/><text x="1018" y="206" class="legend-text">Ti/Pt/Au n-contact</text><rect x="988" y="227" width="18" height="18" fill="#4f86f7" stroke="#e6f1ff" stroke-width="1"/><text x="1018" y="242" class="legend-text">n-InP cladding</text><rect x="988" y="263" width="18" height="18" fill="#62d2a2" stroke="#e6f1ff" stroke-width="1"/><text x="1018" y="278" class="legend-text">InGaAsP lower SCH</text><rect x="988" y="299" width="18" height="18" fill="#ff4f81" stroke="#e6f1ff" stroke-width="1"/><text x="1018" y="314" class="legend-text">InGaAsP MQW active</text><rect x="988" y="335" width="18" height="18" fill="#62d2a2" stroke="#e6f1ff" stroke-width="1"/><text x="1018" y="350" class="legend-text">InGaAsP upper SCH</text><rect x="988" y="371" width="18" height="18" fill="#b75cff" stroke="#e6f1ff" stroke-width="1"/><text x="1018" y="386" class="legend-text">p-InP</text><rect x="988" y="407" width="18" height="18" fill="#8ed6ff" stroke="#e6f1ff" stroke-width="1"/><text x="1018" y="422" class="legend-text">SiN dielectric</text><rect x="988" y="443" width="18" height="18" fill="#f2b84b" stroke="#e6f1ff" stroke-width="1"/><text x="1018" y="458" class="legend-text">Au p-contact</text>
+  <text x="54" y="830" class="note">Physical width: 12.00 um; physical height: 4.23 um. Left and right edges use identical boundary assumptions.</text>
+</svg>

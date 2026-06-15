@@ -83,6 +83,23 @@ a {
     background: #0a192f;
 }
 
+.simulation-model-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 22px;
+    margin: 18px 0 20px;
+}
+
+.simulation-model-grid figure {
+    margin: 0;
+}
+
+.simulation-model-grid figcaption {
+    color: #d3dce6;
+    font-size: 0.95rem;
+    margin-top: 8px;
+}
+
 .profile2d-toolbar {
     display: flex;
     justify-content: flex-end;
