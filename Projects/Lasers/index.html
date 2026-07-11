@@ -194,6 +194,41 @@
                     </p>
                 </div>
             </section>
+
+            <section class="content-block multiphysics-block">
+                <div class="text-content">
+                    <h3>Task 1.2 Coupled Multiphysics Solver</h3>
+                    <p>The second simulator task integrates the discrete physical models into a fully coupled 2D Electro-Optic-Thermal solver. It solves for quasi-static potential and drifting carriers (using a Finite Volume Method in <code>CarriersSolver</code>), spatially-lumped cavity photon population (in <code>PhotonsSolver</code>), and lattice heat transport (in <code>ThermoSolver</code>).</p>
+                    <p>The solver accounts for mutual feedback loops: temperature-dependent stimulated gain degradation, photon population driving carriers through stimulated recombination, Auger/SRH non-radiative recombination heating, and quantum defect heating.</p>
+                    <p>A key milestone is numerical stability. By calibrating the carrier equation Jacobian scaling to <code>1.0e-26</code>, the nonlinear trust-region dogleg solver (<code>CoDoSol</code>) converges cleanly (<code>ierr = 0</code>) in every steady-state iteration. Additionally, using conservative <code>Zero Normal Flux</code> boundary conditions for symmetry margins prevents non-physical carrier depletion (negative densities) at boundary corners, yielding smooth, physically meaningful results.</p>
+                    
+                    <h4>2D Physical Field Distributions</h4>
+                    <p>The contours below represent the steady-state operating fields at high electrical injection. Note the localized carrier concentration and peak heating in the multi-quantum-well (MQW) active region under the p-contact ridge.</p>
+                    <div class="simulation-model-grid">
+                        <figure>
+                            <img class="responsive-img geometry-profile2d" src="laser_coupled_carriers_electron.svg" alt="Steady-state 2D electron density distribution contour">
+                            <figcaption>Steady-state electron density distribution contour (N).</figcaption>
+                        </figure>
+                        <figure>
+                            <img class="responsive-img geometry-profile2d" src="laser_coupled_temperature.svg" alt="Steady-state 2D lattice temperature distribution contour">
+                            <figcaption>Steady-state lattice temperature distribution contour (T).</figcaption>
+                        </figure>
+                    </div>
+
+                    <h4>1D Profiles Across Steady-State Coupling Iterations</h4>
+                    <p>The profiles below show the spatial field behavior across the steady-state coupling iterations. The carrier density is plotted horizontally along the active region midline, while the temperature is plotted vertically through the ridge center. The fields successfully stabilize into a steady-state profile by iteration 15.</p>
+                    <div class="simulation-model-grid">
+                        <figure>
+                            <img class="responsive-img geometry-profile2d" src="laser_coupled_1d_horizontal_iterations.svg" alt="Horizontal carrier density profiles across coupled iterations">
+                            <figcaption>Horizontal electron density profiles across iterations (Active Region midline).</figcaption>
+                        </figure>
+                        <figure>
+                            <img class="responsive-img geometry-profile2d" src="laser_coupled_1d_vertical_iterations.svg" alt="Vertical temperature profiles across coupled iterations">
+                            <figcaption>Vertical temperature profiles across iterations (Ridge center vertical cut).</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
         </main>
 
         <footer class="project-footer">
