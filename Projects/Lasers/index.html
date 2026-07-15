@@ -25,7 +25,7 @@
                     <h3>Project Vision</h3>
                     <p>Lasers develops a compact physics-informed model for telecom laser Electronic Design Automation (EDA). The model is designed for Physics-Informed Neural Networks (PINNs), linking engineering inputs, semiconductor carrier transport, band-energy dynamics, photon density, electromagnetic frequency, and heat generation to laser performance outputs.</p>
                     <p>The aim is not to reproduce every microscopic quantum process. The aim is to build an interpretable CFD-type simulator that can be calibrated with experimental data and operated inside an EDA workflow for telecom laser design.</p>
-                    <p><a class="highlight-link" href="cfd_semiconductor_model_v2_2.pdf">Read the revised model PDF</a></p>
+                    <p><a class="highlight-link" href="semiconductor_model_v2.pdf">Read the Version 2 model PDF</a></p>
                 </div>
             </section>
 
@@ -198,7 +198,7 @@
             <section class="content-block multiphysics-block">
                 <div class="text-content">
                     <h3>Task 1.2 Coupled Multiphysics Solver</h3>
-                    <p>The second simulator task integrates the discrete physical models into a fully coupled 2D Electro-Optic-Thermal solver. It solves for quasi-static potential and drifting carriers (using a Finite Volume Method in <code>CarriersSolver</code>), spatially-lumped cavity photon population (in <code>PhotonsSolver</code>), and lattice heat transport (in <code>ThermoSolver</code>).</p>
+                    <p>The second simulator task integrates the discrete physical models into a fully coupled 2D Electro-Optic-Thermal solver. It solves for quasi-static potential and drifting carriers (using a Finite Volume Method in <code>CarriersSolver</code>), 2D transverse electromagnetic modes (using a vector Helmholtz form in <code>EMSolver</code>) which analytically incorporates facet mirror losses and exports the <code>PhotonPopulation</code>, and lattice heat transport (in <code>ThermoSolver</code>).</p>
                     <p>The solver accounts for mutual feedback loops: temperature-dependent stimulated gain degradation, photon population driving carriers through stimulated recombination, Auger/SRH non-radiative recombination heating, and quantum defect heating.</p>
                     <p>A key milestone is numerical stability. By calibrating the carrier equation Jacobian scaling to <code>1.0e-26</code>, the nonlinear trust-region dogleg solver (<code>CoDoSol</code>) converges cleanly (<code>ierr = 0</code>) in every steady-state iteration. Additionally, using conservative <code>Zero Normal Flux</code> boundary conditions for symmetry margins prevents non-physical carrier depletion (negative densities) at boundary corners, yielding smooth, physically meaningful results.</p>
                     
@@ -289,13 +289,13 @@
                         </tbody>
                     </table>
 
-                    <h4>Robustness Validation Sweep Results</h4>
-                    <p>All 5 cases of the validation sweep converged successfully. A critical stabilization choice was configuring a <strong>Steady State Relaxation Factor = Real 0.5</strong> in the lattice <code>ThermoSolver</code> (with carrier and photon solvers unrelaxed to prevent numerical mismatch in CodoSolver). This relaxation successfully dampens non-linear thermal feedback, preventing numerical thermal runaway and securing clean convergence across all sweeps.</p>
+                    <h4>Calibrated Wave-Coupled Simulation Results</h4>
+                    <p>Under Version 2, the simulator is calibrated for high-performance heat sinks (copper submount boundary coefficients: 5000 and 2000 W/cm^2-K) and forward bias operation, reaching clean self-consistent convergence in 15 iterations. The table below lists the physical fields at the converged steady-state operating point:</p>
                     
                     <table>
                         <thead>
                             <tr>
-                                <th>Case Name</th>
+                                <th>Case / Field</th>
                                 <th>Converged</th>
                                 <th>N<sub>max</sub> (cm<sup>-3</sup>)</th>
                                 <th>T<sub>max</sub> (K)</th>
@@ -305,48 +305,15 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><strong>Case 1: Baseline Bias</strong></td>
+                                <td><strong>Wave-Coupled Baseline</strong></td>
                                 <td><span style="color:#64ffda; font-weight:bold;">Yes</span></td>
-                                <td>6.33 &times; 10<sup>19</sup></td>
-                                <td>464.84 K (191.7&deg;C)</td>
-                                <td>3.35 &times; 10<sup>13</sup></td>
-                                <td>Standard design point at baseline forward bias (V<sub>bias</sub> &approx; 0.8 V). Shows high carrier densities and significant self-heating.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Case 2: Slightly Higher Bias</strong></td>
-                                <td><span style="color:#64ffda; font-weight:bold;">Yes</span></td>
-                                <td>8.56 &times; 10<sup>17</sup></td>
-                                <td>299.99 K</td>
-                                <td>1.37 &times; 10<sup>10</sup></td>
-                                <td>Stable convergence under slightly higher bias (V<sub>bias</sub> &approx; 0.81 V).</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Case 3: Degraded Thermal Conductivity</strong></td>
-                                <td><span style="color:#64ffda; font-weight:bold;">Yes</span></td>
-                                <td>8.19 &times; 10<sup>18</sup></td>
-                                <td>300.26 K</td>
-                                <td>4.40 &times; 10<sup>11</sup></td>
-                                <td>Cladding and active thermal conductivities reduced by 15%. Stable convergence validates robust thermal feedback coupling.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Case 4: High Auger Recombination</strong></td>
-                                <td><span style="color:#64ffda; font-weight:bold;">Yes</span></td>
-                                <td>1.35 &times; 10<sup>19</sup></td>
-                                <td>314.87 K</td>
-                                <td>4.66 &times; 10<sup>12</sup></td>
-                                <td>Auger loss increased to 4.5 &times; 10<sup>-29</sup> cm<sup>6</sup>/s. Verifies solver stability under heavy non-radiative carrier losses.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Case 5: High Cladding Mobilities</strong></td>
-                                <td><span style="color:#64ffda; font-weight:bold;">Yes</span></td>
-                                <td>4.81 &times; 10<sup>18</sup></td>
-                                <td>300.15 K</td>
-                                <td>3.52 &times; 10<sup>11</sup></td>
-                                <td>Cladding mobilities increased to 2000/500. Confirms solver stability in advection-dominated transport limits.</td>
+                                <td>3.60 &times; 10<sup>18</sup></td>
+                                <td>300.96 K (27.8&deg;C)</td>
+                                <td>4.70 &times; 10<sup>16</sup></td>
+                                <td>Wave-coupled design point at forward bias. The active region temperature is stabilized below 380 K due to high-performance heat sinks. PhotonPopulation is calculated directly from EMSolver's EMWave intensity |E|^2.</td>
                             </tr>
                         </tbody>
                     </table>
-                    <p><a class="highlight-link" href="diagnostics_laser_coupled/robustness_validation_results.csv"><i class="fas fa-file-csv"></i> Download CSV results file</a></p>
                 </div>
             </section>
         </main>
