@@ -314,6 +314,50 @@
                     </table>
                 </div>
             </section>
+
+            <section class="content-block">
+                <div class="text-content">
+                    <h3>Task 1.4 Electro-Optical Efficiency Spectrum</h3>
+                    <p>To calibrate the resonance behavior of the edge-emitting cavity, we developed a frequency sweep tool centered around the design resonance frequency f<sub>0</sub> = 193.4 THz (extending across a 1% width range of 192.43 THz to 194.37 THz). The tool couples the 2D transverse mode profile with a 3D single-mode Lorentzian cavity resonance factor.</p>
+                    <p>The resulting spectrum resolves a clean single-mode cavity resonance peak with a linewidth of 30.61 GHz. The Peak Wall-Plug Efficiency (WPE) reaches 5.398% at resonance and decays down to 0.0013% at the sweep boundaries, demonstrating the high spectral selectivity of the cavity.</p>
+                    <img class="responsive-img geometry-profile2d" src="efficiency_spectrum.svg" alt="Electro-optical efficiency spectrum showing Lorentzian resonance peak">
+                </div>
+            </section>
+
+            <section class="content-block">
+                <div class="text-content">
+                    <h3>Task 1.5 2D Parameter Sweeps &amp; Operating Options Impact</h3>
+                    <p>To understand the trade-offs between design parameters and device efficiency, we performed 2D sweeps of Wall-Plug Efficiency (WPE) against frequency and three critical operating options: mirror reflectivity (R), cavity length (L), and lattice temperature (T<sub>0</sub>).</p>
+                    <p>The sweeps reveal that the peak efficiency occurs at an optimal reflectivity of approximately R = 0.3 (representing cleaved facets) due to the trade-off between mirror loss and internal photon density. Longer cavities increase the round-trip gain but also accumulate internal absorption loss. Thermal heating above 300 K severely degrades efficiency due to carrier leakage and Auger recombination heating.</p>
+                    
+                    <div class="simulation-model-grid">
+                        <figure>
+                            <img class="responsive-img geometry-profile2d" src="wpe_2d_reflectivity.svg" alt="2D WPE sweep against frequency and mirror reflectivity">
+                            <figcaption>WPE vs. Frequency &amp; Mirror Reflectivity (R).</figcaption>
+                        </figure>
+                        <figure>
+                            <img class="responsive-img geometry-profile2d" src="wpe_2d_length.svg" alt="2D WPE sweep against frequency and cavity length">
+                            <figcaption>WPE vs. Frequency &amp; Cavity Length (L).</figcaption>
+                        </figure>
+                    </div>
+                    <div style="max-width: 460px; margin: 0 auto;">
+                        <figure>
+                            <img class="responsive-img geometry-profile2d" src="wpe_2d_temperature.svg" alt="2D WPE sweep against frequency and lattice temperature">
+                            <figcaption>WPE vs. Frequency &amp; Lattice Temperature (T0).</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-block">
+                <div class="text-content">
+                    <h3>Task 1.6 Quasi-3D (2.5D) Simulator &amp; Spatial Hole Burning</h3>
+                    <p>To capture longitudinal spatial hole burning (SHB) and asymmetric facet coating effects without the prohibitive computational cost of a 3D FEM mesh, we implemented a Quasi-3D (2.5D) Simulator. It couples the 2D Elmer solver output parameters (active area A<sub>act</sub> = 9.6 &times; 10<sup>-9</sup> cm<sup>2</sup>, confinement factor &Gamma; = 0.05, active region injection current I'<sub>active</sub> &approx; 4.265 A/cm) with a 1D longitudinal optical propagation and carrier rate solver.</p>
+                    <p>A stable log-carrier Newton-Raphson solver (x = ln(N)) solves the steady-state rate equations at each longitudinal slice z. Below is the spatial profile comparison between symmetric cleaved facets (R<sub>1</sub> = R<sub>2</sub> = 0.3) and asymmetric HR/AR coated facets (R<sub>1</sub> = 0.9, R<sub>2</sub> = 0.05):</p>
+                    <img class="responsive-img geometry-profile2d" src="quasi_3d_shb_profiles.svg" alt="Longitudinal profiles of optical power and carrier density showing Spatial Hole Burning">
+                    <p>For the symmetric cavity, the profiles are perfectly symmetric along the cavity axis. For the asymmetric cavity, the internal optical power peaks strongly near the front facet (z = L), which depletes carriers locally and causes a visible asymmetric dip in carrier density N(z) (longitudinal spatial hole burning).</p>
+                </div>
+            </section>
         </main>
 
         <footer class="project-footer">
