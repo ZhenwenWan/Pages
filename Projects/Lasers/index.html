@@ -358,6 +358,35 @@
                     <p>For the symmetric cavity, the profiles are perfectly symmetric along the cavity axis. For the asymmetric cavity, the internal optical power peaks strongly near the front facet (z = L), which depletes carriers locally and causes a visible asymmetric dip in carrier density N(z) (longitudinal spatial hole burning).</p>
                 </div>
             </section>
+            <section class="content-block">
+                <div class="text-content">
+                    <h3>Task 1.7 Physics-Informed Neural Network (PINN) &amp; Stand-alone Design Application</h3>
+                    <p>To deliver real-time optimization capability for diode laser design without the computational overhead of solving coupled differential equations iteratively, we developed a <strong>Physics-Informed Neural Network (PINN) surrogate model</strong> and packaged it into a <strong>stand-alone design application</strong>.</p>
+                    
+                    <h4>Physics-Informed Machine Learning Framework</h4>
+                    <p>We generated a dataset of 1,500 converged multidimensional sweeps using our calibrated 2.5D solver. A PyTorch-based Deep Neural Network is trained to map five design parameters (facet reflectivities R<sub>1</sub> and R<sub>2</sub>, cavity length L, temperature T<sub>0</sub>, and active injection current I<sub>active</sub>) directly to the 105 output metrics (including global optical power, WPE, terminal current, and 51-point spatial profiles for carrier density N(z) and optical power P(z)).</p>
+                    <p>The network utilizes a custom <strong>Physics-Informed Loss</strong> that scales and enforces the steady-state carrier continuity rate equations across the cavity axis. This forces the model to respect the physical limits of carrier recombination and stimulated emission, yielding an exceptionally high fidelity surrogate (R<sup>2</sup> &gt; 0.99) with <strong>instantaneous (5 ms) evaluation speed</strong>.</p>
+                    
+                    <img class="responsive-img geometry-profile2d" src="pinn_training_loss.svg" alt="PINN surrogate training loss plot showing six orders of magnitude convergence">
+                    
+                    <h4>Stand-alone Design Application (Streamlit)</h4>
+                    <p>Using the trained model, we developed a premium interactive <strong>Streamlit-based dashboard</strong> (<code>run_pinn_app.py</code>). The dashboard provides:</p>
+                    <ul class="feature-list">
+                        <li><strong>Real-Time Parametric Sweeps:</strong> Instantaneous recalculation of output power, wall-plug efficiency, and terminal current as the user adjusts design sliders.</li>
+                        <li><strong>Profile Visualizations:</strong> Real-time charts of carrier density and longitudinal optical field, allowing visual capture of spatial hole burning dynamics under asymmetric facet coatings.</li>
+                        <li><strong>Dynamic Design Guidance:</strong> Dynamic physical analysis text explaining the state of the laser (e.g., thermal droop warning, near-threshold behavior, or reflectivity skew insights).</li>
+                    </ul>
+                    
+                    <div class="spec-grid">
+                        <div class="spec-item"><i class="fab fa-python"></i><h4>Engine</h4><p>PyTorch CPU</p></div>
+                        <div class="spec-item"><i class="fas fa-gauge-high"></i><h4>Latency</h4><p>&lt; 5 ms</p></div>
+                        <div class="spec-item"><i class="fas fa-check-double"></i><h4>Accuracy</h4><p>R<sup>2</sup> &gt; 0.99</p></div>
+                        <div class="spec-item"><i class="fas fa-desktop"></i><h4>UI Portal</h4><p>Streamlit Web</p></div>
+                    </div>
+                    
+                    <p>This design platform demonstrates that physics-guided machine learning surrogates can successfully replace slow numerical solvers in industrial diode laser design, attracting collaborators seeking AI+Simulation expertise.</p>
+                </div>
+            </section>
         </main>
 
         <footer class="project-footer">
