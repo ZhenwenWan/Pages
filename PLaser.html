@@ -6,6 +6,15 @@
     <title>PLaser - Real-Time Physics-Informed Machine Learning Diode Laser EDA Application</title>
     <link href="styles.css" rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
         /* Dedicated PLaser premium styles building on global styles.css */
         .plaser-container {
@@ -496,8 +505,8 @@
                     <p>Deep Multitask Neural Net training under Physics-Informed losses.</p>
                 </div>
                 <p>Instead of relying purely on data interpolation, PLaser integrates physical laws directly into the neural network backpropagation pathway. The training loss function enforces local carrier continuity along the cavity grid:</p>
-                <div style="background-color: #112240; padding: 15px; border-radius: 6px; border: 1px solid #233554; font-family: monospace; font-size: 0.9rem; margin-bottom: 20px; color: #64ffda; text-align: center;">
-                    G_inj - R_rec(N(z)) - R_stim(N(z), P_tot(z)) = 0
+                <div style="background-color: #112240; padding: 15px; border-radius: 6px; border: 1px solid #233554; margin-bottom: 20px; color: #64ffda; text-align: center; font-size: 1.1rem;">
+                    $$G_{\text{inj}} - R_{\text{rec}}(N(z)) - R_{\text{stim}}(N(z), P_{\text{tot}}(z)) = 0$$
                 </div>
                 <p>This constraint prevents non-physical predictions, securing stability and generalization bounds even when parameters are swept near the highly nonlinear threshold limits ($I \approx I_{\text{th}}$) or under severe thermal roll-off ($T_0 > 320\text{ K}$).</p>
                 <p>The network structure incorporates GELU activations and maps a 5D design vector $[R_1, R_2, L, T_0, I_{\text{act}}]$ to a 105D output representing scalar performance metrics and longitudinal arrays.</p>
