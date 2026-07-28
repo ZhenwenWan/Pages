@@ -17,12 +17,12 @@
         
         .hero-section {
             text-align: center;
-            padding: 60px 20px;
+            padding: 30px 20px;
             background: linear-gradient(135deg, #112240 0%, #0a192f 100%);
             border-radius: 12px;
             border: 1px solid #233554;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            margin-bottom: 50px;
+            margin-bottom: 30px;
             position: relative;
             overflow: hidden;
         }
@@ -339,18 +339,11 @@
 <body>
     <div class="plaser-container">
         
-        <!-- Header -->
-        <header style="margin-bottom: 40px;">
-            <a class="back-link" href="index.html" style="font-size: 0.95rem; font-weight: bold;">
-                <i class="fas fa-arrow-left"></i> Back to Portfolio
-            </a>
-        </header>
-
         <!-- Hero Section -->
         <section class="hero-section">
-            <div class="hero-tagline">EDA Platform Launch</div>
-            <h1 class="hero-title">PLaser</h1>
-            <p class="hero-desc">Physics-Informed Machine Learning Diode Laser EDA Application. Solves coupled multi-physics transverse and longitudinal dynamics inside a fraction of a millisecond using a calibrated PINN surrogate solver.</p>
+            <div class="hero-tagline">EDA Platform for Telecom Diode Lasers</div>
+            <h1 class="hero-title" style="margin: 0 0 10px 0;">PLaser</h1>
+            <p class="hero-desc" style="font-size: 1.05rem; margin: 0 auto 20px auto;">Physics-informed machine learning platform for real-time telecom diode laser design, solving coupled transverse and longitudinal physics in milliseconds.</p>
             <div class="action-buttons">
                 <a class="btn btn-primary" href="PLaser_User_Manual.pdf" target="_blank">
                     <i class="fas fa-file-pdf"></i> Download PDF User Manual
@@ -588,6 +581,13 @@ python -m streamlit run app.py</pre>
                 <p>Tweak sliders and watch multi-physics curves adapt instantly on the localhost dashboard.</p>
             </div>
         </section>
+
+        <!-- Back to Portfolio Link at Bottom -->
+        <div style="text-align: center; margin: 30px 0 40px 0; border-top: 1px solid #233554; padding-top: 20px;">
+            <a class="back-link" href="index.html" style="font-size: 1.1rem; font-weight: bold;">
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </a>
+        </div>
 
         <!-- Footer Service Info -->
         <footer style="border-top: 1px solid #233554; padding-top: 30px; text-align: center; color: #8892b0; font-size: 0.9rem;">

@@ -15,12 +15,12 @@ body {
 /* Fixed Left Panel */
 .left-panel {
     position: fixed;
-    width: 33%;
+    width: 25%;
     height: 100vh;
     left: 0;
     top: 0;
     background: #112240;
-    padding: 40px;
+    padding: 30px;
     box-sizing: border-box;
     overflow: hidden;
     z-index: 2;
@@ -28,8 +28,8 @@ body {
 
 /* Scrollable Right Content */
 .right-content {
-    width: 67%;
-    margin-left: 33%;
+    width: 75%;
+    margin-left: 25%;
     padding: 40px;
     height: 100vh;
     overflow-y: auto;
@@ -42,7 +42,22 @@ body {
 .social-icons {
     margin: 40px 0;
     display: flex;
-    gap: 75px;
+    gap: 30px;
+}
+
+@media (max-width: 768px) {
+    .left-panel {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 30px 20px;
+    }
+    .right-content {
+        width: 100%;
+        margin-left: 0;
+        height: auto;
+        padding: 30px 20px;
+    }
 }
 
 .social-icons a {
