@@ -54,7 +54,7 @@
                         <img src="PictureID.png" alt="Zhenwen Wan">
                     </div>
                     <div class="profile-text">
-                        <p>Senior computational scientist and multiphysics modeling expert with over 30 years of experience bridging academic research and industrial software development. My career spans oceanographic CFD, atmospheric simulations, finite element analysis (FEM), and physics-informed machine learning.</p>
+                        <p>Senior computational scientist and multiphysics modeling expert with over 30 years of experience bridging academic research and industrial software development. My career spans oceanographic CFD, electromagnetic and multiphysics simulations, finite element analysis (FEM), and physics-informed machine learning.</p>
                         <p>I specialize in <strong>navigating AI agents</strong> to build complex engineering software. By treating LLM developer agents as autonomous pair-programmers, I have established a state-of-the-art workflow that delivers industrial-grade systems—such as the <strong>BSMesher</strong> geometry tool and the <strong>PLaser</strong> EDA platform—in a fraction of traditional development cycles.</p>
                         <p>Additionally, I focus on <strong>innovating Physics-Informed Neural Network (PINN) application scenarios</strong> for industrial design. My research has successfully replaced slow, multi-physics numerical solver iterations with calibrated, boundary-preserving neural network surrogates. This achieves up to a **1,000,000x computational speedup** for real-time laser diode design, spatial hole burning (SHB) optimization, and thermal analysis.</p>
                         <p><a href="CV/index.html" class="highlight-link">View Full CV <i class="fas fa-arrow-right"></i></a></p>
@@ -76,11 +76,11 @@
                         </div>
                     </div>
                     <div class="exp-item">
-                        <div class="exp-title">Research Scientist (CFD & Climate Modeling)</div>
+                        <div class="exp-title">Research Scientist (CFD & Marine Multiphysics Modeling)</div>
                         <div class="exp-company">Danish Meteorological Institute, Denmark (2007 - 2016)</div>
                         <div class="exp-desc">
                             - Conducted large-scale numerical modeling and oceanographic CFD simulations, co-authoring dozens of peer-reviewed articles.<br>
-                            - Developed models for turbulent flows, boundary layer interactions, and large-scale climate dynamics.
+                            - Developed models for ocean dynamics, biogeochemical transport, and marine physical-ecological couplings.
                         </div>
                     </div>
                     <div class="exp-item">
@@ -124,7 +124,7 @@
                 <div class="project-card">
                     <div class="project-info">
                         <h3 class="project-title"><a href="Projects/Lasers/index.html">Lasers (Research Core)</a></h3>
-                        <p class="project-desc">Develops a compact self-consistent physics-informed model for telecom laser Electronic Design Automation. It couples classic semiconductor carrier drift-diffusion transport with temperature-relaxed band-energy dynamics, photon density, electromagnetic output frequency, heat generation, and EDA metrics such as optical power, wavelength stability, maximum temperature, and electrical-to-optical efficiency.</p>
+                        <p class="project-desc">Establishment of the physical and mathematical coupling model for telecom diode laser EDA. Couples Poisson electrostatics, drift-diffusion carrier transport, Helmholtz waves, and thermal diffusion equations. Serves as the high-fidelity multi-physics dataset generator to train PLaser's PINN surrogate models.</p>
                         <div class="tech-tags">
                             <span class="tech-tag">Self-Consistent Model</span>
                             <span class="tech-tag">Elmer FEM Solver</span>
@@ -144,7 +144,7 @@
                 <div class="project-card">
                     <div class="project-info">
                         <h3 class="project-title"><a href="Projects/BSMesher/index.html">BSMesher</a></h3>
-                        <p class="project-desc">An industrial-grade meshing tool specialized for B-Spline surfaces. Developed from scratch in 4 months by navigating AI agents—demonstrating the ability to rapidly deliver high-complexity engineering software by combining physics-based modeling, AI, and efficient execution.</p>
+                        <p class="project-desc">An industrial-grade surface meshing tool specialized for B-Spline surfaces. Developed from scratch in 4 months by **navigating AI developer agents** as autonomous pair-programmers, demonstrating the power of AI-assisted engineering workflows for high-complexity numerical codebases.</p>
                         <div class="tech-tags">
                             <span class="tech-tag">B-Spline Surfaces</span>
                             <span class="tech-tag">Mesh Grid Generation</span>
@@ -163,7 +163,7 @@
                 <div class="project-card">
                     <div class="project-info">
                         <h3 class="project-title"><a href="Projects/HemoDyn/index.html">HemoDyn</a></h3>
-                        <p class="project-desc">Simulates blood flow and physiological dynamics for boosting bioengineering development and assessing the effects of medical intervention. Driving Elmer Multiphysics and SimVascular 1D solvers with wearable device data, it maps oxygen concentration in leg muscles to functional indexes (e.g. walk distance) using machine learning, reducing the sample size in clinical trials.</p>
+                        <p class="project-desc">Vascular flow simulation platform mapping oxygen concentration in leg muscles to clinical outcomes. Driven by Elmer Multiphysics and SimVascular 1D solvers with wearable device data, it integrates hemodynamic CFD with machine learning to support clinical effect assessment and reduce experimental sample demands.</p>
                         <div class="tech-tags">
                             <span class="tech-tag">Hemodynamics CFD</span>
                             <span class="tech-tag">SimVascular 1D ROM</span>
@@ -182,7 +182,7 @@
                 <div class="project-card">
                     <div class="project-info">
                         <h3 class="project-title"><a href="Projects/PINN/index.html">PINNs</a></h3>
-                        <p class="project-desc">Implements a hybrid neural network and physics solver to recover hidden physical parameters from noisy observations. It demonstrates the effectiveness of physics-informed machine learning for reduced-order modeling in biomedical contexts.</p>
+                        <p class="project-desc">Implements a hybrid neural network and physics solver to recover hidden physical parameters from noisy observations. Explores novel PINN applications for inverse modeling, parameter identification, and reduced-order modeling in biomedical contexts.</p>
                         <div class="tech-tags">
                             <span class="tech-tag">PINN Solver</span>
                             <span class="tech-tag">Inverse Modeling</span>
@@ -201,7 +201,7 @@
                 <div class="project-card">
                     <div class="project-info">
                         <h3 class="project-title"><a href="Projects/EML/index.html">EML</a></h3>
-                        <p class="project-desc">High Frequency Electromagnetic Wave Simulator. Developed to simulate high-frequency electromagnetic wave propagation and reproduce Ansys HFSS benchmark cases.</p>
+                        <p class="project-desc">High Frequency Electromagnetic Wave Simulator. Solves vector Helmholtz wave equations to reproduce Ansys HFSS benchmark cases, serving as an early prototype for custom electromagnetic wave solvers.</p>
                         <div class="tech-tags">
                             <span class="tech-tag">Electromagnetics</span>
                             <span class="tech-tag">HFSS Benchmark</span>
@@ -219,7 +219,7 @@
                 <div class="project-card">
                     <div class="project-info">
                         <h3 class="project-title"><a href="Projects/MySim/index.html">MySim</a></h3>
-                        <p class="project-desc">Multiphysics Simulator. Designed to solve complex thermal and physical fields, reproducing COMSOL benchmark cases for lattice thermal diffusion.</p>
+                        <p class="project-desc">A lightweight multiphysics simulator. Solves complex thermal and physical fields, reproducing COMSOL benchmark cases for lattice thermal diffusion.</p>
                         <div class="tech-tags">
                             <span class="tech-tag">Multiphysics Simulator</span>
                             <span class="tech-tag">COMSOL Benchmark</span>
