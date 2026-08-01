@@ -1,119 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zhenwen Wan - Personal Website</title>
+    <title>Zhenwen Wan - Computational Scientist & AI Pioneer</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-    <!-- Auto-redirect after video ends -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const video = document.querySelector('.simulation-video');
-            if (video) {
-                video.addEventListener('ended', () => {
-                    window.location.href = "Projects/HemoDyn/";
-                });
-            }
-        });
-    </script>
 </head>
-
 <body>
     <div class="container">
         <!-- Left Static Section -->
         <aside class="left-panel">
-            <h1 class="fade-in">Zhenwen Wan</h1>
-            <h2 class="fade-in">Computational Scientist & Algorithm Developer</h2>
-            <p class="fade-in">CFD-based Multiphyscs modelling, FEM, ML and optimization.</p>
-            <nav>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                </ul>
-            </nav>
-
-            <!-- Social Icons -->
-            <div class="social-icons">
-                <a href="https://github.com/ZhenwenWan" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/zhenwen-wan-13958a75/" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="mailto:aw4wzw@gmail.com">
-                    <i class="fas fa-envelope"></i>
-                </a>
+            <div>
+                <h1 class="fade-in">Zhenwen Wan</h1>
+                <h2 class="fade-in">Computational Scientist & AI Pioneer</h2>
+                <p class="fade-in">Pioneering AI agent developer workflows and physics-informed neural network (PINN) surrogates to accelerate industrial multi-physics simulations.</p>
+                <nav>
+                    <ul>
+                        <li><a href="#about" class="nav-link active">About</a></li>
+                        <li><a href="#experience" class="nav-link">Experience</a></li>
+                        <li><a href="#projects" class="nav-link">Projects</a></li>
+                    </ul>
+                </nav>
             </div>
 
-            <footer class="footer">
-                <p>&copy; 2025 Zhenwen Wan. All rights reserved.</p>
-            </footer>
+            <div>
+                <!-- Social Icons -->
+                <div class="social-icons">
+                    <a href="https://github.com/ZhenwenWan" target="_blank" rel="noopener noreferrer" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/zhenwen-wan-13958a75/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:aw4wzw@gmail.com" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+
+                <footer class="footer">
+                    <p>&copy; 2026 Zhenwen Wan. All rights reserved.</p>
+                </footer>
+            </div>
         </aside>
 
         <!-- Scrollable Right Section -->
         <main class="right-content">
+            <!-- About Section -->
             <section id="about" class="section">
-                <h2> </h2>
-                <img src="PictureID.png" alt="Profile Picture">
-                <p>Senior CFD and multiphysics simulation expert with over 30 years of experience combining scientific research and industrial software development. Spent more than two decades in oceanographic CFD and multiphysics modeling, developing strong capabilities in model innovation, verification, and large-scale numerical simulation, with dozens of co-authored peer-reviewed publications.</p>
-		<p>In recent years, transitioned to independent commercial development, delivering remote CFD- and FEM-based software projects across domains. Experienced in applying CFD both directly and indirectly to complex application scenarios, including HemoDyn, a prototype framework integrating hemodynamic CFD with machine learning to support clinical effect assessment and reduce experimental and clinical sample demands.</p>
-                <p>Strong focus on AI-assisted engineering workflows. Developed BSMesher, an industrial-grade meshing tool, from scratch within four months by effectively navigating AI assistants—demonstrating the ability to rapidly deliver high-complexity engineering software by combining physics-based modeling, AI, and efficient execution.</p>
-<p><a href="CV/index.html" class="highlight-link">More...</a></p>
+                <h2>About Me</h2>
+                <div class="profile-block">
+                    <div class="profile-img-container">
+                        <img src="PictureID.png" alt="Zhenwen Wan">
+                    </div>
+                    <div class="profile-text">
+                        <p>Senior computational scientist and multiphysics modeling expert with over 30 years of experience bridging academic research and industrial software development. My career spans oceanographic CFD, atmospheric simulations, finite element analysis (FEM), and physics-informed machine learning.</p>
+                        <p>I specialize in <strong>navigating AI agents</strong> to build complex engineering software. By treating LLM developer agents as autonomous pair-programmers, I have established a state-of-the-art workflow that delivers industrial-grade systems—such as the <strong>BSMesher</strong> geometry tool and the <strong>PLaser</strong> EDA platform—in a fraction of traditional development cycles.</p>
+                        <p>Additionally, I focus on <strong>innovating Physics-Informed Neural Network (PINN) application scenarios</strong> for industrial design. My research has successfully replaced slow, multi-physics numerical solver iterations with calibrated, boundary-preserving neural network surrogates. This achieves up to a **1,000,000x computational speedup** for real-time laser diode design, spatial hole burning (SHB) optimization, and thermal analysis.</p>
+                        <p><a href="CV/index.html" class="highlight-link">View Full CV <i class="fas fa-arrow-right"></i></a></p>
+                    </div>
+                </div>
             </section>
+
+            <!-- Experience Section -->
             <section id="experience" class="section">
                 <h2>Experience</h2>
-                <ul>
-                    <li>Founder, MySim Digital Technology ApS, China and Denmark (2017 ~ )</li>
-                    <li>Research Scientist, Danish Meteorological Institute (2007 - 2016)</li>
-                    <li>Associate Professor, Xiamen University (2004 - 2007)</li>
-                </ul>
+                <div class="exp-list">
+                    <div class="exp-item">
+                        <div class="exp-title">Computational Simulation & AI Integration Consultant</div>
+                        <div class="exp-company">MySim Digital Technology ApS, China & Denmark (2017 - Present)</div>
+                        <div class="exp-desc">
+                            - Developed custom CFD/FEM software and integrated machine learning algorithms for commercial applications.<br>
+                            - Navigated advanced AI developer agents to co-develop complex tools, including the <strong>BSMesher</strong> B-Spline surface mesh tool.<br>
+                            - Pioneered PINN surrogates in optoelectronics to model coupled carrier-thermal-wave interactions in semiconductor lasers.
+                        </div>
+                    </div>
+                    <div class="exp-item">
+                        <div class="exp-title">Research Scientist (CFD & Climate Modeling)</div>
+                        <div class="exp-company">Danish Meteorological Institute, Denmark (2007 - 2016)</div>
+                        <div class="exp-desc">
+                            - Conducted large-scale numerical modeling and oceanographic CFD simulations, co-authoring dozens of peer-reviewed articles.<br>
+                            - Developed models for turbulent flows, boundary layer interactions, and large-scale climate dynamics.
+                        </div>
+                    </div>
+                    <div class="exp-item">
+                        <div class="exp-title">Associate Professor</div>
+                        <div class="exp-company">Xiamen University, China (2004 - 2007)</div>
+                        <div class="exp-desc">
+                            - Lectured and conducted research in computational physics, fluid dynamics, and environmental numerical modeling.
+                        </div>
+                    </div>
+                </div>
             </section>
+
+            <!-- Projects Section -->
             <section id="projects" class="section">
                 <h2>Projects</h2>
-                <ul>
-                    <li><a href="Projects/Lasers/index.html" class="highlight-link">Lasers (Research Core)</a> - Self-Consistent Multiphysics Dynamics for PINN-Driven Telecom Laser EDA</li>
-                    <p>Lasers develops a compact physics-informed model for telecom laser Electronic Design Automation. It couples classic semiconductor carrier drift-diffusion transport with temperature-relaxed band-energy dynamics, photon density, electromagnetic output frequency, heat generation, and EDA metrics such as optical power, wavelength stability, maximum temperature, and electrical-to-optical efficiency. <a href="Projects/Lasers/index.html" class="highlight-link">More...</a></p>
-                    
-                    <li><a href="PLaser.html" class="highlight-link">PLaser (Interactive App)</a> - Real-Time Physics-Informed Machine Learning Diode Laser EDA Application</li>
-                    <p>PLaser is the stand-alone design application built upon the PINN surrogate framework. By replacing slow iterative numerical solvers with a calibrated neural network, PLaser resolves coupled multi-physics transverse modes, longitudinal carrier depletion (Spatial Hole Burning), self-heating, and optoelectronic thresholds inside a 5 ms real-time loop. It includes a dark-themed user dashboard with live metrics, dynamic design guidance, and 2D mode shape/heat distribution viewports. <a href="PLaser.html" class="highlight-link">More...</a></p>
-                    <a href="PLaser.html">
-                        <img src="Projects/Lasers/telecom_laser_geometry_preview.png" alt="PLaser ridge waveguide profile" style="max-width: 100%; border: 1px solid #233554; border-radius: 4px; margin-bottom: 20px;">
-                    </a>
-                    <li><a href="Projects/HemoDyn/index.html" class="highlight-link">HemoDyn</a> - Hemodynamic CFD Simulation Platform</li>
-                    <p>HemoDyn aims to simulate blood flow and physiological dynamics for boosting bioengineering development and assessing the effects of medical intervention. The preliminary goal is to reduce the sample size in clinical trials for LEAO. Oxygen concentration in leg muscles is the selected bioinfo for measuring the severity of LEAO. ML is employed to map oxygen with functional index, e.g. walk distance. Oxygen comes from a physiological model which connects a vascular hemodynamics model. The hemodynamics model is driven by pulse data from wearable devices, e.g. Apple Watch, while assimilating other data, like readings from a toe-tip oximeter. The hemodynaimcs model is solved by the 1D ROM solver of SimVascular. The physiological model of oxgen allows for transport, transmembrane exchange and muscular consumption, and it is solved by multiple solvers from Elmer Multiphysics. VTK is used to animate model results. An API to access pulse data from wearable devices and functionalities to faciliate machine learning is being developed. <a href="Projects/HemoDyn/index.html" class="highlight-link">More...</a></p>
-                    <video controls class="simulation-video">
-                        <source src="HemoDyn_video.mp4" type="video/mp4">
-                    </video>
-                    <li><a href="Projects/PINN/index.html" class="highlight-link">PINNs</a> - Inverse Modeling with Physics-Informed Neural Networks</li>
-                    <p>This project implements a hybrid neural network and physics solver to recover hidden physical parameters from noisy observations. It demonstrates the effectiveness of physics-informed machine learning for reduced-order modeling in biomedical contexts. <a href="Projects/PINN/index.html" class="highlight-link">More...</a></p>
-                    <video controls class="simulation-video">
-                        <source src="PINN_video.mp4" type="video/mp4">
-                    </video>
-                    <li><a href="Projects/EML/index.html" class="highlight-link">EML</a> - High Frequency Electromagnetic Wave Simulator</li>
-		    <p>Aimed to reproduce Ansys HFSS benchmark cases. <a href="Projects/EML/index.html" class="highlight-link">More...</a></p> 
-                    <a href="Projects/EML/">
-                        <img src="EML_Symbolic.png" alt="EML picture">
-                    </a>
-                    <li><a href="Projects/MySim/index.html" class="highlight-link">MySim</a> - Multiphysics Simulator</li>
-		    <p>Aimed to reproduce COMSOL benchmark cases. <a href="Projects/MySim/index.html" class="highlight-link">More...</a></p>
-                    <a href="Projects/MySim/">
-                        <img src="MySim_Symbolic.png" alt="MySim picture">
-                    </a>
-                    <li><a href="Projects/BSMesher/index.html" class="highlight-link">BSMesher</a> - B-Spline Surface Meshing Tool</li>
-		    <p>An industrial-grade meshing tool specialized for B-Spline surfaces. <a href="Projects/BSMesher/index.html" class="highlight-link">More...</a></p>
-                    <a href="Projects/BSMesher/">
-                        <img src="BSMesher_Symbolic.png" alt="BSMesher picture">
-                    </a>
-                </ul>
+
+                <!-- Project 1: PLaser -->
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3 class="project-title">
+                            <a href="PLaser.html">PLaser (Interactive App)</a>
+                            <a href="PLaser_CN.html" style="font-size: 0.8rem; color: var(--accent-color); margin-left: 10px;">[中文版]</a>
+                        </h3>
+                        <p class="project-desc">A standalone real-time design application built upon the PINN surrogate framework. By replacing slow iterative numerical solvers with a calibrated neural network, PLaser resolves coupled multi-physics transverse modes, longitudinal carrier depletion (Spatial Hole Burning), self-heating, and optoelectronic thresholds inside a 5 ms real-time loop. Features a dark-themed user dashboard with live metrics and 2D mode shape/heat distribution viewports.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">PINN Surrogate</span>
+                            <span class="tech-tag">Optoelectronic EDA</span>
+                            <span class="tech-tag">Multi-Physics</span>
+                            <span class="tech-tag">AI Agent Navigated</span>
+                            <span class="tech-tag">Streamlit</span>
+                        </div>
+                    </div>
+                    <div class="project-visual">
+                        <a href="PLaser.html">
+                            <img src="docs/manual_assets/dashboard_annotated.png" alt="PLaser Dashboard" style="height: 140px; object-fit: cover;">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2: Lasers -->
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3 class="project-title"><a href="Projects/Lasers/index.html">Lasers (Research Core)</a></h3>
+                        <p class="project-desc">Develops a compact self-consistent physics-informed model for telecom laser Electronic Design Automation. It couples classic semiconductor carrier drift-diffusion transport with temperature-relaxed band-energy dynamics, photon density, electromagnetic output frequency, heat generation, and EDA metrics such as optical power, wavelength stability, maximum temperature, and electrical-to-optical efficiency.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Self-Consistent Model</span>
+                            <span class="tech-tag">Elmer FEM Solver</span>
+                            <span class="tech-tag">Drift-Diffusion</span>
+                            <span class="tech-tag">Helmholtz Solver</span>
+                            <span class="tech-tag">Dataset Generation</span>
+                        </div>
+                    </div>
+                    <div class="project-visual">
+                        <a href="Projects/Lasers/index.html">
+                            <img src="3d_transparent_transverse_slice.jpg" alt="Lasers Waveguide Mesh" style="height: 140px; object-fit: cover;">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3: BSMesher -->
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3 class="project-title"><a href="Projects/BSMesher/index.html">BSMesher</a></h3>
+                        <p class="project-desc">An industrial-grade meshing tool specialized for B-Spline surfaces. Developed from scratch in 4 months by navigating AI agents—demonstrating the ability to rapidly deliver high-complexity engineering software by combining physics-based modeling, AI, and efficient execution.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">B-Spline Surfaces</span>
+                            <span class="tech-tag">Mesh Grid Generation</span>
+                            <span class="tech-tag">AI Agent Guided</span>
+                            <span class="tech-tag">Industrial Tool</span>
+                        </div>
+                    </div>
+                    <div class="project-visual">
+                        <a href="Projects/BSMesher/index.html">
+                            <img src="BSMesher_Symbolic.png" alt="BSMesher mesh">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 4: HemoDyn -->
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3 class="project-title"><a href="Projects/HemoDyn/index.html">HemoDyn</a></h3>
+                        <p class="project-desc">Simulates blood flow and physiological dynamics for boosting bioengineering development and assessing the effects of medical intervention. Driving Elmer Multiphysics and SimVascular 1D solvers with wearable device data, it maps oxygen concentration in leg muscles to functional indexes (e.g. walk distance) using machine learning, reducing the sample size in clinical trials.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Hemodynamics CFD</span>
+                            <span class="tech-tag">SimVascular 1D ROM</span>
+                            <span class="tech-tag">Elmer Multiphysics</span>
+                            <span class="tech-tag">Machine Learning</span>
+                        </div>
+                    </div>
+                    <div class="project-visual">
+                        <video controls style="height: 140px; object-fit: cover;">
+                            <source src="HemoDyn_video.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+                <!-- Project 5: PINNs -->
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3 class="project-title"><a href="Projects/PINN/index.html">PINNs</a></h3>
+                        <p class="project-desc">Implements a hybrid neural network and physics solver to recover hidden physical parameters from noisy observations. It demonstrates the effectiveness of physics-informed machine learning for reduced-order modeling in biomedical contexts.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">PINN Solver</span>
+                            <span class="tech-tag">Inverse Modeling</span>
+                            <span class="tech-tag">Parameter Recovery</span>
+                            <span class="tech-tag">PyTorch</span>
+                        </div>
+                    </div>
+                    <div class="project-visual">
+                        <video controls style="height: 140px; object-fit: cover;">
+                            <source src="PINN_video.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+                <!-- Project 6: EML -->
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3 class="project-title"><a href="Projects/EML/index.html">EML</a></h3>
+                        <p class="project-desc">High Frequency Electromagnetic Wave Simulator. Developed to simulate high-frequency electromagnetic wave propagation and reproduce Ansys HFSS benchmark cases.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Electromagnetics</span>
+                            <span class="tech-tag">HFSS Benchmark</span>
+                            <span class="tech-tag">Helmholtz Wave</span>
+                        </div>
+                    </div>
+                    <div class="project-visual">
+                        <a href="Projects/EML/">
+                            <img src="EML_Symbolic.png" alt="EML Simulation">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 7: MySim -->
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3 class="project-title"><a href="Projects/MySim/index.html">MySim</a></h3>
+                        <p class="project-desc">Multiphysics Simulator. Designed to solve complex thermal and physical fields, reproducing COMSOL benchmark cases for lattice thermal diffusion.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Multiphysics Simulator</span>
+                            <span class="tech-tag">COMSOL Benchmark</span>
+                            <span class="tech-tag">Lattice Thermal</span>
+                        </div>
+                    </div>
+                    <div class="project-visual">
+                        <a href="Projects/MySim/">
+                            <img src="MySim_Symbolic.png" alt="MySim Simulation">
+                        </a>
+                    </div>
+                </div>
             </section>
         </main>
     </div>
+
+    <!-- Active Navigation Highlight script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= (sectionTop - 150)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').slice(1) === current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
-
 </html>
-
