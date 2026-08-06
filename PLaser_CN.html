@@ -425,8 +425,9 @@
             <div class="tab-content" id="transverse-fem">
                 <div class="tab-text">
                     <h3 style="color: #64ffda; margin-top: 0;">2D Elmer FEM 横向截面求解器</h3>
-                    <p>横截面（垂直于传播方向的 $x-y$ 面，见<strong>图 b</strong>）决定了光波导的模场 confinement 和 localized 物理特性。参考求解器 <strong>Elmer FEM</strong> 求解横向截面上的二维耦合微分方程：</p>
+                    <p>横截面（垂直于光传播方向的 $x-y$ 面，见<strong>图 b</strong>）决定了光波导的模场 confinement 和 localized 物理特性。参考求解器 <strong>Elmer FEM</strong> 求解横向截面上的二维耦合微分方程：</p>
                     <ul>
+                        <li><strong>有源区波导几何形状:</strong> 并非假定静态坐标，有源区宽度 $w_{\text{active}}$ 和厚度 $d_{\text{active}}$ 均为完全参数化的输入，使得波导边界和模场腰部形状可动态自适应调整。</li>
                         <li><strong>静电场 (泊松方程):</strong> 求解在接触电极偏置下的局部静电势 $\psi(x, y)$。</li>
                         <li><strong>载流子输运 (漂移-扩散方程):</strong> 控制侧向电流扩展和电子/空穴浓度分布。</li>
                         <li><strong>波动光学 (矢量亥姆霍兹方程):</strong> 计算光波导的本征模场形状 $\Psi(x, y)$ 和限制因子 $\Gamma$。</li>
@@ -525,8 +526,9 @@
                 <div style="background-color: #112240; padding: 15px; border-radius: 6px; border: 1px solid #233554; margin-bottom: 20px; color: #64ffda; text-align: center; font-size: 1.1rem;">
                     $$G_{\text{inj}} - R_{\text{rec}}(N(z)) - R_{\text{stim}}(N(z), P_{\text{tot}}(z)) = 0$$
                 </div>
+                <p>其中有源区横截面积 $A_{\text{act}} = w_{\text{active}} \times d_{\text{active}}$（原生参数化二维波导高度与宽度维度）动态缩放载流子注入率 $G_{\text{inj}} = I_{\text{active}} / (q_0 \cdot L \cdot A_{\text{act}})$ 与受激辐射率 $R_{\text{stim}} = (g(N) \cdot P) / (A_{\text{act}} \cdot E_{\text{phot}})$。</p>
                 <p>这一物理项可有效惩罚不合物理规律的输出，使模型在阈值点附近（$I \approx I_{\text{th}}$）或高温严重热衰减（$T_0 > 320\text{ K}$）等非线性区域依然保持极高的物理一致性。</p>
-                <p>神经网络的输入是五维的设计参数空间 $[R_1, R_2, L, T_0, I_{\text{act}}]$，输出为 105 维标量指标和纵向剖面网格数据数组，在隐藏层之间采用 GELU 激活函数。</p>
+                <p>神经网络的输入是七维的设计参数空间 $[R_1, R_2, L, T_0, I_{\text{active}}, w_{\text{active}}, d_{\text{active}}]$，输出为 105 维标量指标和纵向剖面网格数据数组，在隐藏层之间采用 GELU 激活函数。</p>
             </div>
             
             <div class="split-col">
