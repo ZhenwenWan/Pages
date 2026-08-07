@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>TLaser - 实时数字孪生与参数在线标定半导体激光器平台</title>
+    <link href="styles.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        /* Dedicated TLaser premium styles building on global styles.css */
+        .plaser-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            color: #e6f1ff;
+        }
+        
+        .hero-section {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #0d1e3d 0%, #0a192f 100%);
+            border-radius: 12px;
+            border: 1px solid #233554;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(100, 255, 218, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-tagline {
+            color: #64ffda;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin: 0 0 20px 0;
+            line-height: 1.2;
+        }
+
+        .hero-desc {
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+            color: #8892b0;
+            font-size: 1.15rem;
+            line-height: 1.6;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: #64ffda;
+            color: #0a192f;
+            border: 1px solid #64ffda;
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: #64ffda;
+            box-shadow: 0 0 15px rgba(100, 255, 218, 0.2);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #8892b0;
+            border: 1px solid #30363d;
+        }
+
+        .btn-secondary:hover {
+            color: #64ffda;
+            border-color: #64ffda;
+            background-color: rgba(100, 255, 218, 0.05);
+        }
+
+        .nav-section {
+            margin-bottom: 50px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            border-bottom: 2px solid #233554;
+            margin-bottom: 25px;
+            gap: 10px;
+            overflow-x: auto;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            color: #8892b0;
+            padding: 12px 20px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .tab-btn:hover {
+            color: #64ffda;
+        }
+
+        .tab-btn.active {
+            color: #64ffda;
+            border-bottom: 2px solid #64ffda;
+            font-weight: bold;
+        }
+
+        .tab-content {
+            display: none;
+            gap: 30px;
+            background-color: #112240;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #233554;
+        }
+
+        .tab-content.active {
+            display: flex;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .tab-text {
+            flex: 1.2;
+        }
+
+        .tab-text p {
+            color: #8892b0;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .tab-visual {
+            flex: 0.8;
+            background-color: #0a192f;
+            border-radius: 6px;
+            border: 1px solid #233554;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            min-height: 200px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            text-align: left;
+        }
+
+        .comparison-table th {
+            border-bottom: 2px solid #233554;
+            padding: 12px 10px;
+            color: #64ffda;
+            font-weight: bold;
+        }
+
+        .comparison-table td {
+            border-bottom: 1px solid #233554;
+            padding: 12px 10px;
+            color: #cbd5e1;
+        }
+
+        .section-header {
+            margin-bottom: 30px;
+        }
+
+        .section-header h2 {
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin: 0 0 10px 0;
+            font-weight: bold;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 50px;
+            height: 2px;
+            background-color: #64ffda;
+        }
+
+        .section-header p {
+            color: #8892b0;
+            margin: 5px 0 0 0;
+        }
+
+        .split-layout {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .split-col {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .highlight-box {
+            background-color: rgba(100, 255, 218, 0.05);
+            border-left: 3px solid #64ffda;
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 20px 0;
+            color: #cbd5e1;
+        }
+
+        @media (max-width: 768px) {
+            .tab-content {
+                flex-direction: column;
+            }
+            .hero-title {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="plaser-container">
+        
+        <!-- Language Switcher -->
+        <div style="text-align: right; padding: 15px 0 0 0; margin-bottom: -10px;">
+            <a href="TLaser.html" style="color: #64ffda; text-decoration: none; font-size: 0.9rem; font-weight: 500; border: 1px solid #64ffda; padding: 5px 12px; border-radius: 4px; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 6px;">
+                🇺🇸 English
+            </a>
+        </div>
+        
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-tagline">实时数字孪生与参数在线标定</div>
+            <h1 class="hero-title" style="margin: 0 0 10px 0;">TLaser</h1>
+            <p class="hero-desc" style="font-size: 1.05rem; margin: 0 auto 0 auto;">结合 7D 物理信息神经网络（PINN）代理模型与动态参数在线优化拟合的通信级半导体激光器数字孪生系统。</p>
+        </section>
+
+        <!-- Interactive Section: Chip to Geometrical Model -->
+        <section class="nav-section">
+            <div class="section-header">
+                <h2>数字孪生系统架构</h2>
+                <p>将激光器芯片的物理测试特征实时映射并标定至高精度物理代理模型。</p>
+            </div>
+            
+            <div style="display: flex; gap: 20px; margin-bottom: 35px; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 250px; text-align: center; background-color: #0a192f; padding: 15px; border-radius: 8px; border: 1px solid #233554; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                    <img src="3d_live_laser_chip.jpg" alt="3D Solid Laser Chip" style="width: 100%; border-radius: 4px; border: 1px solid #30363d; margin-bottom: 10px;"/>
+                    <strong style="color: #64ffda; font-size: 0.95rem; display: block; margin-bottom: 5px;">a. 三维激光器芯片装配图</strong>
+                    <p style="color: #8892b0; font-size: 0.85rem; margin: 0; line-height: 1.4;">脊波导半导体激光器二极管芯片的实体装配图结构。</p>
+                </div>
+                <div style="flex: 1; min-width: 250px; text-align: center; background-color: #0a192f; padding: 15px; border-radius: 8px; border: 1px solid #233554; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                    <img src="3d_transparent_transverse_slice.jpg" alt="3D Transparent Transverse Slice" style="width: 100%; border-radius: 4px; border: 1px solid #30363d; margin-bottom: 10px;"/>
+                    <strong style="color: #64ffda; font-size: 0.95rem; display: block; margin-bottom: 5px;">b. 横向二维切面 (x-y)</strong>
+                    <p style="color: #8892b0; font-size: 0.85rem; margin: 0; line-height: 1.4;">参数化脊宽 (w) 和有源层厚度 (d) 的横截面，由高精度求解器提供基础物理特征。</p>
+                </div>
+                <div style="flex: 1; min-width: 250px; text-align: center; background-color: #0a192f; padding: 15px; border-radius: 8px; border: 1px solid #233554; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                    <img src="3d_transparent_longitudinal_slice.jpg" alt="3D Transparent Longitudinal Slice" style="width: 100%; border-radius: 4px; border: 1px solid #30363d; margin-bottom: 10px;"/>
+                    <strong style="color: #64ffda; font-size: 0.95rem; display: block; margin-bottom: 5px;">c. 纵向谐振腔切面 (z)</strong>
+                    <p style="color: #8892b0; font-size: 0.85rem; margin: 0; line-height: 1.4;">沿有源多量子阱 (MQW) 纵向 z 轴方向的光波传播与载流子空间消耗网格。</p>
+                </div>
+            </div>
+
+            <div class="nav-tabs">
+                <button class="tab-btn active" onclick="openTab(event, 'pinn-surrogate')">1. 7D 物理信息网络模型</button>
+                <button class="tab-btn" onclick="openTab(event, 'physics-residuals')">2. 双重物理方程约束</button>
+                <button class="tab-btn" onclick="openTab(event, 'calibration-loop')">3. 参数在线拟合与标定</button>
+            </div>
+
+            <!-- Tab 1: PINN Surrogate -->
+            <div class="tab-content active" id="pinn-surrogate">
+                <div class="tab-text">
+                    <h3 style="color: #64ffda; margin-top: 0;">7D 实时神经网络代理模型</h3>
+                    <p>TLaser 采用 7D 物理信息神经网络代理模型取代传统的慢速数值网格积分方法。通过将物理几何结构参数化，数字孪生系统无需重建网格即可在毫秒级时间内做出准确预测。</p>
+                    <p>该代理模型输入为 7 维设计向量：
+                        $$\mathbf{X} = [R_1, R_2, L, T_0, I_{\text{active}}, w_{\text{active}}, d_{\text{active}}]$$
+                        输出为 105 维标量与数组，包含输出光功率 ($P_{\text{opt}}$)、电光转换效率 ($WPE$)、总输入电流 ($I_{\text{total}}$) 以及 51 个纵向位置点的载流子浓度 $N(z)$ 和光功率 $P(z)$ 空间分布曲线。</p>
+                    <div class="highlight-box">
+                        <strong>计算提速：</strong> 求解延迟从传统的数秒下降到 <strong>&lt; 5 毫秒</strong>，与原高精度数值模拟相比，$R^2$ 拟合相关度保持在 <strong>0.997</strong> 以上。
+                    </div>
+                </div>
+                <div class="tab-visual" style="flex-direction: column;">
+                    <img src="pinn_training_loss.svg" alt="PINN Training Loss History" style="max-height: 180px; border-radius: 4px; border: 1px solid #30363d;">
+                    <span style="color: #8892b0; font-size: 7.5pt; font-style: italic; margin-top: 5px;">7D 代理模型训练收敛曲线图。</span>
+                </div>
+            </div>
+
+            <!-- Tab 2: Physics Residuals -->
+            <div class="tab-content" id="physics-residuals">
+                <div class="tab-text">
+                    <h3 style="color: #64ffda; margin-top: 0;">载流子与光子传播物理惩罚函数</h3>
+                    <p>为了使深度学习模型的预测符合物理真实规律，TLaser 在训练的损失反向传播通路中直接嵌入了物理微分控制方程。这使得模型在阈值点附近和强热效应下也能保持极高的物理保真度。</p>
+                    <ul>
+                        <li><strong>载流子连续性方程约束：</strong> 惩罚载流子产生、复合与受激辐射三者在稳态下的偏离：
+                            $$G_{\text{inj}} - R_{\text{rec}}(N(z)) - R_{\text{stim}}(N(z), P_{\text{tot}}(z)) = 0$$
+                        </li>
+                        <li><strong>光子传播微分方程约束：</strong> 约束光强沿谐振腔纵向传播的二阶波动微分特性：
+                            $$\frac{d^2P}{dz^2} - (\Gamma g(z) - \alpha_i)^2 P(z) = 0$$
+                        </li>
+                    </ul>
+                    <div class="highlight-box">
+                        <strong>微分正则化：</strong> 物理约束彻底消除传统拟合曲线在网格点上产生的非物理性毛刺与振荡，提供完全连续平滑的物理剖面。
+                    </div>
+                </div>
+                <div class="tab-visual">
+                    <svg viewBox="0 0 300 220" width="100%" height="100%">
+                        <rect x="20" y="30" width="260" height="150" rx="8" fill="#1e293b" stroke="#64ffda" stroke-width="1.5"/>
+                        <text x="150" y="60" fill="#ffffff" font-size="11.5" fontweight="bold" text-anchor="middle">PINN 综合损失函数</text>
+                        <rect x="40" y="85" width="220" height="25" rx="4" fill="#0f172a" stroke="#ff7b72"/>
+                        <text x="150" y="101" fill="#ff7b72" font-size="9.5" font-family="monospace" text-anchor="middle">数据回归均方误差 MSE</text>
+                        <rect x="40" y="120" width="220" height="25" rx="4" fill="#0f172a" stroke="#ff3366"/>
+                        <text x="150" y="136" fill="#ff3366" font-size="9.5" font-family="monospace" text-anchor="middle">载流子与光子波动方程残差</text>
+                        <text x="150" y="165" fill="#8892b0" font-size="8.5" text-anchor="middle">基于自动微分算法梯度惩罚</text>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Tab 3: Calibration -->
+            <div class="tab-content" id="calibration-loop">
+                <div class="tab-text">
+                    <h3 style="color: #64ffda; margin-top: 0;">在线拟合与参数标定优化环路</h3>
+                    <p>由于器件老化、工艺偏差和工作环境剧烈变化，激光器内部物理常数会随时间漂移。TLaser 通过在线读取外置 LIV (光强-电流-电压) 传感器测试曲线，反向求解器件的真实物理属性。</p>
+                    <p>标定优化程序采用 L-BFGS-B 极小化算法迭代更新以下 5 个关键物性参数：
+                        $$\boldsymbol{\theta} = [\alpha_i, \Gamma, C_{\text{multiplier}}, R_{\text{series}}, R_{\text{shunt}}]$$
+                    </p>
+                    <ul>
+                        <li><strong>内损耗 $\alpha_i$ 与局域限制因子 $\Gamma$：</strong> 修正激光器起振阈值与电光效率斜率。</li>
+                        <li><strong>俄歇复合乘数 $C$：</strong> 标定器件在大电流下的非辐射热骤降特性。</li>
+                        <li><strong>串联电阻 $R_s$ 与并联漏电电阻 $R_{\text{sh}}$：</strong> 极高精度拟合器件在电路层面的总电压和寄生电流特性。</li>
+                    </ul>
+                </div>
+                <div class="tab-visual" style="flex-direction: column;">
+                    <img src="calibration_fit.svg" alt="LIV Curve Fitting" style="max-height: 180px; border-radius: 4px; border: 1px solid #30363d;">
+                    <span style="color: #8892b0; font-size: 7.5pt; font-style: italic; margin-top: 5px;">标定程序拟合 LIV 测试数据前后的效果对比。</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scientific Methodology -->
+        <section class="split-layout">
+            <div class="split-col">
+                <div class="section-header">
+                    <h2>科学建模与基本物理</h2>
+                    <p>引入参数化动态几何输入的 PINN 神经网络模型。</p>
+                </div>
+                <p>TLaser 将 <code>Lasers</code> 研究核心的高保真度半导体物理规律集成至实时数字孪生体中。在数据集生成与标定求解中，有源层横截面积 $A_{\text{act}} = w_{\text{active}} \times d_{\text{active}}$ 随脊波导几何变化而自适应缩放，进而动态影响局域载流子注入率与受激辐射跃迁。</p>
+                <p>这使得孪生体能实时、无网格重新编译地评估包含空间烧孔效应在内的半导体内部多物理特征。</p>
+            </div>
+            
+            <div class="split-col">
+                <div class="section-header">
+                    <h2>求解速度与性能</h2>
+                    <p>毫秒级超低延迟，支撑数字孪生参数实时在线校准。</p>
+                </div>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>求解模式</th>
+                            <th>单步耗时</th>
+                            <th>R² 相关度精度</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Elmer 二维有限元 FEM 求解器</td>
+                            <td>12 - 25 秒</td>
+                            <td>1.000 (标准参考源)</td>
+                        </tr>
+                        <tr>
+                            <td>Quasi-3D 谐振腔打靶法数值求解</td>
+                            <td>1.2 - 2.8 秒</td>
+                            <td>1.000 (标准参考源)</td>
+                        </tr>
+                        <tr>
+                            <td style="color: #64ffda; font-weight: bold;">TLaser PINN 物理信息代理模型</td>
+                            <td style="color: #64ffda; font-weight: bold;">&lt; 5 毫秒</td>
+                            <td style="color: #64ffda; font-weight: bold;">&gt; 0.997</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Quickstart & Installation -->
+        <section style="margin-bottom: 50px;">
+            <div class="section-header">
+                <h2>安装与本地运行指南</h2>
+                <p>在本地快速启动并配置 TLaser 数字孪生环境。</p>
+            </div>
+            <div style="background-color: #112240; padding: 30px; border-radius: 8px; border: 1px solid #233554;">
+                <h4 style="color: #ffffff; margin-top: 0;">1. 克隆代码与依赖环境配置</h4>
+                <pre style="background-color: #0a192f; padding: 15px; border-radius: 6px; border: 1px solid #233554; overflow-x: auto; color: #e6f1ff; font-family: monospace; font-size: 0.9rem;">
+git clone https://github.com/ZhenwenWan/TLaser.git
+cd TLaser
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt</pre>
+                
+                <h4 style="color: #ffffff; margin-top: 25px;">2. 启动 Streamlit 本地交互面板</h4>
+                <pre style="background-color: #0a192f; padding: 15px; border-radius: 6px; border: 1px solid #233554; overflow-x: auto; color: #64ffda; font-family: monospace; font-size: 0.9rem;">
+python -m streamlit run app.py</pre>
+                <p>在弹出的浏览器面板中实时调节滑块进行参数分析，或上传实时曲线执行在线物性常数拟合。</p>
+            </div>
+        </section>
+
+        <!-- Back to Portfolio and Action Buttons Link at Bottom -->
+        <div style="text-align: center; margin: 50px 0 40px 0; border-top: 1px solid #233554; padding-top: 30px;">
+            <div class="action-buttons" style="margin-bottom: 25px;">
+                <a class="btn btn-primary" href="https://github.com/ZhenwenWan/TLaser" target="_blank">
+                    <i class="fab fa-github"></i> 访问 TLaser 代码仓库
+                </a>
+            </div>
+            <a class="back-link" href="index.html" style="font-size: 1.1rem; font-weight: bold; color: #64ffda; text-decoration: none;">
+                <i class="fas fa-arrow-left"></i> 返回主页作品集
+            </a>
+        </div>
+
+        <!-- Footer Service Info -->
+        <footer style="border-top: 1px solid #233554; padding-top: 30px; text-align: center; color: #8892b0; font-size: 0.9rem;">
+            <p>TLaser 项目由<strong>万振文</strong>设计与开发。</p>
+            <p>商务合作与定制开发联系邮箱：<a href="mailto:aw4wzw@gmail.com" style="color: #64ffda; font-weight: bold;">aw4wzw@gmail.com</a></p>
+            <div style="margin-top: 20px; display: inline-flex; align-items: center; gap: 8px; background-color: #112240; padding: 6px 16px; border-radius: 20px; border: 1px solid #233554;">
+                <span style="font-size: 0.8rem; color: #8892b0;"><i class="fas fa-eye" style="color: #64ffda; margin-right: 4px;"></i> 页面访问量：</span>
+                <img src="https://hits.dwyl.com/zhenwenwan/Pages/TLaser.svg" alt="Views" style="height: 20px; vertical-align: middle;"/>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Interactive Navigation Tab Script -->
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>

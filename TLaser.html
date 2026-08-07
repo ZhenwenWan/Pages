@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>TLaser - Real-Time Digital Twin & Parameter Calibration Diode Laser Platform</title>
+    <link href="styles.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        /* Dedicated TLaser premium styles building on global styles.css */
+        .plaser-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            color: #e6f1ff;
+        }
+        
+        .hero-section {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #0d1e3d 0%, #0a192f 100%);
+            border-radius: 12px;
+            border: 1px solid #233554;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(100, 255, 218, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-tagline {
+            color: #64ffda;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin: 0 0 20px 0;
+            line-height: 1.2;
+        }
+
+        .hero-desc {
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+            color: #8892b0;
+            font-size: 1.15rem;
+            line-height: 1.6;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: #64ffda;
+            color: #0a192f;
+            border: 1px solid #64ffda;
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: #64ffda;
+            box-shadow: 0 0 15px rgba(100, 255, 218, 0.2);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #8892b0;
+            border: 1px solid #30363d;
+        }
+
+        .btn-secondary:hover {
+            color: #64ffda;
+            border-color: #64ffda;
+            background-color: rgba(100, 255, 218, 0.05);
+        }
+
+        .nav-section {
+            margin-bottom: 50px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            border-bottom: 2px solid #233554;
+            margin-bottom: 25px;
+            gap: 10px;
+            overflow-x: auto;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            color: #8892b0;
+            padding: 12px 20px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .tab-btn:hover {
+            color: #64ffda;
+        }
+
+        .tab-btn.active {
+            color: #64ffda;
+            border-bottom: 2px solid #64ffda;
+            font-weight: bold;
+        }
+
+        .tab-content {
+            display: none;
+            gap: 30px;
+            background-color: #112240;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #233554;
+        }
+
+        .tab-content.active {
+            display: flex;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .tab-text {
+            flex: 1.2;
+        }
+
+        .tab-text p {
+            color: #8892b0;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .tab-visual {
+            flex: 0.8;
+            background-color: #0a192f;
+            border-radius: 6px;
+            border: 1px solid #233554;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            min-height: 200px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+            text-align: left;
+        }
+
+        .comparison-table th {
+            border-bottom: 2px solid #233554;
+            padding: 12px 10px;
+            color: #64ffda;
+            font-weight: bold;
+        }
+
+        .comparison-table td {
+            border-bottom: 1px solid #233554;
+            padding: 12px 10px;
+            color: #cbd5e1;
+        }
+
+        .section-header {
+            margin-bottom: 30px;
+        }
+
+        .section-header h2 {
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin: 0 0 10px 0;
+            font-weight: bold;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 50px;
+            height: 2px;
+            background-color: #64ffda;
+        }
+
+        .section-header p {
+            color: #8892b0;
+            margin: 5px 0 0 0;
+        }
+
+        .split-layout {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .split-col {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .highlight-box {
+            background-color: rgba(100, 255, 218, 0.05);
+            border-left: 3px solid #64ffda;
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 20px 0;
+            color: #cbd5e1;
+        }
+
+        @media (max-width: 768px) {
+            .tab-content {
+                flex-direction: column;
+            }
+            .hero-title {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="plaser-container">
+        
+        <!-- Language Switcher -->
+        <div style="text-align: right; padding: 15px 0 0 0; margin-bottom: -10px;">
+            <a href="TLaser_CN.html" style="color: #64ffda; text-decoration: none; font-size: 0.9rem; font-weight: 500; border: 1px solid #64ffda; padding: 5px 12px; border-radius: 4px; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 6px;">
+                🇨🇳 中文版
+            </a>
+        </div>
+        
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-tagline">Real-Time Digital Twin & Calibration</div>
+            <h1 class="hero-title" style="margin: 0 0 10px 0;">TLaser</h1>
+            <p class="hero-desc" style="font-size: 1.05rem; margin: 0 auto 0 auto;">Telecom laser diode digital twin integrating 7D PINN surrogate modeling and active parameter calibration.</p>
+        </section>
+
+        <!-- Interactive Section: Chip to Geometrical Model -->
+        <section class="nav-section">
+            <div class="section-header">
+                <h2>Digital Twin Architecture</h2>
+                <p>Mapping physical telecom assembly parameters to real-time physical calibration solvers.</p>
+            </div>
+            
+            <div style="display: flex; gap: 20px; margin-bottom: 35px; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 250px; text-align: center; background-color: #0a192f; padding: 15px; border-radius: 8px; border: 1px solid #233554; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                    <img src="3d_live_laser_chip.jpg" alt="3D Solid Laser Chip" style="width: 100%; border-radius: 4px; border: 1px solid #30363d; margin-bottom: 10px;"/>
+                    <strong style="color: #64ffda; font-size: 0.95rem; display: block; margin-bottom: 5px;">a. 3D Live Chip Image</strong>
+                    <p style="color: #8892b0; font-size: 0.85rem; margin: 0; line-height: 1.4;">Solid physical assembly of the ridge waveguide semiconductor laser diode chip.</p>
+                </div>
+                <div style="flex: 1; min-width: 250px; text-align: center; background-color: #0a192f; padding: 15px; border-radius: 8px; border: 1px solid #233554; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                    <img src="3d_transparent_transverse_slice.jpg" alt="3D Transparent Transverse Slice" style="width: 100%; border-radius: 4px; border: 1px solid #30363d; margin-bottom: 10px;"/>
+                    <strong style="color: #64ffda; font-size: 0.95rem; display: block; margin-bottom: 5px;">b. Transverse Slice Plane (x-y)</strong>
+                    <p style="color: #8892b0; font-size: 0.85rem; margin: 0; line-height: 1.4;">Cross-sectional slice parameterizing dynamic ridge width (w) and active thickness (d).</p>
+                </div>
+                <div style="flex: 1; min-width: 250px; text-align: center; background-color: #0a192f; padding: 15px; border-radius: 8px; border: 1px solid #233554; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                    <img src="3d_transparent_longitudinal_slice.jpg" alt="3D Transparent Longitudinal Slice" style="width: 100%; border-radius: 4px; border: 1px solid #30363d; margin-bottom: 10px;"/>
+                    <strong style="color: #64ffda; font-size: 0.95rem; display: block; margin-bottom: 5px;">c. Longitudinal Cavity Slice (z)</strong>
+                    <p style="color: #8892b0; font-size: 0.85rem; margin: 0; line-height: 1.4;">Transparent frame highlighting the longitudinal z-axis propagation grid along the active MQW.</p>
+                </div>
+            </div>
+
+            <div class="nav-tabs">
+                <button class="tab-btn active" onclick="openTab(event, 'pinn-surrogate')">1. 7D PINN Surrogate Model</button>
+                <button class="tab-btn" onclick="openTab(event, 'physics-residuals')">2. Physics Residual Loss</button>
+                <button class="tab-btn" onclick="openTab(event, 'calibration-loop')">3. Online Calibration Fitting</button>
+            </div>
+
+            <!-- Tab 1: PINN Surrogate -->
+            <div class="tab-content active" id="pinn-surrogate">
+                <div class="tab-text">
+                    <h3 style="color: #64ffda; margin-top: 0;">7D Real-Time Neural Net Surrogate</h3>
+                    <p>TLaser replaces traditional slow numerical solvers with a 7D Physics-Informed Neural Network (PINN) surrogate model. By natively parameterizing the physical geometry, the twin instantly estimates distributions without mesh latencies.</p>
+                    <p>The surrogate network maps a 7-dimensional input vector representable as:
+                        $$\mathbf{X} = [R_1, R_2, L, T_0, I_{\text{active}}, w_{\text{active}}, d_{\text{active}}]$$
+                        to a 105-dimensional output vector, consisting of output power ($P_{\text{opt}}$),電光转换效率 ($WPE$), total terminal current ($I_{\text{total}}$), and 51-point longitudinal carrier density $N(z)$ and optical power $P(z)$ arrays.</p>
+                    <div class="highlight-box">
+                        <strong>Performance Acceleration:</strong> Prediction latency drops from seconds to <strong>&lt; 5 milliseconds</strong> with an $R^2$ accuracy above <strong>0.997</strong> compared to the high-fidelity simulator.
+                    </div>
+                </div>
+                <div class="tab-visual" style="flex-direction: column;">
+                    <img src="pinn_training_loss.svg" alt="PINN Training Loss History" style="max-height: 180px; border-radius: 4px; border: 1px solid #30363d;">
+                    <span style="color: #8892b0; font-size: 7.5pt; font-style: italic; margin-top: 5px;">Surrogate PINN loss history during 7D training sweeps.</span>
+                </div>
+            </div>
+
+            <!-- Tab 2: Physics Residuals -->
+            <div class="tab-content" id="physics-residuals">
+                <div class="tab-text">
+                    <h3 style="color: #64ffda; margin-top: 0;">Carrier & Photon Propagation Penalties</h3>
+                    <p>To enforce physical reality, TLaser integrates physical governing differential equations directly into the backpropagation pathway during surrogate training. This ensures conservation laws are satisfied even near threshold limits.</p>
+                    <ul>
+                        <li><strong>Carrier Continuity Residual:</strong> penalizes deviations from the steady-state rate equations:
+                            $$G_{\text{inj}} - R_{\text{rec}}(N(z)) - R_{\text{stim}}(N(z), P_{\text{tot}}(z)) = 0$$
+                        </li>
+                        <li><strong>Photon Propagation Residual:</strong> enforces the second-order wave intensity propagation along the cavity length:
+                            $$\frac{d^2P}{dz^2} - (\Gamma g(z) - \alpha_i)^2 P(z) = 0$$
+                        </li>
+                    </ul>
+                    <div class="highlight-box">
+                        <strong>Differentiable Loss:</strong> Integrating these constraints prevents non-physical oscillations, yielding smooth longitudinal distributions that strictly follow optical gain boundaries.
+                    </div>
+                </div>
+                <div class="tab-visual">
+                    <svg viewBox="0 0 300 220" width="100%" height="100%">
+                        <rect x="20" y="30" width="260" height="150" rx="8" fill="#1e293b" stroke="#64ffda" stroke-width="1.5"/>
+                        <text x="150" y="60" fill="#ffffff" font-size="11.5" fontweight="bold" text-anchor="middle">PINN Loss Function</text>
+                        <rect x="40" y="85" width="220" height="25" rx="4" fill="#0f172a" stroke="#ff7b72"/>
+                        <text x="150" y="101" fill="#ff7b72" font-size="9.5" font-family="monospace" text-anchor="middle">Data Regression MSE Loss</text>
+                        <rect x="40" y="120" width="220" height="25" rx="4" fill="#0f172a" stroke="#ff3366"/>
+                        <text x="150" y="136" fill="#ff3366" font-size="9.5" font-family="monospace" text-anchor="middle">Carrier & Photon Residuals</text>
+                        <text x="150" y="165" fill="#8892b0" font-size="8.5" text-anchor="middle">Automatic differentiation constraints</text>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Tab 3: Calibration -->
+            <div class="tab-content" id="calibration-loop">
+                <div class="tab-text">
+                    <h3 style="color: #64ffda; margin-top: 0;">Online Parameter Optimization Loop</h3>
+                    <p>Due to environmental changes and manufacturing tolerances, unmeasurable physical parameters drift. TLaser establishes an active calibration process by comparing the predicted L-I-V curves against real-time measured inputs.</p>
+                    <p>The optimizer uses an L-BFGS-B minimizer to fit the following variables:
+                        $$\boldsymbol{\theta} = [\alpha_i, \Gamma, C_{\text{multiplier}}, R_{\text{series}}, R_{\text{shunt}}]$$
+                    </p>
+                    <ul>
+                        <li><strong>Optical Loss $\alpha_i$ & Confinement $\Gamma$:</strong> shapes the threshold current and differential slope efficiency.</li>
+                        <li><strong>Auger Multiplier $C$:</strong> dictates the non-radiative recombination temperature droop.</li>
+                        <li><strong>Series $R_s$ & Shunt $R_{\text{sh}}$:</strong> aligns the terminal voltage curves including current leakage paths.</li>
+                    </ul>
+                </div>
+                <div class="tab-visual" style="flex-direction: column;">
+                    <img src="calibration_fit.svg" alt="LIV Curve Fitting" style="max-height: 180px; border-radius: 4px; border: 1px solid #30363d;">
+                    <span style="color: #8892b0; font-size: 7.5pt; font-style: italic; margin-top: 5px;">Calibrated L-I and V-I curve fits against noisy monitored data.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scientific Methodology -->
+        <section class="split-layout">
+            <div class="split-col">
+                <div class="section-header">
+                    <h2>Methodology & Physics</h2>
+                    <p>Physics-Informed Neural Network with dynamic geometry inputs.</p>
+                </div>
+                <p>TLaser integrates the high-fidelity semiconductor physics from the <code>Lasers</code> core into a real-time digital twin. During dataset sweeps, the local active area cross-section $A_{\text{act}} = w_{\text{active}} \times d_{\text{active}}$ is varied, which scales both carrier generation rates and stimulated optical transitions.</p>
+                <p>This allows the digital twin to accurately predict Spatial Hole Burning profiles and electro-optical efficiency metrics for any ridge size without needing custom grids or rebuilding simulator boundaries.</p>
+            </div>
+            
+            <div class="split-col">
+                <div class="section-header">
+                    <h2>Performance & Speedup</h2>
+                    <p>Millisecond-scale modeling enabling online calibration.</p>
+                </div>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Solver Mode</th>
+                            <th>Latency</th>
+                            <th>R² Accuracy</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Elmer 2D FEM Solver</td>
+                            <td>12 - 25 seconds</td>
+                            <td>1.000 (Reference)</td>
+                        </tr>
+                        <tr>
+                            <td>Quasi-3D Shooting solver</td>
+                            <td>1.2 - 2.8 seconds</td>
+                            <td>1.000 (Reference)</td>
+                        </tr>
+                        <tr>
+                            <td style="color: #64ffda; font-weight: bold;">TLaser PINN Surrogate</td>
+                            <td style="color: #64ffda; font-weight: bold;">&lt; 5 milliseconds</td>
+                            <td style="color: #64ffda; font-weight: bold;">&gt; 0.997</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Quickstart & Installation -->
+        <section style="margin-bottom: 50px;">
+            <div class="section-header">
+                <h2>Installation & Execution Guide</h2>
+                <p>Launch the TLaser digital twin locally.</p>
+            </div>
+            <div style="background-color: #112240; padding: 30px; border-radius: 8px; border: 1px solid #233554;">
+                <h4 style="color: #ffffff; margin-top: 0;">1. Clone & Install Dependencies</h4>
+                <pre style="background-color: #0a192f; padding: 15px; border-radius: 6px; border: 1px solid #233554; overflow-x: auto; color: #e6f1ff; font-family: monospace; font-size: 0.9rem;">
+git clone https://github.com/ZhenwenWan/TLaser.git
+cd TLaser
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt</pre>
+                
+                <h4 style="color: #ffffff; margin-top: 25px;">2. Launch the Streamlit Control App</h4>
+                <pre style="background-color: #0a192f; padding: 15px; border-radius: 6px; border: 1px solid #233554; overflow-x: auto; color: #64ffda; font-family: monospace; font-size: 0.9rem;">
+python -m streamlit run app.py</pre>
+                <p>Simulate parameter sweeps instantly and run parameter calibration on the interactive dashboard.</p>
+            </div>
+        </section>
+
+        <!-- Back to Portfolio and Action Buttons Link at Bottom -->
+        <div style="text-align: center; margin: 50px 0 40px 0; border-top: 1px solid #233554; padding-top: 30px;">
+            <div class="action-buttons" style="margin-bottom: 25px;">
+                <a class="btn btn-primary" href="https://github.com/ZhenwenWan/TLaser" target="_blank">
+                    <i class="fab fa-github"></i> View TLaser Repository
+                </a>
+            </div>
+            <a class="back-link" href="index.html" style="font-size: 1.1rem; font-weight: bold; color: #64ffda; text-decoration: none;">
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </a>
+        </div>
+
+        <!-- Footer Service Info -->
+        <footer style="border-top: 1px solid #233554; padding-top: 30px; text-align: center; color: #8892b0; font-size: 0.9rem;">
+            <p>TLaser was designed and delivered by <strong>Zhenwen Wan</strong>.</p>
+            <p>Contact for collaborations or custom development inquiries: <a href="mailto:aw4wzw@gmail.com" style="color: #64ffda; font-weight: bold;">aw4wzw@gmail.com</a></p>
+            <div style="margin-top: 20px; display: inline-flex; align-items: center; gap: 8px; background-color: #112240; padding: 6px 16px; border-radius: 20px; border: 1px solid #233554;">
+                <span style="font-size: 0.8rem; color: #8892b0;"><i class="fas fa-eye" style="color: #64ffda; margin-right: 4px;"></i> Page Views:</span>
+                <img src="https://hits.dwyl.com/zhenwenwan/Pages/TLaser.svg" alt="Views" style="height: 20px; vertical-align: middle;"/>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Interactive Navigation Tab Script -->
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
