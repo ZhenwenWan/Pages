@@ -389,6 +389,45 @@
             </div>
         </section>
 
+        <!-- VCSEL Extension Demonstration -->
+        <section class="nav-section" style="background-color: #112240; padding: 35px; border-radius: 8px; border: 1px solid #233554; box-shadow: 0 4px 15px rgba(0,0,0,0.2); margin-bottom: 50px;">
+            <div class="section-header">
+                <h2>VCSEL 扩展演示 (VCSEL Extension Mode)</h2>
+                <p>垂直腔面发射激光器（VCSEL）数字孪生流程的简化物理验证与演示。</p>
+            </div>
+            
+            <div class="split-layout" style="margin-bottom: 0; gap: 30px;">
+                <div class="split-col" style="flex: 1.2;">
+                    <p style="color: #cbd5e1; line-height: 1.6; margin-top: 0;">
+                        TLaser 引入了专门的 <strong>VCSEL 扩展演示模式</strong>，用于验证垂直腔面发射激光器的数值仿真与在线标定。该模式与边发射通信激光器模型（DFB/FP）物理架构分离，单独建立了基于圆柱形径向坐标系的简化物理求解器。
+                    </p>
+                    <p style="color: #8892b0; line-height: 1.6;">
+                        主要包含以下 VCSEL 特有物理机理与控制变量：
+                    </p>
+                    <ul style="color: #8892b0; line-height: 1.6; padding-left: 20px;">
+                        <li><strong>氧化孔径 (Aperture Diameter)：</strong> 调节氧化层孔径以控制横向光模约束及注入电流密度分布。</li>
+                        <li><strong>径向电流拥挤效应 (Current Crowding)：</strong> 真实仿真电极注入电流在氧化孔边缘集聚的物理现象。</li>
+                        <li><strong>径向空间烧孔效应 (Spatial Hole Burning)：</strong> 仿真强受激辐射在光场中心引起的载流子局部凹陷。</li>
+                        <li><strong>自热效应与热翻转 (Thermal Rollover)：</strong> 标定分布式布拉格反射镜（DBR）损耗与结温上升引起的功率骤降。</li>
+                    </ul>
+                    <div class="highlight-box" style="margin: 20px 0 0 0;">
+                        <strong>限制说明 (Notice)：</strong> 当前 VCSEL 仿真采用简化物性常数率方程（Reduced Physics Mode），在没有得到真实晶圆级 LIV-Wavelength 实测数据对齐验证前，仅作为数字孪生流程展示。
+                    </div>
+                </div>
+                
+                <div class="split-col" style="flex: 0.8; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #0a192f; border-radius: 6px; border: 1px solid #233554; padding: 20px; text-align: center;">
+                    <i class="fas fa-video" style="color: #64ffda; font-size: 2.5rem; margin-bottom: 15px;"></i>
+                    <strong style="color: #ffffff; display: block; margin-bottom: 10px;">VCSEL 仿真扫描演示视频</strong>
+                    <p style="color: #8892b0; font-size: 0.85rem; line-height: 1.4; margin: 0 0 20px 0;">
+                        展示随注入电流与孔径变化时，径向载流子、电流剖面的实时演化以及 L-I-V 曲线的热翻转拟合。
+                    </p>
+                    <a class="btn btn-secondary" href="TLaser_VCSEL_Demonstration.mp4" target="_blank" style="padding: 8px 16px; font-size: 0.85rem;">
+                        <i class="fas fa-play"></i> 播放演示视频 (MP4)
+                    </a>
+                </div>
+            </div>
+        </section>
+
         <!-- Scientific Methodology -->
         <section class="split-layout">
             <div class="split-col">
