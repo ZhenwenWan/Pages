@@ -270,6 +270,102 @@
                 font-size: 2.2rem;
             }
         }
+
+        /* Engineering Mapping Section premium styles */
+        .mapping-stepper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #0a192f;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #233554;
+            margin-bottom: 30px;
+            position: relative;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .step-node {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            min-width: 120px;
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .step-icon-circle {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: #112240;
+            border: 2px solid #233554;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+            color: #8892b0;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .step-node.active .step-icon-circle {
+            border-color: #64ffda;
+            color: #64ffda;
+            background-color: rgba(100, 255, 218, 0.1);
+            box-shadow: 0 0 12px rgba(100, 255, 218, 0.2);
+        }
+
+        .step-node:hover .step-icon-circle {
+            border-color: #64ffda;
+            color: #64ffda;
+        }
+
+        .step-label {
+            font-size: 0.85rem;
+            color: #8892b0;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .step-node.active .step-label {
+            color: #64ffda;
+            font-weight: bold;
+        }
+
+        .step-connector {
+            position: absolute;
+            height: 2px;
+            background-color: #233554;
+            top: 42px;
+            left: 10%;
+            right: 10%;
+            z-index: 1;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .step-connector {
+                display: none;
+            }
+            .mapping-stepper {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .step-node {
+                flex-direction: row;
+                text-align: left;
+                gap: 15px;
+            }
+            .step-icon-circle {
+                margin-bottom: 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -287,6 +383,115 @@
             <div class="hero-tagline">实时数字孪生与参数在线标定</div>
             <h1 class="hero-title" style="margin: 0 0 10px 0;">TLaser</h1>
             <p class="hero-desc" style="font-size: 1.05rem; margin: 0 auto 0 auto;">结合 7D 物理信息神经网络（PINN）代理模型与动态参数在线优化拟合的通信级半导体激光器数字孪生系统。</p>
+        </section>
+
+        <!-- Engineering Mapping Section -->
+        <section class="nav-section" id="engineering-mapping">
+            <div class="section-header">
+                <h2>TLaser 工程映射可视化</h2>
+                <p>从真实光模块测试、内部激光芯片物理模型、PLaser 正向仿真到数字孪生工程决策</p>
+            </div>
+
+            <!-- Stepper controls -->
+            <div class="mapping-stepper">
+                <div class="step-connector"></div>
+                <div class="step-node active" onclick="openStep(event, 'step-module')">
+                    <div class="step-icon-circle"><i class="fas fa-box-open"></i></div>
+                    <div class="step-label">1. 真实光模块</div>
+                </div>
+                <div class="step-node" onclick="openStep(event, 'step-internals')">
+                    <div class="step-icon-circle"><i class="fas fa-microchip"></i></div>
+                    <div class="step-label">2. 内部光引擎</div>
+                </div>
+                <div class="step-node" onclick="openStep(event, 'step-chip')">
+                    <div class="step-icon-circle"><i class="fas fa-bolt"></i></div>
+                    <div class="step-label">3. 激光器芯片</div>
+                </div>
+                <div class="step-node" onclick="openStep(event, 'step-plaser')">
+                    <div class="step-icon-circle"><i class="fas fa-calculator"></i></div>
+                    <div class="step-label">4. PLaser正向仿真</div>
+                </div>
+                <div class="step-node" onclick="openStep(event, 'step-tlaser')">
+                    <div class="step-icon-circle"><i class="fas fa-sync-alt"></i></div>
+                    <div class="step-label">5. TLaser数字孪生</div>
+                </div>
+            </div>
+
+            <!-- Step content containers -->
+            <div class="tab-content active step-content" id="step-module" style="display: flex;">
+                <div class="tab-text">
+                    <h3 style="color: #64ffda; margin-top: 0;">第一层：真实光模块</h3>
+                    <p>光模块是通信光电产业链中最终交付客户的商品级硬件产品。它是可直接测量与测试的起点。</p>
+                    <ul>
+                        <li><strong>标准化封装形式：</strong> 标准的 SFP/QSFP 模块，可热插拔地插入交换机和服务器中。</li>
+                        <li><strong>可测性能数据：</strong> 可轻松在系统运行中测试总输出光强、端电压与发射光谱（L-I-V）曲线。</li>
+                        <li><strong>核心痛点：</strong> 内部激光器芯片的微观物性常数或物理损伤无法在不破坏外壳的前提下直接观测。</li>
+                    </ul>
+                </div>
+                <div class="tab-visual">
+                    <img src="optical_module_3d.jpg" alt="Telecom Optical Transceiver Module" style="width: 100%; max-height: 250px; object-fit: contain; border-radius: 4px; border: 1px solid #233554;">
+                </div>
+            </div>
+
+            <div class="tab-content step-content" id="step-internals" style="display: none;">
+                <div class="tab-text">
+                    <h3 style="color: #64ffda; margin-top: 0;">第二层：模块解耦与内部组件</h3>
+                    <p>拆解光模块后，内部包含协同调控电、光、热信号的多个子系统组件。</p>
+                    <ul>
+                        <li><strong>发射光组件 (TOSA)：</strong> 封装了激光器二极管芯片，并将其光束耦合至光纤输出通道。</li>
+                        <li><strong>辅助控制单元：</strong> 微型激光器驱动芯片、背光探测器（PD）监测光路、以及热电制冷器（TEC）。</li>
+                        <li><strong>参数关联：</strong> TLaser 利用模块级可测信号，逆向求解这些子系统内部由于老化或工艺偏差引起的物性常数飘移。</li>
+                    </ul>
+                </div>
+                <div class="tab-visual">
+                    <img src="exploded_module_internals.jpg" alt="Module Subsystems Exploded View" style="width: 100%; max-height: 250px; object-fit: contain; border-radius: 4px; border: 1px solid #233554;">
+                </div>
+            </div>
+
+            <div class="tab-content step-content" id="step-chip" style="display: none;">
+                <div class="tab-text">
+                    <h3 style="color: #64ffda; margin-top: 0;">第三层：激光器芯片与谐振腔几何</h3>
+                    <p>进入 TOSA 组件内部，即为产生相干光的有源核心——半导体激光器芯片。</p>
+                    <ul>
+                        <li><strong>有源层 (MQW)：</strong> 电流注入并产生受激辐射、光子放大的多量子阱波导结构。</li>
+                        <li><strong>谐振腔 (Cavity)：</strong> 提供光反馈的反射镜镜面（FP 腔解理面或 DBR 光栅）。</li>
+                        <li><strong>参数化结构：</strong> 谐振腔长度（L）、脊波导宽度（w）和有源层厚度（d）决定了阈值和增益大小。</li>
+                    </ul>
+                </div>
+                <div class="tab-visual">
+                    <img src="laser_chip_zoom.jpg" alt="Ridge Waveguide Semiconductor Laser Chip" style="width: 100%; max-height: 250px; object-fit: contain; border-radius: 4px; border: 1px solid #233554;">
+                </div>
+            </div>
+
+            <div class="tab-content step-content" id="step-plaser" style="display: none;">
+                <div class="tab-text">
+                    <h3 style="color: #64ffda; margin-top: 0;">第四层：PLaser 正向物理仿真器</h3>
+                    <p>PLaser 充当正向物理求解器的角色。它回答了：“给出特定的几何设计和电热参数，芯片内部产生怎样的物理场并表现出何种宏观性能？”</p>
+                    <ul>
+                        <li><strong>载流子传输与复合：</strong> 计算电子空穴连续性控制方程，包含辐射与非辐射（Shockley-Read-Hall, Auger）损耗项。</li>
+                        <li><strong>光子场传播：</strong> 基于二阶波动方程求解谐振腔纵向各点的光强分布与空间烧孔效应。</li>
+                        <li><strong>电热力耦合：</strong> 考虑大电流注入下的自热效应与结温漂移，重现热翻转特性。</li>
+                    </ul>
+                </div>
+                <div class="tab-visual">
+                    <img src="plaser_physics_schematic.jpg" alt="PLaser 3D Simulation Physics Map" style="width: 100%; max-height: 250px; object-fit: contain; border-radius: 4px; border: 1px solid #233554;">
+                </div>
+            </div>
+
+            <div class="tab-content step-content" id="step-tlaser" style="display: none;">
+                <div class="tab-text">
+                    <h3 style="color: #64ffda; margin-top: 0;">第五层：TLaser 数字孪生与逆向工程决策</h3>
+                    <p>TLaser 作为逆向校准引擎，回答了：“给出一组实测的 LIV 曲线，内部物理参数当前的真实值是多少？”</p>
+                    <ul>
+                        <li><strong>LIV 数据导入与验证：</strong> 读取实测输入数据，并通过严格的 JSON Schema 进行校验。</li>
+                        <li><strong>快速校准最小化器：</strong> 基于 L-BFGS-B 算法逆向标定难以直接测量的 Rs, Rth, alpha_i 等常数。</li>
+                        <li><strong>工程决策闭环：</strong> 参数同步后的数字孪生体可在毫秒级时间内评估老化极限、支持设计改进并进行可靠性预测。</li>
+                    </ul>
+                </div>
+                <div class="tab-visual">
+                    <img src="tlaser_inverse_workflow.jpg" alt="TLaser Digital Twin Inverse Mapping Workflow" style="width: 100%; max-height: 250px; object-fit: contain; border-radius: 4px; border: 1px solid #233554;">
+                </div>
+            </div>
         </section>
 
         <!-- Interactive Section: Chip to Geometrical Model -->
@@ -524,14 +729,33 @@ python -m streamlit run app.py</pre>
         function openTab(evt, tabName) {
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tab-content");
+            // Skip step-content containers to avoid tab collisions
             for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].classList.remove("active");
+                if (!tabcontent[i].classList.contains("step-content")) {
+                    tabcontent[i].classList.remove("active");
+                }
             }
             tablinks = document.getElementsByClassName("tab-btn");
             for (i = 0; i < tablinks.length; i++) {
                 tablinks[i].classList.remove("active");
             }
             document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+
+        function openStep(evt, stepId) {
+            var i, stepcontent, steplinks;
+            stepcontent = document.getElementsByClassName("step-content");
+            for (i = 0; i < stepcontent.length; i++) {
+                stepcontent[i].classList.remove("active");
+                stepcontent[i].style.display = "none";
+            }
+            steplinks = document.getElementsByClassName("step-node");
+            for (i = 0; i < steplinks.length; i++) {
+                steplinks[i].classList.remove("active");
+            }
+            document.getElementById(stepId).classList.add("active");
+            document.getElementById(stepId).style.display = "flex";
             evt.currentTarget.classList.add("active");
         }
     </script>

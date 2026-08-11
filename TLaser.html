@@ -270,6 +270,102 @@
                 font-size: 2.2rem;
             }
         }
+
+        /* Engineering Mapping Section premium styles */
+        .mapping-stepper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #0a192f;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #233554;
+            margin-bottom: 30px;
+            position: relative;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .step-node {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            min-width: 120px;
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .step-icon-circle {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: #112240;
+            border: 2px solid #233554;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+            color: #8892b0;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .step-node.active .step-icon-circle {
+            border-color: #64ffda;
+            color: #64ffda;
+            background-color: rgba(100, 255, 218, 0.1);
+            box-shadow: 0 0 12px rgba(100, 255, 218, 0.2);
+        }
+
+        .step-node:hover .step-icon-circle {
+            border-color: #64ffda;
+            color: #64ffda;
+        }
+
+        .step-label {
+            font-size: 0.85rem;
+            color: #8892b0;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .step-node.active .step-label {
+            color: #64ffda;
+            font-weight: bold;
+        }
+
+        .step-connector {
+            position: absolute;
+            height: 2px;
+            background-color: #233554;
+            top: 42px;
+            left: 10%;
+            right: 10%;
+            z-index: 1;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .step-connector {
+                display: none;
+            }
+            .mapping-stepper {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .step-node {
+                flex-direction: row;
+                text-align: left;
+                gap: 15px;
+            }
+            .step-icon-circle {
+                margin-bottom: 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -287,6 +383,115 @@
             <div class="hero-tagline">Real-Time Digital Twin & Calibration</div>
             <h1 class="hero-title" style="margin: 0 0 10px 0;">TLaser</h1>
             <p class="hero-desc" style="font-size: 1.05rem; margin: 0 auto 0 auto;">Telecom laser diode digital twin integrating 7D PINN surrogate modeling and active parameter calibration.</p>
+        </section>
+
+        <!-- Engineering Mapping Section -->
+        <section class="nav-section" id="engineering-mapping">
+            <div class="section-header">
+                <h2>TLaser Engineering Mapping</h2>
+                <p>Establishing a complete engineering cognition pathway from product to digital twin.</p>
+            </div>
+
+            <!-- Stepper controls -->
+            <div class="mapping-stepper">
+                <div class="step-connector"></div>
+                <div class="step-node active" onclick="openStep(event, 'step-module')">
+                    <div class="step-icon-circle"><i class="fas fa-box-open"></i></div>
+                    <div class="step-label">1. Optical Module</div>
+                </div>
+                <div class="step-node" onclick="openStep(event, 'step-internals')">
+                    <div class="step-icon-circle"><i class="fas fa-microchip"></i></div>
+                    <div class="step-label">2. Assembly Internals</div>
+                </div>
+                <div class="step-node" onclick="openStep(event, 'step-chip')">
+                    <div class="step-icon-circle"><i class="fas fa-bolt"></i></div>
+                    <div class="step-label">3. Laser Chip</div>
+                </div>
+                <div class="step-node" onclick="openStep(event, 'step-plaser')">
+                    <div class="step-icon-circle"><i class="fas fa-calculator"></i></div>
+                    <div class="step-label">4. PLaser (Forward)</div>
+                </div>
+                <div class="step-node" onclick="openStep(event, 'step-tlaser')">
+                    <div class="step-icon-circle"><i class="fas fa-sync-alt"></i></div>
+                    <div class="step-label">5. TLaser Twin</div>
+                </div>
+            </div>
+
+            <!-- Step content containers -->
+            <div class="tab-content active step-content" id="step-module" style="display: flex;">
+                <div class="tab-text">
+                    <h3 style="color: #64ffda; margin-top: 0;">Layer 1: Real Optical Transceiver Module</h3>
+                    <p>The optical module is the commercial, customer-facing product in the telecom hardware supply chain. It is purchasable, testable, and standardized.</p>
+                    <ul>
+                        <li><strong>Standardized Form Factors:</strong> Standard packaging (SFP/QSFP) plugged into switches and optical engines.</li>
+                        <li><strong>Measurable Performance Data:</strong> High-level parameters like total optical power, terminal voltage, and wavelength can be easily measured under bias sweeps.</li>
+                        <li><strong>The Challenge:</strong> Deep internal physical faults and parameter drifts cannot be directly inspected without breaking the module.</li>
+                    </ul>
+                </div>
+                <div class="tab-visual">
+                    <img src="optical_module_3d.jpg" alt="Telecom Optical Transceiver Module" style="width: 100%; max-height: 250px; object-fit: contain; border-radius: 4px; border: 1px solid #233554;">
+                </div>
+            </div>
+
+            <div class="tab-content step-content" id="step-internals" style="display: none;">
+                <div class="tab-text">
+                    <h3 style="color: #64ffda; margin-top: 0;">Layer 2: Internal Assembly & Subsystems</h3>
+                    <p>Decomposing the optical module reveals subassemblies coordinating electrical, optical, and thermal signals.</p>
+                    <ul>
+                        <li><strong>Optical Sub-Assembly (TOSA):</strong> Integrates the laser chip and couples its emission to fiber outputs.</li>
+                        <li><strong>Regulating Blocks:</strong> Miniaturized laser driver circuit, photodiode monitor path, and thermoelectric coolers (TEC).</li>
+                        <li><strong>Subsystem Interactions:</strong> Changes in driver impedance or thermal resistance directly affect the device's operational efficiency.</li>
+                    </ul>
+                </div>
+                <div class="tab-visual">
+                    <img src="exploded_module_internals.jpg" alt="Module Subsystems Exploded View" style="width: 100%; max-height: 250px; object-fit: contain; border-radius: 4px; border: 1px solid #233554;">
+                </div>
+            </div>
+
+            <div class="tab-content step-content" id="step-chip" style="display: none;">
+                <div class="tab-text">
+                    <h3 style="color: #64ffda; margin-top: 0;">Layer 3: Laser Chip & Waveguide Geometry</h3>
+                    <p>Inside the TOSA package sits the actual semiconductor laser chip—the core light source.</p>
+                    <ul>
+                        <li><strong>Active Quantum Wells:</strong> A nanoscale waveguide layer where electrical carrier injection generates photons.</li>
+                        <li><strong>Resonant Cavity:</strong> Cleaved mirror facets (FP) or DBR gratings feedback light longitudinally.</li>
+                        <li><strong>Geometrical Parameters:</strong> Cavity length ($L$), ridge waveguide width ($w$), and active thickness ($d$) dictate electrical threshold and gain.</li>
+                    </ul>
+                </div>
+                <div class="tab-visual">
+                    <img src="laser_chip_zoom.jpg" alt="Ridge Waveguide Semiconductor Laser Chip" style="width: 100%; max-height: 250px; object-fit: contain; border-radius: 4px; border: 1px solid #233554;">
+                </div>
+            </div>
+
+            <div class="tab-content step-content" id="step-plaser" style="display: none;">
+                <div class="tab-text">
+                    <h3 style="color: #64ffda; margin-top: 0;">Layer 4: PLaser Forward Physical Simulator</h3>
+                    <p>PLaser provides the forward physical solver. It answers the forward question: given a design and parameters, what physical output profiles occur?</p>
+                    <ul>
+                        <li><strong>Carrier Dynamics:</strong> Resolves longitudinal spatial hole burning and carrier transport rate equations.</li>
+                        <li><strong>Photon Fields:</strong> Solves electromagnetic wave intensity propagation profiles along the active cavity.</li>
+                        <li><strong>Thermal Couplings:</strong> Integrates self-heating and mirror thermal loss, rendering rollover characteristics.</li>
+                    </ul>
+                </div>
+                <div class="tab-visual">
+                    <img src="plaser_physics_schematic.jpg" alt="PLaser 3D Simulation Physics Map" style="width: 100%; max-height: 250px; object-fit: contain; border-radius: 4px; border: 1px solid #233554;">
+                </div>
+            </div>
+
+            <div class="tab-content step-content" id="step-tlaser" style="display: none;">
+                <div class="tab-text">
+                    <h3 style="color: #64ffda; margin-top: 0;">Layer 5: TLaser Digital Twin & Inverse Decisions</h3>
+                    <p>TLaser acts as the reverse calibration solver. It solves the inverse question: given measured SFP module LIV data, what are the internal parameter values?</p>
+                    <ul>
+                        <li><strong>LIV Ingestion & Schema Check:</strong> Validates real-time telemetry inputs under standards-compliant constraints.</li>
+                        <li><strong>Calibration Minimizer:</strong> Employs L-BFGS-B parameters solver to fit unmeasurable drifts (Rth, Rs, alpha_i).</li>
+                        <li><strong>Engineering Feedback Loop:</strong> Synchronizes digital twins instantly to predict failure boundaries and support design decisions.</li>
+                    </ul>
+                </div>
+                <div class="tab-visual">
+                    <img src="tlaser_inverse_workflow.jpg" alt="TLaser Digital Twin Inverse Mapping Workflow" style="width: 100%; max-height: 250px; object-fit: contain; border-radius: 4px; border: 1px solid #233554;">
+                </div>
+            </div>
         </section>
 
         <!-- Interactive Section: Chip to Geometrical Model -->
@@ -524,14 +729,33 @@ python -m streamlit run app.py</pre>
         function openTab(evt, tabName) {
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tab-content");
+            // Skip step-content containers to avoid tab collisions
             for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].classList.remove("active");
+                if (!tabcontent[i].classList.contains("step-content")) {
+                    tabcontent[i].classList.remove("active");
+                }
             }
             tablinks = document.getElementsByClassName("tab-btn");
             for (i = 0; i < tablinks.length; i++) {
                 tablinks[i].classList.remove("active");
             }
             document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+
+        function openStep(evt, stepId) {
+            var i, stepcontent, steplinks;
+            stepcontent = document.getElementsByClassName("step-content");
+            for (i = 0; i < stepcontent.length; i++) {
+                stepcontent[i].classList.remove("active");
+                stepcontent[i].style.display = "none";
+            }
+            steplinks = document.getElementsByClassName("step-node");
+            for (i = 0; i < steplinks.length; i++) {
+                steplinks[i].classList.remove("active");
+            }
+            document.getElementById(stepId).classList.add("active");
+            document.getElementById(stepId).style.display = "flex";
             evt.currentTarget.classList.add("active");
         }
     </script>
