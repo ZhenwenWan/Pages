@@ -444,7 +444,7 @@
                 <div class="split-layout" style="gap: 30px; margin-bottom: 20px; margin-top: 20px;">
                     <div class="split-col" style="background-color: #0a192f; padding: 20px; border-radius: 6px; border: 1px solid #233554;">
                         <strong style="color: #ffffff; display: block; margin-bottom: 8px;"><i class="fas fa-chevron-right" style="color: #64ffda;"></i> 正向预测</strong>
-                        <span style="color: #8892b0; font-size: 0.9rem; line-height: 1.5; display: block;">在七维设计参数空间内，对任意设计组合进行毫秒级计算，预测芯片制造完成后的主要性能参数。</span>
+                        <span style="color: #8892b0; font-size: 0.9rem; line-height: 1.5; display: block;">在七输入采样范围内预测简化模型性能；端到端延迟与实测器件精度仍需独立验证。</span>
                     </div>
                     <div class="split-col" style="background-color: #0a192f; padding: 20px; border-radius: 6px; border: 1px solid #233554;">
                         <strong style="color: #ffffff; display: block; margin-bottom: 8px;"><i class="fas fa-chevron-left" style="color: #64ffda;"></i> 反向标定</strong>
@@ -606,7 +606,7 @@
                         $$\mathbf{X} = [R_1, R_2, L, T_0, I_{\text{active}}, w_{\text{active}}, d_{\text{active}}]$$
                         输出为 105 维标量与数组，包含输出光功率 ($P_{\text{opt}}$)、电光转换效率 ($WPE$)、总输入电流 ($I_{\text{total}}$) 以及 51 个纵向位置点的载流子浓度 $N(z)$ 和光功率 $P(z)$ 空间分布曲线。</p>
                     <div class="highlight-box">
-                        <strong>计算提速：</strong> 求解延迟从传统的数秒下降到 <strong>&lt; 5 毫秒</strong>，与原高精度数值模拟相比，$R^2$ 拟合相关度保持在 <strong>0.997</strong> 以上。
+                        <strong>验证状态：</strong> 当前代理模型使用合成数据，仍需独立留出误差和端到端延迟验证；本版本没有确立低于 5 毫秒或 R² 精度保证。
                     </div>
                 </div>
                 <div class="tab-visual" style="flex-direction: column;">
@@ -742,11 +742,24 @@
                         </tr>
                         <tr>
                             <td style="color: #64ffda; font-weight: bold;">TLaser PINN 物理信息代理模型</td>
-                            <td style="color: #64ffda; font-weight: bold;">&lt; 5 毫秒</td>
+                            <td style="color: #64ffda; font-weight: bold;">待基准验证</td>
                             <td style="color: #64ffda; font-weight: bold;">&gt; 0.997</td>
                         </tr>
                     </tbody>
                 </table>
+            </div>
+        </section>
+
+        <section class="nav-section" id="device-model-release">
+            <div class="section-header">
+                <h2>共享器件模型与新版用户手册</h2>
+                <p>本地脊形器件版本 · 更新日期：2026-10-09</p>
+            </div>
+            <div class="highlight-box">
+                <p>在固定脊形模板中设置腔长、等效有源区宽厚、端面、电流和温度。标注尺寸的俯视图与横截面共享带版本号的配置，支持 JSON 保存与加载。</p>
+                <p>预测可选标称七输入 PINN 或物理模拟器。标定保持几何固定，比较原始与估计参数及 LIV 曲线。应用已接受的拟合常数会改变模拟预测，标称 PINN 仍保持标称。</p>
+                <p>标定需要已知有源区电流和匹配的器件元数据。DFB/EML 物理与几何逆向识别仍待扩展。计算在本机运行，网页用于展示与说明。</p>
+                <p><a href="TLaser_User_Manual_CN.pdf" style="color: #64ffda;">下载新版用户手册（PDF）</a> · <a href="TLaser_User_Manual_CN.md" style="color: #64ffda;">阅读 Markdown 手册</a></p>
             </div>
         </section>
 
@@ -767,8 +780,8 @@ pip install -r requirements.txt</pre>
                 
                 <h4 style="color: #ffffff; margin-top: 25px;">2. 启动 Streamlit 本地交互面板</h4>
                 <pre style="background-color: #0a192f; padding: 15px; border-radius: 6px; border: 1px solid #233554; overflow-x: auto; color: #64ffda; font-family: monospace; font-size: 0.9rem;">
-python -m streamlit run app.py</pre>
-                <p>在弹出的浏览器面板中实时调节滑块进行参数分析，或上传实时曲线执行在线物性常数拟合。</p>
+./run_tlaser.ps1</pre>
+                <p>在已升级的本地 TLaser 项目文件夹中运行 <code>./run_tlaser.ps1</code>，再打开 <code>http://localhost:8501</code>。更换端口可用 <code>./run_tlaser.ps1 -Port 8502</code>。保持终端运行，Ctrl+C 停止服务；启动器不自动打开浏览器。</p><p>共享器件升级目前为本地版本。如果下载的仓库未包含启动器，可使用 <code>python -m streamlit run app.py</code> 启动该仓库版本，但可能显示旧界面。</p>
             </div>
         </section>
 

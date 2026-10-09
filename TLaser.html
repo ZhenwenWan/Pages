@@ -444,7 +444,7 @@
                 <div class="split-layout" style="gap: 30px; margin-bottom: 20px; margin-top: 20px;">
                     <div class="split-col" style="background-color: #0a192f; padding: 20px; border-radius: 6px; border: 1px solid #233554;">
                         <strong style="color: #ffffff; display: block; margin-bottom: 8px;"><i class="fas fa-chevron-right" style="color: #64ffda;"></i> 1. Forward Prediction</strong>
-                        <span style="color: #8892b0; font-size: 0.9rem; line-height: 1.5; display: block;">Computes laser behavior within a 7-dimensional parameter space in under 5 milliseconds to predict performance characteristics before packaging.</span>
+                        <span style="color: #8892b0; font-size: 0.9rem; line-height: 1.5; display: block;">Predicts reduced-model laser behavior within a seven-input sampling envelope; response latency and measured-device accuracy require separate validation.</span>
                     </div>
                     <div class="split-col" style="background-color: #0a192f; padding: 20px; border-radius: 6px; border: 1px solid #233554;">
                         <strong style="color: #ffffff; display: block; margin-bottom: 8px;"><i class="fas fa-chevron-left" style="color: #64ffda;"></i> 2. Inverse Calibration</strong>
@@ -606,7 +606,7 @@
                         $$\mathbf{X} = [R_1, R_2, L, T_0, I_{\text{active}}, w_{\text{active}}, d_{\text{active}}]$$
                         to a 105-dimensional output vector, consisting of output power ($P_{\text{opt}}$),電光转换效率 ($WPE$), total terminal current ($I_{\text{total}}$), and 51-point longitudinal carrier density $N(z)$ and optical power $P(z)$ arrays.</p>
                     <div class="highlight-box">
-                        <strong>Performance Acceleration:</strong> Prediction latency drops from seconds to <strong>&lt; 5 milliseconds</strong> with an $R^2$ accuracy above <strong>0.997</strong> compared to the high-fidelity simulator.
+                        <strong>Validation status:</strong> The existing surrogate uses synthetic data. Held-out error and end-to-end latency benchmarks are still required; this release does not establish a sub-5-ms or R² accuracy guarantee.
                     </div>
                 </div>
                 <div class="tab-visual" style="flex-direction: column;">
@@ -742,11 +742,24 @@
                         </tr>
                         <tr>
                             <td style="color: #64ffda; font-weight: bold;">TLaser PINN Surrogate</td>
-                            <td style="color: #64ffda; font-weight: bold;">&lt; 5 milliseconds</td>
+                            <td style="color: #64ffda; font-weight: bold;">Benchmark pending</td>
                             <td style="color: #64ffda; font-weight: bold;">&gt; 0.997</td>
                         </tr>
                     </tbody>
                 </table>
+            </div>
+        </section>
+
+        <section class="nav-section" id="device-model-release">
+            <div class="section-header">
+                <h2>Shared device model and updated user guide</h2>
+                <p>Local ridge-device release · updated 9 October 2026</p>
+            </div>
+            <div class="highlight-box">
+                <p>Configure cavity length, effective active width/thickness, facets, current and temperature in a fixed ridge template. A labeled top view and cross-section share the same versioned configuration, with JSON save/load.</p>
+                <p>Prediction offers a nominal seven-input PINN and a physical simulator. Calibration keeps geometry fixed and compares original/estimated physical parameters and LIV curves. Applying accepted fitted constants changes simulator predictions; the nominal PINN remains nominal.</p>
+                <p>Calibration requires known active-region current and matching device metadata. DFB/EML physics and inverse geometry estimation are future extensions. Computation runs locally; this webpage is a presentation and documentation surface.</p>
+                <p><a href="TLaser_User_Manual.pdf" style="color: #64ffda;">Download updated user guide (PDF)</a> · <a href="TLaser_User_Manual.md" style="color: #64ffda;">Read Markdown guide</a></p>
             </div>
         </section>
 
@@ -767,8 +780,8 @@ pip install -r requirements.txt</pre>
                 
                 <h4 style="color: #ffffff; margin-top: 25px;">2. Launch the Streamlit Control App</h4>
                 <pre style="background-color: #0a192f; padding: 15px; border-radius: 6px; border: 1px solid #233554; overflow-x: auto; color: #64ffda; font-family: monospace; font-size: 0.9rem;">
-python -m streamlit run app.py</pre>
-                <p>Simulate parameter sweeps instantly and run parameter calibration on the interactive dashboard.</p>
+./run_tlaser.ps1</pre>
+                <p>In the upgraded local TLaser project folder, run <code>./run_tlaser.ps1</code>, then open <code>http://localhost:8501</code>. For another port use <code>./run_tlaser.ps1 -Port 8502</code>. Keep the terminal open; Ctrl+C stops the server. The launcher does not open the browser automatically.</p><p>The shared-device upgrade is currently a local release. If a downloaded checkout does not include the launcher, use the direct command <code>python -m streamlit run app.py</code> for that checkout; it may show the older interface.</p>
             </div>
         </section>
 
